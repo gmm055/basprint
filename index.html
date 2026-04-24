@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BasPrint — Полиграфия в Астане. Печать за 24–48 часов</title>
+<meta name="description" content="BasPrint — полиграфическая компания в Астане. Визитки, баннеры, каталоги, брошюры. Кабанбай батыр 48/1. +7 702 405 69 54">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── RESET ── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+img,svg{display:block;max-width:100%}
+
+/* ── TOKENS ── */
+:root{
+  --ink:   #0F0E0B;
+  --paper: #F4F1EB;
+  --warm:  #E9E4D8;
+  --gold:  #B8954A;
+  --gh:    #9A7A36;
+  --green: #1A5C3A;
+  --muted: #6E6559;
+  --line:  rgba(15,14,11,.1);
+  --serif: 'Cormorant Garamond',Georgia,serif;
+  --sans:  'Inter','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --ease:  .28s cubic-bezier(.25,.46,.45,.94);
+}
+
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:16px;line-height:1.6;
+  overflow-x:hidden;
+}
+
+/* ── TYPOGRAPHY ── */
+h1{font-family:var(--serif);font-size:clamp(2.4rem,6vw,5.5rem);font-weight:300;line-height:1.06;letter-spacing:-.01em}
+h1 em{font-style:italic;color:var(--gold)}
+h2{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,3rem);font-weight:300;line-height:1.1}
+h2 em{font-style:italic;color:var(--gold)}
+h3{font-family:var(--serif);font-size:1.2rem;font-weight:300;line-height:1.2}
+
+/* ── SECTION UTILS ── */
+.section{padding:3.5rem 3rem}
+.s-label{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem}
+.s-sub{font-size:.87rem;color:var(--muted);line-height:1.75;max-width:46ch;margin-top:.5rem}
+
+/* ── BUTTONS ── */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  font-family:var(--sans);font-size:.78rem;font-weight:500;
+  letter-spacing:.06em;text-transform:uppercase;
+  text-decoration:none;border:none;cursor:pointer;border-radius:2px;
+  padding:.8rem 1.6rem;white-space:nowrap;line-height:1;
+  transition:background .22s ease,color .22s ease,border-color .22s ease,
+             box-shadow .22s ease,transform .18s ease;
+  -webkit-font-smoothing:antialiased;
+}
+.btn svg{flex-shrink:0}
+/* Primary */
+.btn-p{background:var(--ink);color:var(--paper);border:1px solid var(--ink);box-shadow:0 1px 4px rgba(15,14,11,.13)}
+.btn-p:hover{background:#2c2a24;border-color:#2c2a24;box-shadow:0 4px 14px rgba(15,14,11,.2);transform:translateY(-1px)}
+.btn-p:active{transform:translateY(0);box-shadow:none}
+/* WhatsApp — outline on light bg */
+.btn-w{background:transparent;color:var(--ink);border:1px solid rgba(15,14,11,.22)}
+.btn-w:hover{background:rgba(15,14,11,.04);border-color:rgba(15,14,11,.4);transform:translateY(-1px)}
+.btn-w svg{fill:#25D366}
+/* WhatsApp — on dark bg */
+.btn-w-inv{background:transparent;color:var(--paper);border:1px solid rgba(244,241,235,.2)}
+.btn-w-inv:hover{background:rgba(244,241,235,.07);border-color:rgba(244,241,235,.4);transform:translateY(-1px)}
+.btn-w-inv svg{fill:#4ADE80}
+/* Paper — on dark bg */
+.btn-inv{background:var(--paper);color:var(--ink);border:1px solid var(--paper);box-shadow:0 1px 4px rgba(15,14,11,.18)}
+.btn-inv:hover{background:#e8e5df;border-color:#e8e5df;box-shadow:0 4px 14px rgba(15,14,11,.22);transform:translateY(-1px)}
+/* Ghost green */
+.btn-g{background:transparent;color:var(--ink);border:1px solid rgba(15,14,11,.2)}
+.btn-g:hover{background:rgba(15,14,11,.04);transform:translateY(-1px)}
+/* Sizes */
+.btn-lg{padding:1rem 2.2rem;font-size:.85rem}
+.btn-sm{padding:.55rem 1.1rem;font-size:.68rem}
+/* Arrow */
+.arr{opacity:.5;font-size:.75rem;display:inline-block;transition:transform .18s ease,opacity .18s ease}
+.btn:hover .arr{transform:translateX(3px);opacity:1}
+/* Group */
+.btn-row{display:flex;flex-wrap:wrap;gap:.7rem;align-items:center}
+
+/* Nav CTA */
+.nav-cta{
+  display:inline-flex;align-items:center;gap:.4rem;
+  font-family:var(--sans);font-size:.7rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;
+  padding:.6rem 1.2rem;border-radius:2px;background:var(--ink);color:var(--paper);
+  text-decoration:none;border:1px solid var(--ink);
+  transition:background .22s ease,transform .18s ease,box-shadow .22s ease;
+  white-space:nowrap;
+}
+.nav-cta:hover{background:#2c2a24;transform:translateY(-1px);box-shadow:0 3px 10px rgba(15,14,11,.15)}
+
+/* ── FLOATING WA ── */
+.wa-float{
+  position:fixed;bottom:1.5rem;right:1.5rem;z-index:300;
+  width:52px;height:52px;border-radius:50%;
+  background:var(--ink);
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;
+  box-shadow:0 2px 12px rgba(15,14,11,.2);
+  animation:wa-ring 3.5s ease-in-out infinite;
+  transition:transform .22s ease,background .22s ease,box-shadow .22s ease;
+}
+.wa-float:hover{transform:scale(1.1) translateY(-2px);background:#1a1917;animation:none;box-shadow:0 6px 20px rgba(15,14,11,.28)}
+.wa-float svg{width:24px;height:24px;fill:#fff}
+.wa-float-tip{
+  position:absolute;right:60px;top:50%;transform:translateY(-50%);
+  background:var(--ink);color:var(--paper);
+  font-size:.63rem;letter-spacing:.06em;text-transform:uppercase;
+  padding:.3rem .7rem;border-radius:2px;white-space:nowrap;
+  opacity:0;transition:opacity .18s ease;pointer-events:none;
+}
+.wa-float:hover .wa-float-tip{opacity:1}
+@keyframes wa-ring{
+  0%,100%{box-shadow:0 2px 12px rgba(15,14,11,.2),0 0 0 0 rgba(37,211,102,.3)}
+  60%{box-shadow:0 2px 12px rgba(15,14,11,.2),0 0 0 9px rgba(37,211,102,0)}
+}
+
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.9rem 3rem;
+  background:rgba(244,241,235,.97);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--line);
+}
+.logo{
+  font-family:var(--serif);font-size:1.4rem;font-weight:300;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink);text-decoration:none;
+}
+.nav-r{display:flex;align-items:center;gap:1.75rem}
+.nav-links{display:flex;gap:1.5rem;list-style:none}
+.nav-links a{
+  font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;transition:color var(--ease);
+}
+.nav-links a:hover{color:var(--ink)}
+
+/* ── HERO ── */
+.hero{
+  display:grid;grid-template-columns:58% 42%;
+  min-height:min(82vh,640px);
+  border-bottom:1px solid var(--line);
+}
+.hero-l{
+  padding:3rem 3rem 3rem 3rem;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.hero-eyebrow{
+  font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:1rem;
+}
+.hero-h1{margin-bottom:.85rem}
+.hero-claim{font-size:.95rem;font-weight:600;color:var(--ink);line-height:1.5;margin-bottom:.7rem}
+.hero-sub{font-size:.85rem;color:var(--muted);line-height:1.75;max-width:40ch;margin-bottom:1.75rem}
+.hero-btns{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1.75rem}
+.hero-proof{
+  display:flex;gap:1.5rem;flex-wrap:wrap;
+  padding-top:1.4rem;border-top:1px solid var(--line);
+}
+.proof-n{font-family:var(--serif);font-size:1.65rem;font-weight:300;line-height:1;display:block}
+.proof-l{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.18rem;display:block}
+
+/* Hero right */
+.hero-r{
+  background:var(--warm);position:relative;overflow:hidden;
+  display:flex;flex-direction:column;justify-content:center;
+  gap:0;
+}
+.hero-bg{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:
+    repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(15,14,11,.04) 59px,rgba(15,14,11,.04) 60px),
+    repeating-linear-gradient(90deg,transparent,transparent 59px,rgba(15,14,11,.04) 59px,rgba(15,14,11,.04) 60px);
+}
+.hero-facts{position:relative;z-index:1;padding:1.5rem 1.5rem .75rem;display:flex;flex-direction:column;gap:.6rem}
+.hero-fact{
+  display:flex;align-items:flex-start;gap:.8rem;
+  padding:.85rem 1rem;background:var(--paper);border:1px solid var(--line);
+  transition:border-color var(--ease);
+}
+.hero-fact:hover{border-color:rgba(184,149,74,.35)}
+.hf-icon{
+  width:32px;height:32px;flex-shrink:0;border-radius:50%;
+  background:var(--warm);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+}
+.hf-icon svg{width:14px;height:14px;fill:var(--gold)}
+.hf-val{font-size:.82rem;font-weight:600;color:var(--ink);display:block;line-height:1.3}
+.hf-lbl{font-size:.62rem;color:var(--muted);display:block;margin-top:.1rem}
+.hero-guarantee{
+  position:relative;z-index:1;
+  margin:0 1.5rem 1.5rem;
+  background:var(--ink);color:var(--paper);
+  padding:1.1rem 1.25rem;
+}
+.hg-title{font-family:var(--serif);font-size:.95rem;font-weight:300;margin-bottom:.5rem}
+.hg-items{display:flex;flex-direction:column;gap:.35rem}
+.hg-item{display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:rgba(244,241,235,.72)}
+.hg-dot{width:3px;height:3px;background:var(--gold);border-radius:50%;flex-shrink:0}
+
+/* ── CLIENTS STRIP ── */
+.clients-strip{
+  display:flex;align-items:center;gap:1.25rem;
+  padding:1.25rem 3rem;border-bottom:1px solid var(--line);
+  overflow:hidden;flex-wrap:wrap;
+}
+.cs-label{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);white-space:nowrap;flex-shrink:0}
+.cs-sep{width:1px;height:18px;background:var(--line);flex-shrink:0}
+.cs-names{display:flex;gap:2rem;flex-wrap:wrap;align-items:center}
+.cs-names span{font-family:var(--serif);font-size:.95rem;font-weight:300;letter-spacing:.05em;color:rgba(15,14,11,.25)}
+
+/* ── SERVICES ── */
+.services{background:var(--ink);color:var(--paper)}
+.services h2{color:var(--paper)}
+.services .s-label{color:var(--gold)}
+.svc-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2rem;gap:2rem;flex-wrap:wrap}
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(244,241,235,.08)}
+.svc{
+  padding:1.5rem 1.35rem;border-right:1px solid rgba(244,241,235,.08);border-bottom:1px solid rgba(244,241,235,.08);
+  transition:background var(--ease);position:relative;overflow:hidden;
+}
+.svc:last-child{border-right:none}
+.svc::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform var(--ease);
+}
+.svc:hover::before{transform:scaleX(1)}
+.svc:hover{background:rgba(244,241,235,.04)}
+.svc-num{font-family:var(--serif);font-size:.7rem;color:var(--gold);margin-bottom:.85rem;display:block}
+.svc-title{font-family:var(--serif);font-size:1.1rem;font-weight:300;margin-bottom:.45rem;line-height:1.2}
+.svc-badge{
+  display:inline-block;padding:.15rem .55rem;margin-bottom:.75rem;
+  background:rgba(184,149,74,.12);border:1px solid rgba(184,149,74,.25);
+  font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);
+}
+.svc-list{list-style:none;margin-bottom:1.1rem}
+.svc-list li{
+  font-size:.72rem;color:rgba(244,241,235,.5);padding:.2rem 0;
+  display:flex;align-items:flex-start;gap:.4rem;line-height:1.4;
+}
+.svc-list li::before{content:'→';color:var(--gold);flex-shrink:0;font-size:.65rem;margin-top:.03rem}
+.svc-link{
+  font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--gold);text-decoration:none;
+  display:inline-flex;align-items:center;gap:.38rem;transition:gap var(--ease);
+}
+.svc:hover .svc-link{gap:.75rem}
+
+/* ── CASES ── */
+.cases-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem;margin-top:1.75rem}
+.case{
+  background:var(--warm);border:1px solid var(--line);
+  transition:border-color var(--ease),box-shadow var(--ease);
+  position:relative;overflow:hidden;
+}
+.case:hover{border-color:rgba(184,149,74,.3);box-shadow:0 3px 14px rgba(15,14,11,.07)}
+.case-bar{height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.case:hover .case-bar{transform:scaleX(1)}
+.case-bd{padding:1.25rem 1.4rem 1.4rem}
+.case-tags{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.5rem}
+.case-tag{font-size:.56rem;letter-spacing:.09em;text-transform:uppercase;color:var(--gold);background:rgba(184,149,74,.1);padding:.13rem .48rem}
+.case-title{font-family:var(--serif);font-size:1.05rem;font-weight:300;margin-bottom:.3rem;color:var(--ink)}
+.case-desc{font-size:.73rem;color:var(--muted);line-height:1.6}
+.case-res{margin-top:.5rem;font-size:.68rem;font-weight:600;color:var(--green);display:flex;align-items:center;gap:.28rem}
+.case-res::before{content:'↑'}
+
+/* ── TRUST ── */
+.trust-wrap{display:grid;grid-template-columns:1fr 1fr}
+.trust-l{padding:3.5rem 3rem;background:var(--warm)}
+.trust-r{padding:3.5rem 3rem}
+.trust-body{font-size:.85rem;color:var(--muted);line-height:1.8;max-width:42ch;margin:1rem 0 1.5rem}
+.trust-nums{display:grid;grid-template-columns:1fr 1fr}
+.tn{padding:1.25rem;border:1px solid var(--line);transition:border-color var(--ease)}
+.tn:hover{border-color:rgba(184,149,74,.3)}
+.tn-val{font-family:var(--serif);font-size:1.85rem;font-weight:300;line-height:1;display:block}
+.tn-lbl{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.25rem;display:block}
+.tn-note{font-size:.65rem;color:var(--muted);margin-top:.25rem;display:block;line-height:1.45}
+.ctags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--line)}
+.ctag{padding:.22rem .65rem;border:1px solid var(--line);font-size:.65rem;color:var(--muted)}
+.hours-g{display:grid;grid-template-columns:auto 1fr;gap:.25rem .85rem;margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--line)}
+.hd{font-size:.7rem;color:var(--muted)}
+.ht{font-size:.7rem;color:var(--ink);font-weight:500}
+.hn{grid-column:1/-1;font-size:.63rem;color:var(--muted);margin-top:.35rem;padding:.32rem .6rem;background:rgba(15,14,11,.04);border-left:2px solid var(--gold)}
+
+/* ── REVIEWS ── */
+.reviews{background:var(--ink);color:var(--paper)}
+.reviews h2{color:var(--paper)}
+.reviews .s-label{color:var(--gold)}
+.rev-top{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:.85rem;margin-bottom:2rem}
+.rating-val{font-family:var(--serif);font-size:2.2rem;font-weight:300;color:var(--paper);line-height:1}
+.rating-stars{color:var(--gold);font-size:.78rem;display:block;margin-top:.18rem}
+.rating-cnt{font-size:.63rem;color:rgba(244,241,235,.28);letter-spacing:.04em;display:block;margin-top:.13rem}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.rev{
+  padding:1.4rem;border:1px solid rgba(244,241,235,.07);
+  display:flex;flex-direction:column;
+  transition:border-color var(--ease),background var(--ease);
+  position:relative;overflow:hidden;
+}
+.rev::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform var(--ease);
+}
+.rev:hover::before{transform:scaleX(1)}
+.rev:hover{border-color:rgba(184,149,74,.2);background:rgba(244,241,235,.04)}
+.rev-qm{font-family:var(--serif);font-size:2.2rem;font-weight:300;color:rgba(184,149,74,.2);line-height:.7;display:block;margin-bottom:.55rem}
+.rev-stars{display:flex;gap:2px;margin-bottom:.75rem}
+.rev-stars span{color:var(--gold);font-size:.78rem}
+.rev-text{font-family:var(--serif);font-size:.95rem;font-weight:300;line-height:1.62;color:rgba(244,241,235,.87);flex:1;margin-bottom:1.2rem}
+.rev-foot{display:flex;align-items:center;gap:.7rem;padding-top:.95rem;border-top:1px solid rgba(244,241,235,.07);margin-top:auto}
+.rev-av{
+  width:34px;height:34px;border-radius:50%;flex-shrink:0;
+  background:rgba(184,149,74,.18);border:1px solid rgba(184,149,74,.25);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:.85rem;color:var(--gold);font-style:italic;
+}
+.rev-name{font-size:.75rem;font-weight:600;color:var(--paper);display:block}
+.rev-src{font-size:.6rem;color:rgba(244,241,235,.26);display:block;margin-top:.1rem}
+
+/* ── FORM ── */
+.form-wrap{display:grid;grid-template-columns:1fr 1fr}
+.form-l{padding:3.5rem 3rem;background:var(--ink);color:var(--paper);display:flex;flex-direction:column;justify-content:center}
+.form-r{padding:3.5rem 3rem;display:flex;flex-direction:column;justify-content:center}
+.online-badge{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:rgba(26,92,58,.12);border:1px solid rgba(26,92,58,.22);
+  padding:.4rem .85rem;margin-bottom:1.35rem;width:fit-content;
+}
+.online-dot{width:6px;height:6px;background:#22C55E;border-radius:50%;flex-shrink:0;animation:blink 2.4s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.online-text{font-size:.7rem;font-weight:600;color:#22C55E}
+.form-h{font-family:var(--serif);font-size:clamp(1.6rem,2.5vw,2.6rem);font-weight:300;line-height:1.15;margin-bottom:.6rem;color:var(--paper)}
+.form-h em{font-style:italic;color:var(--gold)}
+.form-p{font-size:.8rem;color:rgba(244,241,235,.42);line-height:1.7;margin-bottom:1.85rem;max-width:38ch}
+.c-list{display:flex;flex-direction:column}
+.c-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:.6rem 0;border-bottom:1px solid rgba(244,241,235,.06);font-size:.78rem;
+}
+.c-lbl{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(244,241,235,.3)}
+.c-val{color:rgba(244,241,235,.7)}
+.c-val a{color:rgba(244,241,235,.7);text-decoration:none;transition:color var(--ease)}
+.c-val a:hover{color:var(--gold)}
+.form-title{font-family:var(--serif);font-size:1.4rem;font-weight:300;margin-bottom:.25rem}
+.form-hint{font-size:.75rem;color:var(--muted);margin-bottom:1.75rem}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.f-g{margin-bottom:1.15rem}
+.f-lbl{display:block;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.38rem}
+.f-inp{
+  width:100%;background:transparent;border:none;
+  border-bottom:1.5px solid rgba(15,14,11,.15);
+  padding:.55rem 0;font-family:var(--sans);font-size:.9rem;
+  color:var(--ink);outline:none;transition:border-color var(--ease);appearance:none;
+}
+.f-inp:focus{border-color:var(--ink)}
+.f-inp::placeholder{color:rgba(15,14,11,.27)}
+.f-inp.err{border-color:#dc2626}
+.f-actions{display:flex;gap:.55rem;margin-top:1.5rem;flex-wrap:wrap}
+.f-note{font-size:.63rem;color:var(--muted);margin-top:.75rem;display:flex;align-items:center;gap:.3rem}
+
+/* ── HOW TO FIND ── */
+.find-section{background:var(--warm);padding:3.5rem 3rem}
+.find-inner{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.find-address{
+  font-family:var(--serif);font-size:clamp(1.4rem,2.2vw,2rem);
+  font-weight:300;line-height:1.2;color:var(--ink);margin:.85rem 0 .45rem;
+}
+.find-note{font-size:.82rem;color:var(--muted);margin-bottom:.3rem;display:flex;align-items:center;gap:.35rem}
+.find-note::before{content:'•';color:var(--gold)}
+.find-btns{display:flex;flex-direction:column;gap:.5rem;margin-top:1.5rem}
+.find-btn{
+  display:flex;align-items:center;gap:.75rem;
+  padding:.8rem 1.1rem;background:var(--paper);border:1px solid var(--line);
+  text-decoration:none;color:var(--ink);font-size:.78rem;font-weight:500;
+  transition:border-color var(--ease),box-shadow var(--ease),transform var(--ease);
+}
+.find-btn:hover{border-color:rgba(184,149,74,.4);box-shadow:0 3px 12px rgba(15,14,11,.08);transform:translateY(-1px)}
+.find-btn svg{width:17px;height:17px;flex-shrink:0;fill:var(--gold)}
+.find-btn-sub{font-size:.65rem;color:var(--muted);display:block;margin-top:.08rem;font-weight:400}
+.find-contact-title{font-family:var(--serif);font-size:1.15rem;font-weight:300;margin-bottom:1.1rem}
+.contact-items{display:flex;flex-direction:column}
+.contact-item{
+  display:flex;align-items:center;gap:.8rem;
+  padding:.75rem 0;border-bottom:1px solid var(--line);
+  text-decoration:none;color:var(--ink);transition:color var(--ease);
+}
+.contact-item:first-child{border-top:1px solid var(--line)}
+.ci-icon{
+  width:32px;height:32px;border-radius:50%;
+  background:var(--paper);border:1px solid var(--line);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  transition:border-color var(--ease);
+}
+.ci-icon svg{width:14px;height:14px;fill:var(--muted);transition:fill var(--ease)}
+.contact-item:hover .ci-icon{border-color:var(--gold)}
+.contact-item:hover .ci-icon svg{fill:var(--gold)}
+.ci-lbl{font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:.1rem}
+.ci-val{font-size:.85rem;font-weight:500;color:var(--ink);display:block;transition:color var(--ease)}
+.contact-item:hover .ci-val{color:var(--gold)}
+.ci-sub{font-size:.67rem;color:var(--muted);display:block;margin-top:.08rem}
+
+/* Instagram card */
+.ig-card{
+  display:flex;align-items:center;gap:.9rem;
+  padding:1.1rem;margin-top:1.25rem;
+  background:var(--paper);border:1px solid var(--line);
+  text-decoration:none;color:var(--ink);
+  transition:border-color var(--ease),box-shadow var(--ease),transform var(--ease);
+}
+.ig-card:hover{border-color:rgba(184,149,74,.4);box-shadow:0 4px 16px rgba(15,14,11,.08);transform:translateY(-2px)}
+.ig-icon{
+  width:38px;height:38px;border-radius:9px;flex-shrink:0;
+  background:linear-gradient(135deg,#f9ce34,#ee2a7b,#6228d7);
+  display:flex;align-items:center;justify-content:center;
+  transition:transform var(--ease);
+}
+.ig-card:hover .ig-icon{transform:scale(1.06)}
+.ig-icon svg{width:18px;height:18px;fill:#fff}
+.ig-body{flex:1}
+.ig-handle{font-size:.85rem;font-weight:600;display:block}
+.ig-desc{font-size:.67rem;color:var(--muted);margin-top:.13rem;display:block}
+.ig-arr{font-size:.68rem;color:var(--muted);transition:transform var(--ease),color var(--ease)}
+.ig-card:hover .ig-arr{transform:translateX(3px);color:var(--gold)}
+
+/* Hours card */
+.hours-card{background:var(--paper);border:1px solid var(--line);padding:1.35rem;margin-top:1.25rem}
+.hours-card-title{font-family:var(--serif);font-size:.95rem;font-weight:300;margin-bottom:1rem}
+.h-row{display:flex;justify-content:space-between;align-items:center;padding:.55rem 0;border-bottom:1px solid var(--line);font-size:.78rem}
+.h-row:last-child{border-bottom:none}
+.h-day{color:var(--muted);font-size:.72rem}
+.h-time{font-weight:500}
+.h-time.off{color:var(--muted);font-weight:400}
+.h-note{font-size:.65rem;color:var(--muted);margin-top:.75rem;padding:.35rem .65rem;background:rgba(184,149,74,.07);border-left:2px solid var(--gold);line-height:1.55}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--ink);color:var(--paper);
+  padding:2rem 3rem;
+  display:flex;align-items:center;justify-content:space-between;
+  border-top:1px solid rgba(244,241,235,.06);flex-wrap:wrap;gap:1rem;
+}
+.footer-logo{font-family:var(--serif);font-size:1.4rem;font-weight:300;letter-spacing:.12em}
+.footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}
+.footer-links a{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(244,241,235,.26);text-decoration:none;transition:color var(--ease)}
+.footer-links a:hover{color:var(--paper)}
+.footer-copy{font-size:.6rem;color:rgba(244,241,235,.16)}
+
+/* ── ANIM ── */
+.fu{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
+.fu.v{opacity:1;transform:none}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  nav{padding:.8rem 1.5rem}
+  .nav-links{display:none}
+  .section{padding:2.75rem 1.5rem}
+  /* Hero */
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-r{display:none}
+  .hero-l{padding:2.25rem 1.5rem 2rem}
+  /* Services */
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .svc-head{margin-bottom:1.75rem}
+  /* Trust */
+  .trust-wrap{grid-template-columns:1fr}
+  .trust-l,.trust-r{padding:2.75rem 1.5rem}
+  .trust-nums{grid-template-columns:1fr 1fr}
+  /* Reviews */
+  .reviews-grid{grid-template-columns:1fr}
+  .rev-top{flex-direction:column;align-items:flex-start;margin-bottom:1.75rem}
+  /* Form */
+  .form-wrap{grid-template-columns:1fr}
+  .form-l,.form-r{padding:2.75rem 1.5rem}
+  .f-row{grid-template-columns:1fr}
+  /* Find */
+  .find-inner{grid-template-columns:1fr;gap:2rem}
+  .find-section{padding:2.75rem 1.5rem}
+  /* Cases */
+  .cases-grid{grid-template-columns:1fr 1fr;gap:.7rem;margin-top:1.5rem}
+  /* Clients */
+  .clients-strip{padding:1rem 1.5rem}
+  /* Footer */
+  footer{padding:1.75rem 1.5rem;flex-direction:column;align-items:flex-start;gap:.85rem}
+  .wa-float{bottom:1.25rem;right:1.25rem}
+}
+@media(max-width:640px){
+  .section{padding:2.25rem 1.25rem}
+  .hero-l{padding:2rem 1.25rem 1.75rem}
+  h1{font-size:clamp(1.9rem,7.5vw,2.6rem)}
+  .hero-btns{flex-direction:column;gap:.5rem}
+  .hero-btns .btn{width:100%;justify-content:center}
+  .hero-proof{gap:1.1rem}
+  .svc-grid{grid-template-columns:1fr}
+  .svc{border-right:none}
+  .trust-l,.trust-r{padding:2.25rem 1.25rem}
+  .trust-nums{grid-template-columns:1fr 1fr}
+  .cases-grid{grid-template-columns:1fr}
+  .form-l,.form-r{padding:2.25rem 1.25rem}
+  .f-actions{flex-direction:column}
+  .f-actions .btn{width:100%;justify-content:center}
+  .find-section{padding:2.25rem 1.25rem}
+  .footer-links{gap:.85rem}
+  footer{padding:1.5rem 1.25rem}
+  .wa-float{width:46px;height:46px;bottom:1rem;right:1rem}
+}
+/* ── MOBILE STICKY WA BAR ── */
+.mob-bar{
+  display:none;
+  position:fixed;bottom:0;left:0;right:0;z-index:250;
+  background:var(--ink);border-top:1px solid rgba(244,241,235,.08);
+  padding:.85rem 1.25rem;
+  align-items:center;gap:.7rem;
+}
+.mob-bar-cta{
+  flex:1;display:flex;align-items:center;justify-content:center;gap:.5rem;
+  background:#25D366;color:#fff;font-family:var(--sans);
+  font-size:.78rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+  padding:.8rem 1rem;text-decoration:none;border-radius:2px;
+  transition:background .2s ease;
+}
+.mob-bar-cta:hover{background:#1dba58}
+.mob-bar-cta svg{width:16px;height:16px;fill:#fff;flex-shrink:0}
+.mob-bar-call{
+  display:flex;align-items:center;justify-content:center;
+  width:46px;height:46px;border-radius:2px;flex-shrink:0;
+  background:rgba(244,241,235,.08);border:1px solid rgba(244,241,235,.12);
+  text-decoration:none;
+  transition:background .2s ease;
+}
+.mob-bar-call:hover{background:rgba(244,241,235,.15)}
+.mob-bar-call svg{width:18px;height:18px;fill:rgba(244,241,235,.7)}
+@media(max-width:640px){
+  .mob-bar{display:flex}
+  body{padding-bottom:72px}
+  .wa-float{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- MOBILE BOTTOM BAR -->
+<div class="mob-bar" id="mob-bar">
+  <a class="mob-bar-cta"
+     href="https://wa.me/77024056954?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D1%85%D0%BE%D1%87%D1%83%20%D1%80%D0%B0%D1%81%D1%81%D1%87%D0%B8%D1%82%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%B8"
+     target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Написать в WhatsApp
+  </a>
+  <a class="mob-bar-call" href="tel:+77024056954" aria-label="Позвонить">
+    <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+  </a>
+</div>
+
+<!-- FLOATING WA -->
+<a class="wa-float"
+   href="https://wa.me/77024056954?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D1%85%D0%BE%D1%87%D1%83%20%D1%80%D0%B0%D1%81%D1%81%D1%87%D0%B8%D1%82%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%B8"
+   target="_blank" rel="noopener" aria-label="Написать в WhatsApp">
+  <span class="wa-float-tip">WhatsApp</span>
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">BasPrint</a>
+  <div class="nav-r">
+    <ul class="nav-links">
+      <li><a href="#services">Услуги</a></li>
+      <li><a href="#about">О нас</a></li>
+      <li><a href="#reviews">Отзывы</a></li>
+      <li><a href="#find">Адрес</a></li>
+    </ul>
+    <a href="#form" class="nav-cta">Рассчитать →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding:0">
+  <div class="hero-l">
+    <p class="hero-eyebrow">Полиграфия · Астана · с 2018 года</p>
+    <h1 class="hero-h1">Печать за<br><em>24–48 часов</em><br>в Астане</h1>
+    <p class="hero-claim">Визитки, баннеры, буклеты — быстро и без брака.</p>
+    <p class="hero-sub">Работаем с частными клиентами и компаниями. Проверяем макет до печати. Самовывоз или доставка.</p>
+    <div class="btn-row hero-btns">
+      <a href="#form" class="btn btn-p btn-lg">Рассчитать стоимость <span class="arr">→</span></a>
+      <a href="https://wa.me/77024056954?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D1%85%D0%BE%D1%87%D1%83%20%D1%80%D0%B0%D1%81%D1%81%D1%87%D0%B8%D1%82%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%B8"
+         class="btn btn-w btn-lg" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+    <div class="hero-proof">
+      <div><span class="proof-n">4.2★</span><span class="proof-l">232 отзыва 2GIS</span></div>
+      <div><span class="proof-n">24 ч</span><span class="proof-l">срочный заказ</span></div>
+      <div><span class="proof-n">100%</span><span class="proof-l">проверка макета</span></div>
+    </div>
+  </div>
+  <div class="hero-r">
+    <div class="hero-bg"></div>
+    <div class="hero-facts">
+      <div class="hero-fact">
+        <div class="hf-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+        </div>
+        <div>
+          <span class="hf-val">4.2 ★ — 232 оценки</span>
+          <span class="hf-lbl">Рейтинг на 2GIS, Астана</span>
+        </div>
+      </div>
+      <div class="hero-fact">
+        <div class="hf-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm.5 15H11v-6h1.5v6zm0-8H11V7h1.5v2z"/></svg>
+        </div>
+        <div>
+          <span class="hf-val">Срочный тираж от 24 часов</span>
+          <span class="hf-lbl">Стандартный — 48 часов</span>
+        </div>
+      </div>
+      <div class="hero-fact">
+        <div class="hf-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22C6.48 22 2 17.52 2 12S6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm-1-7h2v2h-2v-2zm0-8h2v6h-2V7z"/></svg>
+        </div>
+        <div>
+          <span class="hf-val">Проверяем макет до печати</span>
+          <span class="hf-lbl">Предупреждаем о проблемах заранее</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-guarantee">
+      <div class="hg-title">Работаем честно</div>
+      <div class="hg-items">
+        <div class="hg-item"><div class="hg-dot"></div>Говорим о проблемах макета до запуска</div>
+        <div class="hg-item"><div class="hg-dot"></div>Отвечаем в WhatsApp без очередей</div>
+        <div class="hg-item"><div class="hg-dot"></div>Бесплатная консультация по материалам</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<div class="clients-strip">
+  <span class="cs-label">Нам доверяют</span>
+  <div class="cs-sep"></div>
+  <div class="cs-names">
+    <span>Частные клиенты</span>
+    <span>Малый бизнес</span>
+    <span>Event-агентства</span>
+    <span>Рестораны</span>
+    <span>Медицина</span>
+    <span>Застройщики</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services section" id="services">
+  <div class="svc-head">
+    <div>
+      <div class="s-label">Услуги</div>
+      <h2>Всё для вашей <em>полиграфии</em></h2>
+    </div>
+    <p class="s-sub" style="color:rgba(244,241,235,.45)">Принимаем готовые макеты и помогаем подготовить файлы к печати.</p>
+  </div>
+  <div class="svc-grid">
+    <div class="svc fu">
+      <span class="svc-num">01</span>
+      <div class="svc-title">Визитки и листовки</div>
+      <div class="svc-badge">от 24 часов</div>
+      <ul class="svc-list">
+        <li>Матовая и глянцевая ламинация</li>
+        <li>Одно- и двусторонние</li>
+        <li>Тираж от 50 штук</li>
+      </ul>
+      <a href="#form" class="svc-link">Рассчитать →</a>
+    </div>
+    <div class="svc fu" style="transition-delay:.06s">
+      <span class="svc-num">02</span>
+      <div class="svc-title">Баннеры и стенды</div>
+      <div class="svc-badge">широкий формат</div>
+      <ul class="svc-list">
+        <li>Наружная и интерьерная печать</li>
+        <li>Баннерная ткань, ПВХ, сетка</li>
+        <li>Люверсы, монтаж</li>
+      </ul>
+      <a href="#form" class="svc-link">Рассчитать →</a>
+    </div>
+    <div class="svc fu" style="transition-delay:.12s">
+      <span class="svc-num">03</span>
+      <div class="svc-title">Каталоги и брошюры</div>
+      <div class="svc-badge">от 48 часов</div>
+      <ul class="svc-list">
+        <li>Мягкий и твёрдый переплёт</li>
+        <li>Полноцветная печать</li>
+        <li>Буклеты, фолдеры, проспекты</li>
+      </ul>
+      <a href="#form" class="svc-link">Рассчитать →</a>
+    </div>
+    <div class="svc fu" style="transition-delay:.18s">
+      <span class="svc-num">04</span>
+      <div class="svc-title">Корпоративная печать</div>
+      <div class="svc-badge">для бизнеса</div>
+      <ul class="svc-list">
+        <li>Бланки, конверты, папки</li>
+        <li>Наклейки, блокноты</li>
+        <li>Скидки постоянным клиентам</li>
+      </ul>
+      <a href="#form" class="svc-link">Рассчитать →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CASES -->
+<section class="section" style="padding-top:0" id="cases">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1.25rem;margin-bottom:.5rem">
+    <div>
+      <div class="s-label">Примеры работ</div>
+      <h2>Что мы <em>печатаем</em></h2>
+    </div>
+    <a href="#form" class="btn btn-p btn-sm">Обсудить заказ <span class="arr">→</span></a>
+  </div>
+  <div class="cases-grid">
+    <div class="case fu">
+      <div class="case-bar"></div>
+      <div class="case-bd">
+        <div class="case-tags"><span class="case-tag">Визитки</span><span class="case-tag">Матовая ламинация</span></div>
+        <div class="case-title">Визитки для риелтора</div>
+        <div class="case-desc">500 шт., двусторонние, матовая ламинация, скруглённые углы. Проверили макет — сдали за 24 часа.</div>
+        <div class="case-res">Готово за 24 часа с момента оплаты</div>
+      </div>
+    </div>
+    <div class="case fu" style="transition-delay:.07s">
+      <div class="case-bar"></div>
+      <div class="case-bd">
+        <div class="case-tags"><span class="case-tag">Баннер</span><span class="case-tag">Наружная печать</span></div>
+        <div class="case-title">Баннер для кофейни</div>
+        <div class="case-desc">3×1 м, баннерная ткань с люверсами. Скорректировали разрешение под печать — вышло чётко.</div>
+        <div class="case-res">Клиент вернулся за вторым баннером</div>
+      </div>
+    </div>
+    <div class="case fu" style="transition-delay:.12s">
+      <div class="case-bar"></div>
+      <div class="case-bd">
+        <div class="case-tags"><span class="case-tag">Буклет</span><span class="case-tag">Фальцовка</span></div>
+        <div class="case-title">Буклет медицинского центра</div>
+        <div class="case-desc">1 000 буклетов A4, фальцовка в три сложения. Глянцевая бумага 170 г/м².</div>
+        <div class="case-res">Постоянный корпоративный заказчик</div>
+      </div>
+    </div>
+    <div class="case fu" style="transition-delay:.17s">
+      <div class="case-bar"></div>
+      <div class="case-bd">
+        <div class="case-tags"><span class="case-tag">Листовки</span><span class="case-tag">Срочно</span></div>
+        <div class="case-title">Листовки для event-агентства</div>
+        <div class="case-desc">2 000 листовок А5, полноцвет, за 24 часа к открытию мероприятия.</div>
+        <div class="case-res">Доставили к открытию мероприятия</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT / TRUST -->
+<div class="trust-wrap" id="about">
+  <div class="trust-l">
+    <div class="s-label">О компании</div>
+    <h2>BasPrint —<br>полиграфия<br><em>с характером</em></h2>
+    <p class="trust-body">Небольшая команда в Астане. Не колл-центр — живые люди, которые отвечают быстро и делают честно.</p>
+    <p class="trust-body" style="margin-top:0">Если в макете проблема — скажем до печати. Если не знаете какой материал — поможем бесплатно.</p>
+    <a href="#form" class="btn btn-p btn-sm" style="width:fit-content">Обсудить заказ <span class="arr">→</span></a>
+    <div class="hours-g">
+      <span class="hd">Пн–Пт</span><span class="ht">09:00–18:30</span>
+      <span class="hd">Перерыв</span><span class="ht" style="font-weight:400;color:var(--muted)">13:00–14:00</span>
+      <span class="hd">Сб–Вс</span><span class="ht" style="font-weight:400;color:var(--muted)">Выходной</span>
+      <div class="hn">Заявки в WhatsApp принимаем круглосуточно</div>
+    </div>
+    <div class="ctags" style="margin-top:1.5rem;padding-top:1.5rem">
+      <span class="ctag">Визитки</span><span class="ctag">Листовки</span><span class="ctag">Баннеры</span>
+      <span class="ctag">Каталоги</span><span class="ctag">Наклейки</span><span class="ctag">Бланки</span>
+    </div>
+  </div>
+  <div class="trust-r">
+    <div class="trust-nums">
+      <div class="tn fu"><span class="tn-val">4.2★</span><span class="tn-lbl">рейтинг</span><span class="tn-note">232 оценки на 2GIS</span></div>
+      <div class="tn fu" style="transition-delay:.06s"><span class="tn-val">24 ч</span><span class="tn-lbl">срочный тираж</span><span class="tn-note">Минимальный срок</span></div>
+      <div class="tn fu" style="transition-delay:.12s"><span class="tn-val">100%</span><span class="tn-lbl">проверка макета</span><span class="tn-note">До запуска в печать</span></div>
+      <div class="tn fu" style="transition-delay:.18s"><span class="tn-val">0 ₸</span><span class="tn-lbl">за консультацию</span><span class="tn-note">Помогаем с выбором</span></div>
+      <div class="tn fu" style="transition-delay:.24s"><span class="tn-val">≥50</span><span class="tn-lbl">минимальный тираж</span><span class="tn-note">Малые заказы тоже берём</span></div>
+      <div class="tn fu" style="transition-delay:.3s"><span class="tn-val">2GIS</span><span class="tn-lbl">нашли нас</span><span class="tn-note">Кабанбай батыр 48/1</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- REVIEWS -->
+<section class="reviews section" id="reviews">
+  <div class="rev-top">
+    <div>
+      <div class="s-label">Отзывы клиентов</div>
+      <h2>Что говорят те, <em>кто заказывал</em></h2>
+    </div>
+    <div style="display:flex;align-items:center;gap:.85rem">
+      <span class="rating-val">4.2</span>
+      <div>
+        <span class="rating-stars">★★★★☆</span>
+        <span class="rating-cnt">232 оценки · 2GIS, Астана</span>
+      </div>
+    </div>
+  </div>
+  <div class="reviews-grid">
+    <div class="rev fu">
+      <span class="rev-qm">"</span>
+      <div class="rev-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="rev-text">Быстро ответили, хорошая цена, приятный продавец.</p>
+      <div class="rev-foot">
+        <div class="rev-av">Ж</div>
+        <div><span class="rev-name">Жанеля</span><span class="rev-src">2GIS, 2024</span></div>
+      </div>
+    </div>
+    <div class="rev fu" style="transition-delay:.09s">
+      <span class="rev-qm">"</span>
+      <div class="rev-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="rev-text">Отличная полиграфия! Нашла по 2GIS, всё сделали оперативно, именно то что я хотела. Спасибо!</p>
+      <div class="rev-foot">
+        <div class="rev-av">Н</div>
+        <div><span class="rev-name">Нурсулу</span><span class="rev-src">2GIS, 2024</span></div>
+      </div>
+    </div>
+    <div class="rev fu" style="transition-delay:.18s">
+      <span class="rev-qm">"</span>
+      <div class="rev-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="rev-text">Очень давно с ними работаю. Отличная типография.</p>
+      <div class="rev-foot">
+        <div class="rev-av">A</div>
+        <div><span class="rev-name">Azhar</span><span class="rev-src">Постоянный клиент</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<div class="form-wrap" id="form">
+  <div class="form-l">
+    <div class="online-badge">
+      <div class="online-dot"></div>
+      <span class="online-text">Ответим в рабочее время</span>
+    </div>
+    <h2 class="form-h">Рассчитайте стоимость<br><em>вашего заказа</em></h2>
+    <p class="form-p">Оставьте имя и телефон — перезвоним, уточним детали и назовём цену. Без предоплаты.</p>
+    <div class="c-list">
+      <div class="c-row"><span class="c-lbl">Телефон / WA</span><span class="c-val"><a href="tel:+77024056954">+7 702 405 69 54</a></span></div>
+      <div class="c-row"><span class="c-lbl">Адрес</span><span class="c-val">Кабанбай батыр 48/1, офис 7</span></div>
+      <div class="c-row"><span class="c-lbl">Пн–Пт</span><span class="c-val">09:00–18:30</span></div>
+      <div class="c-row"><span class="c-lbl">Сб–Вс</span><span class="c-val" style="color:rgba(244,241,235,.35)">Выходной</span></div>
+    </div>
+  </div>
+  <div class="form-r">
+    <div class="form-title">Получить расчёт</div>
+    <p class="form-hint">Два поля — остальное уточним лично</p>
+    <div class="f-row">
+      <div class="f-g"><label class="f-lbl">Имя *</label><input type="text" class="f-inp" id="f-name" placeholder="Ваше имя"></div>
+      <div class="f-g"><label class="f-lbl">Телефон *</label><input type="tel" class="f-inp" id="f-phone" placeholder="+7 (___) ___-__-__"></div>
+    </div>
+    <div class="f-g"><label class="f-lbl">Задача</label><input type="text" class="f-inp" id="f-task" placeholder="Напр.: визитки 500 шт., А5 буклет"></div>
+    <div class="f-actions">
+      <button class="btn btn-p btn-lg" id="submit-btn" style="flex:1;min-width:180px;border-radius:2px">
+        <span id="btn-lbl">Рассчитать стоимость</span>
+        <span class="arr" id="btn-ico">→</span>
+      </button>
+      <button class="btn btn-w btn-lg" id="wa-btn" style="border-radius:2px">
+        <svg width="15" height="15" viewBox="0 0 24 24" style="fill:#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </button>
+    </div>
+    <p class="f-note">🔒 Данные не передаём третьим лицам</p>
+  </div>
+</div>
+
+<!-- HOW TO FIND -->
+<section class="find-section" id="find">
+  <div class="find-inner">
+    <div>
+      <div class="s-label">Как нас найти</div>
+      <div class="find-address">Кабанбай батыр 48/1,<br>офис 7, Астана</div>
+      <p class="find-note">Есиль район</p>
+      <p class="find-note">Рядом с Дворцом единоборств</p>
+      <p class="find-note">3 минуты пешком от остановки</p>
+      <div class="find-btns">
+        <a href="https://maps.app.goo.gl/?q=Кабанбай+батыр+48/1+Астана" target="_blank" rel="noopener" class="find-btn">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          <div><span style="display:block;font-weight:600">Открыть в Google Maps</span><span class="find-btn-sub">Построить маршрут</span></div>
+        </a>
+        <a href="https://2gis.kz/astana/search/Кабанбай%20батыр%2048%2F1" target="_blank" rel="noopener" class="find-btn">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          <div><span style="display:block;font-weight:600">Открыть в 2GIS</span><span class="find-btn-sub">Рейтинг 4.2 ★ · 232 отзыва</span></div>
+        </a>
+        <a href="tel:+77024056954" class="find-btn">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          <div><span style="display:block;font-weight:600">+7 702 405 69 54</span><span class="find-btn-sub">Позвонить сейчас</span></div>
+        </a>
+        <a href="https://wa.me/77024056954?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D1%85%D0%BE%D1%87%D1%83%20%D1%80%D0%B0%D1%81%D1%81%D1%87%D0%B8%D1%82%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%B8"
+           target="_blank" rel="noopener" class="find-btn">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <div><span style="display:block;font-weight:600">Написать в WhatsApp</span><span class="find-btn-sub">Ответим в рабочее время</span></div>
+        </a>
+      </div>
+    </div>
+
+    <div class="find-right fu" style="transition-delay:.1s">
+      <div class="find-contact-title">Контакты</div>
+      <div class="contact-items">
+        <a href="tel:+77024056954" class="contact-item">
+          <div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.82 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14z"/></svg></div>
+          <div class="ci-body"><span class="ci-lbl">Телефон</span><span class="ci-val">+7 702 405 69 54</span></div>
+        </a>
+        <a href="https://wa.me/77024056954?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D1%85%D0%BE%D1%87%D1%83%20%D1%80%D0%B0%D1%81%D1%81%D1%87%D0%B8%D1%82%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%B8"
+           class="contact-item" target="_blank" rel="noopener">
+          <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
+          <div class="ci-body"><span class="ci-lbl">WhatsApp</span><span class="ci-val">+7 702 405 69 54</span><span class="ci-sub">Ответим в рабочее время</span></div>
+        </a>
+        <a href="https://instagram.com/basprintastana" class="contact-item" target="_blank" rel="noopener">
+          <div class="ci-icon" style="background:linear-gradient(135deg,#f9ce34,#ee2a7b,#6228d7);border-color:transparent">
+            <svg viewBox="0 0 24 24" style="fill:white;width:15px;height:15px"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </div>
+          <div class="ci-body"><span class="ci-lbl">Instagram</span><span class="ci-val">@basprintastana</span><span class="ci-sub">Наши работы и цены</span></div>
+        </a>
+        <div class="contact-item" style="cursor:default">
+          <div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div class="ci-body"><span class="ci-lbl">Адрес</span><span class="ci-val">Кабанбай батыр 48/1, офис 7</span><span class="ci-sub">Есиль район, рядом с Дворцом единоборств</span></div>
+        </div>
+      </div>
+      <!-- Instagram card -->
+      <a href="https://instagram.com/basprintastana" class="ig-card" target="_blank" rel="noopener">
+        <div class="ig-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+        <div class="ig-body">
+          <span class="ig-handle">@basprintastana</span>
+          <span class="ig-desc">Перейти в Instagram — смотреть работы</span>
+        </div>
+        <span class="ig-arr">→</span>
+      </a>
+      <!-- Hours -->
+      <div class="hours-card">
+        <div class="hours-card-title">График работы</div>
+        <div class="h-row"><span class="h-day">Понедельник–Пятница</span><span class="h-time">09:00–18:30</span></div>
+        <div class="h-row"><span class="h-day">Перерыв</span><span class="h-time" style="font-weight:400;color:var(--muted)">13:00–14:00</span></div>
+        <div class="h-row"><span class="h-day">Суббота–Воскресенье</span><span class="h-time off">Выходной</span></div>
+        <div class="h-note">Заявки в WhatsApp принимаем в любое время — ответим в рабочие часы</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">BasPrint</div>
+  <div class="footer-links">
+    <a href="#services">Услуги</a>
+    <a href="#about">О нас</a>
+    <a href="#reviews">Отзывы</a>
+    <a href="#find">Адрес</a>
+    <a href="#form">Заявка</a>
+  </div>
+  <span class="footer-copy">© 2025 BasPrint · Кабанбай батыр 48/1, офис 7, Астана</span>
+</footer>
+
+<script>
+/* ── WA link ── */
+const WA = 'https://wa.me/77024056954?text=';
+const DEF = '%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D1%85%D0%BE%D1%87%D1%83%20%D1%80%D0%B0%D1%81%D1%81%D1%87%D0%B8%D1%82%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%B8';
+
+/* ── Scroll anim ── */
+const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting) e.target.classList.add('v') }), {threshold:.1});
+document.querySelectorAll('.fu').forEach(el => io.observe(el));
+
+/* ── Phone mask ── */
+document.getElementById('f-phone').addEventListener('input', function(){
+  let v = this.value.replace(/\D/g,'');
+  if(v.startsWith('7') || v.startsWith('8')) v = v.slice(1);
+  let f = '+7 ';
+  if(v.length > 0) f += '(' + v.slice(0,3);
+  if(v.length >= 3) f += ') ' + v.slice(3,6);
+  if(v.length >= 6) f += '-' + v.slice(6,8);
+  if(v.length >= 8) f += '-' + v.slice(8,10);
+  this.value = f;
+});
+
+/* ── Clear err on input ── */
+document.querySelectorAll('.f-inp').forEach(el => el.addEventListener('input', () => el.classList.remove('err')));
+
+/* ── Build WA message from form ── */
+function buildMsg(){
+  const name  = document.getElementById('f-name').value.trim();
+  const phone = document.getElementById('f-phone').value.trim();
+  const task  = document.getElementById('f-task').value.trim();
+  const parts = ['Здравствуйте!'];
+  if(name)  parts.push('Имя: ' + name + '.');
+  if(phone) parts.push('Телефон: ' + phone + '.');
+  if(task)  parts.push('Задача: ' + task);
+  else      parts.push('Хочу рассчитать стоимость печати.');
+  return encodeURIComponent(parts.join('\n'));
+}
+
+/* ── Submit button ── */
+document.getElementById('submit-btn').addEventListener('click', function(){
+  const ne = document.getElementById('f-name');
+  const pe = document.getElementById('f-phone');
+  let ok = true;
+  if(!ne.value.trim()){ ne.classList.add('err'); ok = false; }
+  if(!pe.value.trim()){ pe.classList.add('err'); ok = false; }
+  if(!ok) return;
+  window.open(WA + buildMsg(), '_blank', 'noopener');
+  const lbl = document.getElementById('btn-lbl');
+  const ico = document.getElementById('btn-ico');
+  lbl.textContent = 'Отправлено — ждите ответа!';
+  ico.textContent = '✓';
+  this.style.background = '#2d6a4f';
+  this.style.borderColor = '#2d6a4f';
+  setTimeout(() => {
+    lbl.textContent = 'Рассчитать стоимость';
+    ico.textContent = '→';
+    this.style.background = '';
+    this.style.borderColor = '';
+  }, 5000);
+});
+
+/* ── WA button (form) ── */
+document.getElementById('wa-btn').addEventListener('click', function(){
+  const name  = document.getElementById('f-name').value.trim();
+  const phone = document.getElementById('f-phone').value.trim();
+  const task  = document.getElementById('f-task').value.trim();
+  const msg = (name || phone || task) ? buildMsg() : DEF;
+  window.open(WA + msg, '_blank', 'noopener');
+});
+</script>
+</body>
+</html>
