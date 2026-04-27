@@ -1,986 +1,1911 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BasPrint — Полиграфия в Астане. Печать за 24–48 часов</title>
-<meta name="description" content="BasPrint — полиграфическая компания в Астане. Визитки, баннеры, каталоги, брошюры. Кабанбай батыр 48/1. +7 702 405 69 54">
+<meta name="description" content="BasPrint — полиграфия в Астане. Визитки, баннеры, буклеты, брошюры за 24–48 часов. Проверка макета бесплатно. Кабанбай батыр 48/1, офис 7. +7 702 405 69 54">
+<title>BasPrint — Полиграфия в Астане | Печать за 24–48 часов</title>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"BasPrint","description":"Полиграфическая компания в Астане. Визитки, баннеры, буклеты, брошюры.","address":{"@type":"PostalAddress","streetAddress":"Кабанбай батыр 48/1, офис 7","addressLocality":"Астана","addressRegion":"Есиль район","addressCountry":"KZ"},"telephone":"+77024056954","sameAs":["https://instagram.com/basprintastana"],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"18:30"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.2","reviewCount":"232"}}
+</script>
+<script>!function(){var t=localStorage.getItem('bp-theme');if(t)document.documentElement.setAttribute('data-theme',t)}();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-/* ── RESET ── */
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-img,svg{display:block;max-width:100%}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
-/* ── TOKENS ── */
 :root{
-  --ink:   #0F0E0B;
-  --paper: #F4F1EB;
-  --warm:  #E9E4D8;
-  --gold:  #B8954A;
-  --gh:    #9A7A36;
-  --green: #1A5C3A;
-  --muted: #6E6559;
-  --line:  rgba(15,14,11,.1);
-  --serif: 'Cormorant Garamond',Georgia,serif;
-  --sans:  'Inter','Helvetica Neue',Helvetica,Arial,sans-serif;
-  --ease:  .28s cubic-bezier(.25,.46,.45,.94);
+  --gold:#C49A3C;
+  --gold-light:#D9B05A;
+  --gold-pale:#E8CC87;
+  --gold-dim:rgba(196,154,60,0.1);
+  --gold-glow:rgba(196,154,60,0.06);
+  --gold-border:rgba(196,154,60,0.2);
+  --gold-border-hi:rgba(196,154,60,0.42);
+  --radius:2px;
+  --radius-md:6px;
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-body:'Inter',-apple-system,'Helvetica Neue',Arial,sans-serif;
+}
+[data-theme="light"]{
+  --bg:#F7F4EF;
+  --bg2:#EDE8E0;
+  --bg3:#FFFFFF;
+  --bg4:#F0ECE5;
+  --text:#1C1A16;
+  --text-soft:#5C5750;
+  --text-muted:#9C968D;
+  --nav-bg:rgba(247,244,239,0.95);
+  --border-btn:rgba(0,0,0,0.12);
+  --btn-text:#111008;
+}
+[data-theme="dark"]{
+  --bg:#111110;
+  --bg2:#161514;
+  --bg3:#1C1A18;
+  --bg4:#222018;
+  --text:#E8E4DC;
+  --text-soft:#898480;
+  --text-muted:#56524D;
+  --nav-bg:rgba(17,17,16,0.95);
+  --border-btn:rgba(255,255,255,0.12);
+  --btn-text:#0A0908;
 }
 
 html{scroll-behavior:smooth}
+
 body{
-  background:var(--paper);color:var(--ink);
-  font-family:var(--sans);font-size:16px;line-height:1.7;
+  font-family:var(--font-body);
+  font-size:16px;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.72;
   overflow-x:hidden;
+  padding-bottom:64px;
+}
+@media(min-width:768px){body{padding-bottom:0}}
+
+/* Grain overlay */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:0.038;
+  pointer-events:none;
+  z-index:9999;
 }
 
-/* ── TYPOGRAPHY ── */
-h1{font-family:var(--serif);font-size:clamp(2.5rem,6vw,5.6rem);font-weight:300;line-height:1.05;letter-spacing:-.015em}
-h1 em{font-style:italic;color:var(--gold)}
-h2{font-family:var(--serif);font-size:clamp(1.85rem,3.5vw,3.1rem);font-weight:300;line-height:1.1}
-h2 em{font-style:italic;color:var(--gold)}
-h3{font-family:var(--serif);font-size:1.3rem;font-weight:300;line-height:1.3}
+/* Typography */
+h1,h2,h3{font-family:var(--font-display);font-weight:400;letter-spacing:-0.01em}
 
-/* ── SECTION UTILS ── */
-.section{padding:3.5rem 3rem}
-.s-label{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem}
-.s-sub{font-size:.94rem;color:var(--muted);line-height:1.82;max-width:46ch;margin-top:.6rem}
-
-/* ── BUTTONS ── */
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
-  font-family:var(--sans);font-size:.84rem;font-weight:500;
-  letter-spacing:.05em;text-transform:uppercase;
-  text-decoration:none;border:none;cursor:pointer;border-radius:2px;
-  padding:.92rem 1.8rem;white-space:nowrap;line-height:1;
-  min-height:48px; /* touch target */
-  transition:background .22s ease,color .22s ease,border-color .22s ease,
-             box-shadow .22s ease,transform .18s ease;
-  -webkit-font-smoothing:antialiased;
+.label{
+  font-family:var(--font-body);
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--gold);
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:20px;
 }
-.btn svg{flex-shrink:0}
-/* Primary */
-.btn-p{background:var(--ink);color:var(--paper);border:1px solid var(--ink);box-shadow:0 1px 4px rgba(15,14,11,.13)}
-.btn-p:hover{background:#2c2a24;border-color:#2c2a24;box-shadow:0 4px 14px rgba(15,14,11,.2);transform:translateY(-1px)}
-.btn-p:active{transform:translateY(0);box-shadow:none}
-/* WhatsApp — outline on light bg */
-.btn-w{background:transparent;color:var(--ink);border:1px solid rgba(15,14,11,.22)}
-.btn-w:hover{background:rgba(15,14,11,.04);border-color:rgba(15,14,11,.4);transform:translateY(-1px)}
-.btn-w svg{fill:#25D366}
-/* WhatsApp — on dark bg */
-.btn-w-inv{background:transparent;color:var(--paper);border:1px solid rgba(244,241,235,.2)}
-.btn-w-inv:hover{background:rgba(244,241,235,.07);border-color:rgba(244,241,235,.4);transform:translateY(-1px)}
-.btn-w-inv svg{fill:#4ADE80}
-/* Paper — on dark bg */
-.btn-inv{background:var(--paper);color:var(--ink);border:1px solid var(--paper);box-shadow:0 1px 4px rgba(15,14,11,.18)}
-.btn-inv:hover{background:#e8e5df;border-color:#e8e5df;box-shadow:0 4px 14px rgba(15,14,11,.22);transform:translateY(-1px)}
-/* Ghost green */
-.btn-g{background:transparent;color:var(--ink);border:1px solid rgba(15,14,11,.2)}
-.btn-g:hover{background:rgba(15,14,11,.04);transform:translateY(-1px)}
-/* Sizes */
-.btn-lg{padding:1.05rem 2.4rem;font-size:.92rem;min-height:52px}
-.btn-sm{padding:.65rem 1.2rem;font-size:.74rem;min-height:40px}
-/* Arrow */
-.arr{opacity:.5;font-size:.8rem;display:inline-block;transition:transform .18s ease,opacity .18s ease}
-.btn:hover .arr{transform:translateX(3px);opacity:1}
-/* Group */
-.btn-row{display:flex;flex-wrap:wrap;gap:.7rem;align-items:center}
-
-/* Nav CTA */
-.nav-cta{
-  display:inline-flex;align-items:center;gap:.4rem;
-  font-family:var(--sans);font-size:.74rem;font-weight:500;letter-spacing:.065em;text-transform:uppercase;
-  padding:.62rem 1.25rem;border-radius:2px;background:var(--ink);color:var(--paper);
-  text-decoration:none;border:1px solid var(--ink);
-  transition:background .22s ease,transform .18s ease,box-shadow .22s ease;
-  white-space:nowrap;
-}
-.nav-cta:hover{background:#2c2a24;transform:translateY(-1px);box-shadow:0 3px 10px rgba(15,14,11,.15)}
-
-/* ── FLOATING WA ── */
-.wa-float{
-  position:fixed;bottom:1.5rem;right:1.5rem;z-index:300;
-  width:52px;height:52px;border-radius:50%;
-  background:var(--ink);
-  display:flex;align-items:center;justify-content:center;
-  text-decoration:none;
-  box-shadow:0 2px 12px rgba(15,14,11,.2);
-  animation:wa-ring 3.5s ease-in-out infinite;
-  transition:transform .22s ease,background .22s ease,box-shadow .22s ease;
-}
-.wa-float:hover{transform:scale(1.1) translateY(-2px);background:#1a1917;animation:none;box-shadow:0 6px 20px rgba(15,14,11,.28)}
-.wa-float svg{width:24px;height:24px;fill:#fff}
-.wa-float-tip{
-  position:absolute;right:60px;top:50%;transform:translateY(-50%);
-  background:var(--ink);color:var(--paper);
-  font-size:.63rem;letter-spacing:.06em;text-transform:uppercase;
-  padding:.3rem .7rem;border-radius:2px;white-space:nowrap;
-  opacity:0;transition:opacity .18s ease;pointer-events:none;
-}
-.wa-float:hover .wa-float-tip{opacity:1}
-@keyframes wa-ring{
-  0%,100%{box-shadow:0 2px 12px rgba(15,14,11,.2),0 0 0 0 rgba(37,211,102,.3)}
-  60%{box-shadow:0 2px 12px rgba(15,14,11,.2),0 0 0 9px rgba(37,211,102,0)}
+.label::before{
+  content:'';
+  display:inline-block;
+  width:24px;
+  height:1px;
+  background:var(--gold);
+  flex-shrink:0;
 }
 
-/* ── NAV ── */
+.section-title{
+  font-size:clamp(26px,4.5vw,44px);
+  line-height:1.12;
+  color:var(--text);
+  margin-bottom:18px;
+}
+
+.section-sub{
+  font-size:16px;
+  color:var(--text-soft);
+  line-height:1.78;
+  max-width:500px;
+}
+
+/* Layout */
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+section{padding:80px 0}
+@media(min-width:768px){section{padding:112px 0}}
+
+/* ─── NAV ─── */
 nav{
-  position:sticky;top:0;z-index:200;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:.9rem 3rem;
-  background:rgba(244,241,235,.97);backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--line);
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:100;
+  height:62px;
+  padding:0 28px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:var(--nav-bg);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(196,154,60,0.1);
+  transition:border-color 0.3s;
 }
-.logo{
-  font-family:var(--serif);font-size:1.4rem;font-weight:300;
-  letter-spacing:.14em;text-transform:uppercase;
-  color:var(--ink);text-decoration:none;
-}
-.nav-r{display:flex;align-items:center;gap:1.75rem}
-.nav-links{display:flex;gap:1.5rem;list-style:none}
-.nav-links a{
-  font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--muted);text-decoration:none;transition:color var(--ease);
-}
-.nav-links a:hover{color:var(--ink)}
 
-/* ── HERO ── */
-.hero{
-  display:grid;grid-template-columns:58% 42%;
-  min-height:min(82vh,640px);
-  border-bottom:1px solid var(--line);
+.nav-logo{
+  display:flex;flex-direction:column;gap:3px;
+  text-decoration:none;flex-shrink:0;
+  user-select:none;
 }
-.hero-l{
-  padding:3rem 3rem 3rem 3rem;
-  display:flex;flex-direction:column;justify-content:center;
-}
-.hero-eyebrow{
-  font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--muted);margin-bottom:1rem;
-}
-.hero-h1{margin-bottom:.9rem}
-.hero-claim{font-size:1.05rem;font-weight:600;color:var(--ink);line-height:1.55;margin-bottom:.75rem}
-.hero-sub{font-size:.93rem;color:var(--muted);line-height:1.82;max-width:40ch;margin-bottom:1.85rem}
-.hero-btns{display:flex;flex-wrap:wrap;gap:.65rem;margin-bottom:1.85rem}
-.hero-proof{
-  display:flex;gap:1.6rem;flex-wrap:wrap;
-  padding-top:1.5rem;border-top:1px solid var(--line);
-}
-.proof-n{font-family:var(--serif);font-size:1.7rem;font-weight:300;line-height:1;display:block}
-.proof-l{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.2rem;display:block}
+.logo-mark{display:flex;align-items:baseline;}
+.logo-bas{font-size:15px;font-weight:800;letter-spacing:0.18em;color:var(--text)}
+.logo-sep{font-size:10px;color:var(--gold);margin:0 7px;opacity:0.6;align-self:center;line-height:1;}
+.logo-print{font-size:15px;font-weight:300;letter-spacing:0.15em;color:var(--text-soft)}
+.logo-sub{font-size:9px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);line-height:1;}
 
-/* Hero right */
-.hero-r{
-  background:var(--warm);position:relative;overflow:hidden;
-  display:flex;flex-direction:column;justify-content:center;
-  gap:0;
+.nav-center{
+  position:absolute;left:50%;
+  transform:translateX(-50%);
+  display:none;
 }
-.hero-bg{
-  position:absolute;inset:0;pointer-events:none;
-  background-image:
-    repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(15,14,11,.04) 59px,rgba(15,14,11,.04) 60px),
-    repeating-linear-gradient(90deg,transparent,transparent 59px,rgba(15,14,11,.04) 59px,rgba(15,14,11,.04) 60px);
+@media(min-width:960px){.nav-center{display:block}}
+
+.nav-center ul{
+  display:flex;align-items:center;
+  gap:28px;list-style:none;margin:0;padding:0;
 }
-.hero-facts{position:relative;z-index:1;padding:1.5rem 1.5rem .75rem;display:flex;flex-direction:column;gap:.6rem}
-.hero-fact{
-  display:flex;align-items:flex-start;gap:.8rem;
-  padding:.85rem 1rem;background:var(--paper);border:1px solid var(--line);
-  transition:border-color var(--ease);
+.nav-center a{
+  position:relative;
+  font-size:14.5px;font-weight:400;
+  letter-spacing:0.01em;
+  color:var(--text-soft);
+  text-decoration:none;
+  padding:4px 0;
+  white-space:nowrap;
+  transition:color 0.22s;
 }
-.hero-fact:hover{border-color:rgba(184,149,74,.35)}
-.hf-icon{
-  width:32px;height:32px;flex-shrink:0;border-radius:50%;
-  background:var(--warm);border:1px solid var(--line);
+.nav-center a::after{
+  content:'';
+  position:absolute;bottom:-2px;left:0;right:0;
+  height:1px;background:var(--gold);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 0.32s cubic-bezier(0.16,1,0.3,1);
+}
+.nav-center a:hover{color:var(--text)}
+.nav-center a:hover::after{transform:scaleX(1)}
+
+.nav-right{
+  display:flex;align-items:center;
+  gap:8px;flex-shrink:0;
+}
+
+.lang-switch{
+  display:none;align-items:center;
+  gap:0;margin-right:4px;
+}
+@media(min-width:960px){.lang-switch{display:flex}}
+
+.lang-btn{
+  font-size:11.5px;font-weight:500;
+  letter-spacing:0.08em;
+  color:var(--text-muted);
+  background:transparent;border:none;
+  cursor:pointer;padding:4px 6px;
+  transition:color 0.2s;line-height:1;
+}
+.lang-btn:hover{color:var(--text)}
+.lang-btn.active{color:var(--gold);font-weight:600}
+.lang-div{
+  font-size:10px;color:var(--text-muted);
+  opacity:0.3;user-select:none;pointer-events:none;
+}
+
+.theme-toggle{
+  width:34px;height:34px;
   display:flex;align-items:center;justify-content:center;
+  background:transparent;
+  border:1px solid var(--border-btn);
+  border-radius:50%;cursor:pointer;
+  color:var(--text-soft);flex-shrink:0;
+  transition:color 0.2s,border-color 0.2s;
 }
-.hf-icon svg{width:14px;height:14px;fill:var(--gold)}
-.hf-val{font-size:.82rem;font-weight:600;color:var(--ink);display:block;line-height:1.3}
-.hf-lbl{font-size:.62rem;color:var(--muted);display:block;margin-top:.1rem}
-.hero-guarantee{
-  position:relative;z-index:1;
-  margin:0 1.5rem 1.5rem;
-  background:var(--ink);color:var(--paper);
-  padding:1.1rem 1.25rem;
-}
-.hg-title{font-family:var(--serif);font-size:.95rem;font-weight:300;margin-bottom:.5rem}
-.hg-items{display:flex;flex-direction:column;gap:.35rem}
-.hg-item{display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:rgba(244,241,235,.72)}
-.hg-dot{width:3px;height:3px;background:var(--gold);border-radius:50%;flex-shrink:0}
+.theme-toggle:hover{color:var(--gold);border-color:var(--gold-border-hi)}
+[data-theme="light"] .icon-sun{display:none}
+[data-theme="dark"] .icon-moon{display:none}
 
-/* ── CLIENTS STRIP ── */
-.clients-strip{
-  display:flex;align-items:center;gap:1.25rem;
-  padding:1.25rem 3rem;border-bottom:1px solid var(--line);
-  overflow:hidden;flex-wrap:wrap;
+.nav-cta{
+  display:none;
+  font-size:12.5px;font-weight:600;
+  letter-spacing:0.05em;
+  color:var(--btn-text);background:var(--gold);
+  border:none;padding:9px 20px;
+  border-radius:var(--radius);
+  text-decoration:none;white-space:nowrap;
+  transition:background 0.2s,transform 0.15s;
 }
-.cs-label{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);white-space:nowrap;flex-shrink:0}
-.cs-sep{width:1px;height:18px;background:var(--line);flex-shrink:0}
-.cs-names{display:flex;gap:2rem;flex-wrap:wrap;align-items:center}
-.cs-names span{font-family:var(--serif);font-size:.95rem;font-weight:300;letter-spacing:.05em;color:rgba(15,14,11,.25)}
+@media(min-width:768px){.nav-cta{display:inline-flex;align-items:center}}
+.nav-cta:hover{background:var(--gold-light);transform:translateY(-1px)}
 
-/* ── SERVICES ── */
-.services{background:var(--ink);color:var(--paper)}
-.services h2{color:var(--paper)}
-.services .s-label{color:var(--gold)}
-.svc-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2rem;gap:2rem;flex-wrap:wrap}
-.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(244,241,235,.08)}
-.svc{
-  padding:1.75rem 1.5rem 1.6rem;
-  border-right:1px solid rgba(244,241,235,.08);
-  border-bottom:1px solid rgba(244,241,235,.08);
-  transition:background var(--ease);position:relative;overflow:hidden;
+.nav-burger{
   display:flex;flex-direction:column;
+  align-items:flex-end;justify-content:center;
+  gap:5px;
+  width:36px;height:36px;
+  background:transparent;border:none;
+  cursor:pointer;padding:6px;flex-shrink:0;
 }
-.svc:last-child{border-right:none}
-.svc::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:var(--gold);transform:scaleX(0);transform-origin:left;
-  transition:transform .35s var(--ease);
+@media(min-width:960px){.nav-burger{display:none}}
+
+.nav-burger span{
+  display:block;height:1.5px;
+  background:var(--text);border-radius:1px;
+  transition:transform 0.3s ease,opacity 0.25s ease,width 0.3s ease;
 }
-.svc:hover::before{transform:scaleX(1)}
-.svc:hover{background:rgba(244,241,235,.05)}
-/* hide old numeric label */
-.svc-num{display:none}
-/* tiny service label replaces numbers */
-.svc-micro{
-  font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;
-  color:rgba(184,149,74,.55);margin-bottom:.85rem;display:block;
+.nav-burger span:nth-child(1){width:22px}
+.nav-burger span:nth-child(2){width:14px}
+.nav-burger span:nth-child(3){width:22px}
+.nav-burger.is-open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);width:22px}
+.nav-burger.is-open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.nav-burger.is-open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);width:22px}
+
+.nav-mob{
+  position:fixed;inset:0;top:62px;
+  z-index:98;
+  background:var(--bg);
+  display:flex;flex-direction:column;
+  padding:28px 28px 40px;
+  transform:translateY(-110%);
+  transition:transform 0.42s cubic-bezier(0.16,1,0.3,1);
+  overflow-y:auto;
+  border-top:1px solid rgba(196,154,60,0.1);
+}
+.nav-mob.is-open{transform:translateY(0)}
+@media(min-width:960px){.nav-mob{display:none !important}}
+
+.mob-links{list-style:none;padding:0;margin:0;flex:1}
+.mob-links li{border-bottom:1px solid rgba(196,154,60,0.08)}
+.mob-links a{
+  display:block;
+  font-size:26px;font-weight:500;
+  letter-spacing:-0.01em;
+  color:var(--text);text-decoration:none;
+  padding:16px 0;
+  transition:color 0.2s,padding-left 0.28s cubic-bezier(0.16,1,0.3,1);
+}
+.mob-links a:hover{color:var(--gold);padding-left:10px}
+
+.mob-footer{
+  display:flex;align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;gap:16px;
+  margin-top:32px;padding-top:24px;
+  border-top:1px solid rgba(196,154,60,0.1);
+}
+.mob-lang{display:flex;align-items:center;gap:0}
+.mob-cta{
+  font-size:14px;font-weight:600;
+  letter-spacing:0.03em;
+  color:var(--btn-text);background:var(--gold);
+  padding:12px 24px;border-radius:var(--radius);
+  text-decoration:none;
+  transition:background 0.2s;
+}
+.mob-cta:hover{background:var(--gold-light)}
+
+/* ─── HERO ─── */
+#hero{
+  min-height:100svh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding-top:62px;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero-grid-bg{
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(196,154,60,0.032) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(196,154,60,0.032) 1px,transparent 1px);
+  background-size:72px 72px;
+  mask-image:radial-gradient(ellipse 85% 80% at 50% 38%,black 20%,transparent 100%);
+}
+
+.hero-glow{
+  position:absolute;
+  top:33%;left:44%;
+  transform:translate(-50%,-50%);
+  width:820px;height:520px;
+  background:radial-gradient(ellipse,rgba(196,154,60,0.05) 0%,transparent 65%);
+  pointer-events:none;
+}
+.hero-glow-2{
+  position:absolute;
+  bottom:8%;right:4%;
+  width:420px;height:320px;
+  background:radial-gradient(ellipse,rgba(196,154,60,0.022) 0%,transparent 70%);
+  pointer-events:none;
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  padding:0 24px;
+  max-width:880px;
+  margin:0 auto;
+  width:100%;
+}
+
+.hero-eyebrow{
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:0.24em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:30px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  opacity:0;
+  animation:fadeUp 0.9s 0.15s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+.hero-eyebrow::before{
+  content:'';
+  display:inline-block;
+  width:28px;height:1px;
+  background:var(--gold);
+  flex-shrink:0;
+}
+
+.hero-h1{
+  font-family:var(--font-display);
+  font-size:clamp(44px,8.5vw,84px);
+  line-height:1.02;
+  letter-spacing:-0.02em;
+  color:var(--text);
+  font-weight:400;
+  margin-bottom:26px;
+  opacity:0;
+  animation:fadeUp 0.9s 0.3s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+.hero-h1 .accent{
+  color:var(--gold);
+  font-style:italic;
+  font-weight:400;
+}
+
+.hero-sub{
+  font-size:clamp(15px,2vw,17px);
+  color:var(--text-soft);
+  line-height:1.8;
+  max-width:480px;
+  margin-bottom:20px;
+  opacity:0;
+  animation:fadeUp 0.9s 0.44s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+
+.hero-trust-row{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:6px 16px;
+  margin-bottom:36px;
+  opacity:0;
+  animation:fadeUp 0.9s 0.57s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+.hero-trust-item{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font-size:13px;
+  color:var(--text-soft);
+}
+.hero-trust-item .hstars{display:flex;gap:2px}
+.hero-trust-sep{width:1px;height:13px;background:rgba(196,154,60,0.22);flex-shrink:0}
+
+.hero-btns{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  opacity:0;
+  animation:fadeUp 0.9s 0.7s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+@media(min-width:480px){.hero-btns{flex-direction:row}}
+
+.btn-primary{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  font-size:15px;
+  font-weight:600;
+  letter-spacing:0.02em;
+  color:var(--btn-text);
+  background:var(--gold);
+  border:none;
+  padding:16px 34px;
+  border-radius:var(--radius);
+  cursor:pointer;
+  text-decoration:none;
+  transition:background 0.22s,transform 0.2s,box-shadow 0.22s;
+  min-height:54px;
+  position:relative;
+  overflow:hidden;
+}
+.btn-primary::after{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.09),transparent);
+  transform:translateX(-100%);
+  transition:transform 0.45s ease;
+}
+.btn-primary:hover::after{transform:translateX(100%)}
+.btn-primary:hover{
+  background:var(--gold-light);
+  transform:translateY(-2px);
+  box-shadow:0 10px 30px rgba(196,154,60,0.22);
+}
+
+.btn-ghost{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-size:15px;
+  font-weight:500;
+  letter-spacing:0.02em;
+  color:var(--text-soft);
+  background:transparent;
+  border:1px solid var(--border-btn);
+  padding:16px 34px;
+  border-radius:var(--radius);
+  cursor:pointer;
+  text-decoration:none;
+  transition:border-color 0.2s,color 0.2s,transform 0.2s;
+  min-height:54px;
+}
+.btn-ghost:hover{
+  border-color:var(--gold-border-hi);
+  color:var(--text);
+  transform:translateY(-2px);
+}
+
+.hero-scroll{
+  position:absolute;
+  bottom:34px;left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+  opacity:0;
+  animation:fadeIn 1s 1.5s ease forwards;
+}
+.hero-scroll span{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted)}
+.scroll-line{
+  width:1px;height:44px;
+  background:linear-gradient(to bottom,var(--gold),transparent);
+  animation:scrollPulse 2.5s ease-in-out infinite;
+}
+
+/* ─── TRUST STRIP ─── */
+#trust{
+  padding:0;
+  border-top:1px solid rgba(196,154,60,0.1);
+  border-bottom:1px solid rgba(196,154,60,0.1);
+  background:var(--bg2);
+}
+
+.trust-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+}
+@media(min-width:640px){.trust-grid{grid-template-columns:repeat(4,1fr)}}
+
+.trust-item{
+  padding:30px 20px;
+  text-align:center;
+  position:relative;
+}
+.trust-item+.trust-item{border-left:1px solid rgba(196,154,60,0.08)}
+@media(max-width:639px){
+  .trust-item:nth-child(2){border-left:1px solid rgba(196,154,60,0.08)}
+  .trust-item:nth-child(3){border-top:1px solid rgba(196,154,60,0.08);border-left:none}
+  .trust-item:nth-child(4){border-top:1px solid rgba(196,154,60,0.08);border-left:1px solid rgba(196,154,60,0.08)}
+}
+
+.trust-num{
+  font-family:var(--font-display);
+  font-size:clamp(30px,5vw,44px);
+  font-weight:400;
+  color:var(--gold);
+  line-height:1;
+  margin-bottom:8px;
+  display:block;
+}
+.trust-stars{display:flex;justify-content:center;gap:3px;margin-bottom:7px}
+.trust-label{font-size:11px;letter-spacing:0.04em;color:var(--text-muted);line-height:1.45}
+
+/* ─── SERVICES ─── */
+#services{background:var(--bg)}
+
+.services-header{
+  margin-bottom:52px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:20px;
+  align-items:end;
+}
+@media(min-width:768px){
+  .services-header{grid-template-columns:1fr auto}
+}
+
+.services-header-note{
+  font-size:14px;
+  color:var(--text-muted);
+  line-height:1.65;
+  max-width:280px;
+  text-align:left;
+}
+@media(min-width:768px){.services-header-note{text-align:right}}
+
+.services-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:2px;
+  background:var(--gold-border);
+  border:1px solid var(--gold-border);
+  border-radius:var(--radius-md);
+  overflow:hidden;
+}
+@media(min-width:600px){.services-grid{grid-template-columns:1fr 1fr}}
+
+.service-card{
+  background:var(--bg2);
+  padding:28px 24px;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  transition:background 0.3s;
+}
+.service-card::after{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;
+  height:1px;
+  background:linear-gradient(90deg,var(--gold),rgba(196,154,60,0.15));
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+.service-card:hover{background:var(--bg3)}
+.service-card:hover::after{transform:scaleX(1)}
+.service-card:hover .svc-icon{color:var(--gold-light)}
+
+.svc-icon{
+  width:32px;height:32px;
+  color:rgba(196,154,60,0.5);
+  margin-bottom:20px;
+  flex-shrink:0;
+  transition:color 0.3s;
+}
+.svc-num{
+  font-size:9px;font-weight:600;
+  letter-spacing:0.2em;
+  color:var(--text-muted);
+  margin-bottom:14px;
 }
 .svc-title{
-  font-family:var(--serif);font-size:1.25rem;font-weight:300;
-  margin-bottom:.5rem;line-height:1.25;color:var(--paper);
+  font-family:var(--font-display);
+  font-size:23px;font-weight:400;
+  color:var(--text);
+  margin-bottom:12px;
+  line-height:1.15;
 }
-.svc-badge{
-  display:inline-flex;align-items:center;gap:.3rem;
-  padding:.2rem .65rem;margin-bottom:.95rem;
-  background:rgba(184,149,74,.1);border:1px solid rgba(184,149,74,.2);
-  font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);
-  width:fit-content;
+.svc-body{margin-bottom:16px}
+.svc-desc{
+  font-size:14px;
+  color:var(--text-soft);
+  line-height:1.75;
 }
-.svc-list{list-style:none;margin-bottom:1.35rem;flex:1}
-.svc-list li{
-  font-size:.8rem;color:rgba(244,241,235,.58);
-  padding:.32rem 0;
-  display:flex;align-items:flex-start;gap:.5rem;line-height:1.6;
-  border-bottom:1px solid rgba(244,241,235,.04);
+.svc-benefit{
+  font-size:11px;font-weight:600;
+  letter-spacing:0.08em;
+  color:var(--gold);
+  margin-top:auto;
 }
-.svc-list li:last-child{border-bottom:none}
-.svc-list li::before{
-  content:'';width:4px;height:4px;
-  background:var(--gold);border-radius:50%;flex-shrink:0;margin-top:.42rem;
-}
-.svc-link{
-  display:inline-flex;align-items:center;gap:.45rem;
-  font-size:.67rem;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--gold);text-decoration:none;margin-top:auto;
-  padding:.5rem .75rem;border:1px solid rgba(184,149,74,.25);
-  transition:background var(--ease),border-color var(--ease),gap var(--ease);
-  width:fit-content;
-}
-.svc:hover .svc-link{
-  background:rgba(184,149,74,.1);border-color:rgba(184,149,74,.45);gap:.7rem;
-}
-
-/* ── CASES ── */
-.cases-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem;margin-top:1.75rem}
-.case{
-  background:var(--warm);border:1px solid var(--line);
-  transition:border-color var(--ease),box-shadow var(--ease);
-  position:relative;overflow:hidden;
-}
-.case:hover{border-color:rgba(184,149,74,.3);box-shadow:0 3px 14px rgba(15,14,11,.07)}
-.case-bar{height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
-.case:hover .case-bar{transform:scaleX(1)}
-.case-bd{padding:1.25rem 1.4rem 1.4rem}
-.case-tags{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.5rem}
-.case-tag{font-size:.6rem;letter-spacing:.09em;text-transform:uppercase;color:var(--gold);background:rgba(184,149,74,.1);padding:.15rem .52rem}
-.case-title{font-family:var(--serif);font-size:1.1rem;font-weight:300;margin-bottom:.35rem;color:var(--ink)}
-.case-desc{font-size:.78rem;color:var(--muted);line-height:1.68}
-.case-res{margin-top:.5rem;font-size:.72rem;font-weight:600;color:var(--green);display:flex;align-items:center;gap:.28rem}
-.case-res::before{content:'↑'}
-
-/* ── TRUST ── */
-.trust-wrap{display:grid;grid-template-columns:1fr 1fr}
-.trust-l{padding:3.5rem 3rem;background:var(--warm)}
-.trust-r{padding:3.5rem 3rem}
-.trust-body{font-size:.93rem;color:var(--muted);line-height:1.88;max-width:42ch;margin:1.1rem 0 1.6rem}
-.trust-nums{display:grid;grid-template-columns:1fr 1fr}
-.tn{padding:1.25rem;border:1px solid var(--line);transition:border-color var(--ease)}
-.tn:hover{border-color:rgba(184,149,74,.3)}
-.tn-val{font-family:var(--serif);font-size:1.85rem;font-weight:300;line-height:1;display:block}
-.tn-lbl{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.28rem;display:block}
-.tn-note{font-size:.7rem;color:var(--muted);margin-top:.28rem;display:block;line-height:1.5}
-.ctags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--line)}
-.ctag{padding:.22rem .65rem;border:1px solid var(--line);font-size:.65rem;color:var(--muted)}
-.hours-g{display:grid;grid-template-columns:auto 1fr;gap:.25rem .85rem;margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--line)}
-.hd{font-size:.73rem;color:var(--muted)}
-.ht{font-size:.73rem;color:var(--ink);font-weight:500}
-.hn{grid-column:1/-1;font-size:.67rem;color:var(--muted);margin-top:.35rem;padding:.32rem .6rem;background:rgba(15,14,11,.04);border-left:2px solid var(--gold)}
-
-/* ── REVIEWS ── */
-.reviews{background:var(--ink);color:var(--paper)}
-.reviews h2{color:var(--paper)}
-.reviews .s-label{color:var(--gold)}
-.rev-top{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:.85rem;margin-bottom:2rem}
-.rating-val{font-family:var(--serif);font-size:2.2rem;font-weight:300;color:var(--paper);line-height:1}
-.rating-stars{color:var(--gold);font-size:.78rem;display:block;margin-top:.18rem}
-.rating-cnt{font-size:.63rem;color:rgba(244,241,235,.28);letter-spacing:.04em;display:block;margin-top:.13rem}
-.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-.rev{
-  padding:1.4rem;border:1px solid rgba(244,241,235,.07);
-  display:flex;flex-direction:column;
-  transition:border-color var(--ease),background var(--ease);
-  position:relative;overflow:hidden;
-}
-.rev::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform var(--ease);
-}
-.rev:hover::before{transform:scaleX(1)}
-.rev:hover{border-color:rgba(184,149,74,.2);background:rgba(244,241,235,.04)}
-.rev-qm{font-family:var(--serif);font-size:2.2rem;font-weight:300;color:rgba(184,149,74,.2);line-height:.7;display:block;margin-bottom:.55rem}
-.rev-stars{display:flex;gap:2px;margin-bottom:.75rem}
-.rev-stars span{color:var(--gold);font-size:.78rem}
-.rev-text{font-family:var(--serif);font-size:1rem;font-weight:300;line-height:1.68;color:rgba(244,241,235,.87);flex:1;margin-bottom:1.2rem}
-.rev-foot{display:flex;align-items:center;gap:.7rem;padding-top:.95rem;border-top:1px solid rgba(244,241,235,.07);margin-top:auto}
-.rev-av{
-  width:34px;height:34px;border-radius:50%;flex-shrink:0;
-  background:rgba(184,149,74,.18);border:1px solid rgba(184,149,74,.25);
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--serif);font-size:.85rem;color:var(--gold);font-style:italic;
-}
-.rev-name{font-size:.8rem;font-weight:600;color:var(--paper);display:block}
-.rev-src{font-size:.65rem;color:rgba(244,241,235,.26);display:block;margin-top:.1rem}
-
-/* ── FORM ── */
-.form-wrap{display:grid;grid-template-columns:1fr 1fr}
-.form-l{padding:3.5rem 3rem;background:var(--ink);color:var(--paper);display:flex;flex-direction:column;justify-content:center}
-.form-r{padding:3.5rem 3rem;display:flex;flex-direction:column;justify-content:center}
-.online-badge{
-  display:inline-flex;align-items:center;gap:.5rem;
-  background:rgba(26,92,58,.12);border:1px solid rgba(26,92,58,.22);
-  padding:.4rem .85rem;margin-bottom:1.35rem;width:fit-content;
-}
-.online-dot{width:6px;height:6px;background:#22C55E;border-radius:50%;flex-shrink:0;animation:blink 2.4s ease-in-out infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-.online-text{font-size:.7rem;font-weight:600;color:#22C55E}
-.form-h{font-family:var(--serif);font-size:clamp(1.6rem,2.5vw,2.6rem);font-weight:300;line-height:1.15;margin-bottom:.6rem;color:var(--paper)}
-.form-h em{font-style:italic;color:var(--gold)}
-.form-p{font-size:.84rem;color:rgba(244,241,235,.42);line-height:1.75;margin-bottom:1.85rem;max-width:38ch}
-.c-list{display:flex;flex-direction:column}
-.c-row{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:.6rem 0;border-bottom:1px solid rgba(244,241,235,.06);font-size:.78rem;
-}
-.c-lbl{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(244,241,235,.3)}
-.c-val{color:rgba(244,241,235,.7)}
-.c-val a{color:rgba(244,241,235,.7);text-decoration:none;transition:color var(--ease)}
-.c-val a:hover{color:var(--gold)}
-.form-title{font-family:var(--serif);font-size:1.4rem;font-weight:300;margin-bottom:.25rem}
-.form-hint{font-size:.8rem;color:var(--muted);margin-bottom:1.75rem}
-.f-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.f-g{margin-bottom:1.25rem}
-.f-lbl{display:block;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.45rem}
-.f-inp{
-  width:100%;background:transparent;border:none;
-  border-bottom:1.5px solid rgba(15,14,11,.15);
-  padding:.65rem 0;font-family:var(--sans);font-size:.95rem;
-  color:var(--ink);outline:none;transition:border-color var(--ease);appearance:none;
-  min-height:44px;
-}
-.f-inp:focus{border-color:var(--ink)}
-.f-inp::placeholder{color:rgba(15,14,11,.3)}
-.f-inp.err{border-color:#dc2626}
-.f-actions{display:flex;gap:.6rem;margin-top:1.6rem;flex-wrap:wrap}
-.f-note{font-size:.66rem;color:var(--muted);margin-top:.8rem;display:flex;align-items:center;gap:.3rem}
-
-/* ── HOW TO FIND ── */
-.find-section{background:var(--warm);padding:3.5rem 3rem}
-.find-inner{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
-.find-address{
-  font-family:var(--serif);font-size:clamp(1.4rem,2.2vw,2rem);
-  font-weight:300;line-height:1.2;color:var(--ink);margin:.85rem 0 .45rem;
-}
-.find-note{font-size:.82rem;color:var(--muted);margin-bottom:.3rem;display:flex;align-items:center;gap:.35rem}
-.find-note::before{content:'•';color:var(--gold)}
-.find-btns{display:flex;flex-direction:column;gap:.5rem;margin-top:1.5rem}
-.find-btn{
-  display:flex;align-items:center;gap:.75rem;
-  padding:.9rem 1.15rem;background:var(--paper);border:1px solid var(--line);
-  text-decoration:none;color:var(--ink);font-size:.82rem;font-weight:500;
-  min-height:52px;
-  transition:border-color var(--ease),box-shadow var(--ease),transform var(--ease);
-}
-.find-btn:hover{border-color:rgba(184,149,74,.4);box-shadow:0 3px 12px rgba(15,14,11,.08);transform:translateY(-1px)}
-.find-btn svg{width:18px;height:18px;flex-shrink:0;fill:var(--gold)}
-.find-btn-sub{font-size:.7rem;color:var(--muted);display:block;margin-top:.1rem;font-weight:400}
-.find-contact-title{font-family:var(--serif);font-size:1.15rem;font-weight:300;margin-bottom:1.1rem}
-.contact-items{display:flex;flex-direction:column}
-.contact-item{
-  display:flex;align-items:center;gap:.85rem;
-  padding:.85rem 0;border-bottom:1px solid var(--line);
-  text-decoration:none;color:var(--ink);transition:color var(--ease);
-  min-height:56px;
-}
-.contact-item:first-child{border-top:1px solid var(--line)}
-.ci-icon{
-  width:32px;height:32px;border-radius:50%;
-  background:var(--paper);border:1px solid var(--line);flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;
-  transition:border-color var(--ease);
-}
-.ci-icon svg{width:14px;height:14px;fill:var(--muted);transition:fill var(--ease)}
-.contact-item:hover .ci-icon{border-color:var(--gold)}
-.contact-item:hover .ci-icon svg{fill:var(--gold)}
-.ci-lbl{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:.12rem}
-.ci-val{font-size:.88rem;font-weight:500;color:var(--ink);display:block;transition:color var(--ease)}
-.contact-item:hover .ci-val{color:var(--gold)}
-.ci-sub{font-size:.7rem;color:var(--muted);display:block;margin-top:.1rem}
-
-/* Instagram card */
-.ig-card{
-  display:flex;align-items:center;gap:.9rem;
-  padding:1.1rem;margin-top:1.25rem;
-  background:var(--paper);border:1px solid var(--line);
-  text-decoration:none;color:var(--ink);
-  transition:border-color var(--ease),box-shadow var(--ease),transform var(--ease);
-}
-.ig-card:hover{border-color:rgba(184,149,74,.4);box-shadow:0 4px 16px rgba(15,14,11,.08);transform:translateY(-2px)}
-.ig-icon{
-  width:38px;height:38px;border-radius:9px;flex-shrink:0;
-  background:linear-gradient(135deg,#f9ce34,#ee2a7b,#6228d7);
-  display:flex;align-items:center;justify-content:center;
-  transition:transform var(--ease);
-}
-.ig-card:hover .ig-icon{transform:scale(1.06)}
-.ig-icon svg{width:18px;height:18px;fill:#fff}
-.ig-body{flex:1}
-.ig-handle{font-size:.85rem;font-weight:600;display:block}
-.ig-desc{font-size:.67rem;color:var(--muted);margin-top:.13rem;display:block}
-.ig-arr{font-size:.68rem;color:var(--muted);transition:transform var(--ease),color var(--ease)}
-.ig-card:hover .ig-arr{transform:translateX(3px);color:var(--gold)}
-
-/* Hours card */
-.hours-card{background:var(--paper);border:1px solid var(--line);padding:1.35rem;margin-top:1.25rem}
-.hours-card-title{font-family:var(--serif);font-size:.95rem;font-weight:300;margin-bottom:1rem}
-.h-row{display:flex;justify-content:space-between;align-items:center;padding:.55rem 0;border-bottom:1px solid var(--line);font-size:.78rem}
-.h-row:last-child{border-bottom:none}
-.h-day{color:var(--muted);font-size:.75rem}
-.h-time{font-weight:500}
-.h-time.off{color:var(--muted);font-weight:400}
-.h-note{font-size:.65rem;color:var(--muted);margin-top:.75rem;padding:.35rem .65rem;background:rgba(184,149,74,.07);border-left:2px solid var(--gold);line-height:1.55}
-
-/* ── FOOTER ── */
-footer{
-  background:var(--ink);color:var(--paper);
-  padding:2rem 3rem;
-  display:flex;align-items:center;justify-content:space-between;
-  border-top:1px solid rgba(244,241,235,.06);flex-wrap:wrap;gap:1rem;
-}
-.footer-logo{font-family:var(--serif);font-size:1.4rem;font-weight:300;letter-spacing:.12em}
-.footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}
-.footer-links a{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(244,241,235,.26);text-decoration:none;transition:color var(--ease)}
-.footer-links a:hover{color:var(--paper)}
-.footer-copy{font-size:.6rem;color:rgba(244,241,235,.16)}
-
-/* ── ANIM ── */
-.fu{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}
-.fu.v{opacity:1;transform:none}
-
-/* ── RESPONSIVE ── */
-@media(max-width:1024px){
-  nav{padding:.8rem 1.5rem}
-  .nav-links{display:none}
-  .section{padding:2.75rem 1.5rem}
-  /* Hero */
-  .hero{grid-template-columns:1fr;min-height:auto}
-  .hero-r{display:none}
-  .hero-l{padding:2.25rem 1.5rem 2rem}
-  /* Services */
-  .svc-grid{grid-template-columns:1fr 1fr}
-  .svc-head{margin-bottom:1.75rem}
-  /* Trust */
-  .trust-wrap{grid-template-columns:1fr}
-  .trust-l,.trust-r{padding:2.75rem 1.5rem}
-  .trust-nums{grid-template-columns:1fr 1fr}
-  /* Reviews */
-  .reviews-grid{grid-template-columns:1fr}
-  .rev-top{flex-direction:column;align-items:flex-start;margin-bottom:1.75rem}
-  /* Form */
-  .form-wrap{grid-template-columns:1fr}
-  .form-l,.form-r{padding:2.75rem 1.5rem}
-  .f-row{grid-template-columns:1fr}
-  /* Find */
-  .find-inner{grid-template-columns:1fr;gap:2rem}
-  .find-section{padding:2.75rem 1.5rem}
-  /* Cases */
-  .cases-grid{grid-template-columns:1fr 1fr;gap:.7rem;margin-top:1.5rem}
-  /* Clients */
-  .clients-strip{padding:1rem 1.5rem}
-  /* Footer */
-  footer{padding:1.75rem 1.5rem;flex-direction:column;align-items:flex-start;gap:.85rem}
-  .wa-float{bottom:1.25rem;right:1.25rem}
-}
-@media(max-width:640px){
-  .section{padding:2.25rem 1.25rem}
-  .hero-l{padding:2rem 1.25rem 1.75rem}
-  h1{font-size:clamp(2rem,7.5vw,2.7rem)}
-  .hero-btns{flex-direction:column;gap:.55rem}
-  .hero-btns .btn{width:100%;justify-content:center}
-  .hero-proof{gap:1.2rem}
-  .svc-grid{grid-template-columns:1fr}
-  .svc{border-right:none}
-  .trust-l,.trust-r{padding:2.25rem 1.25rem}
-  .trust-nums{grid-template-columns:1fr 1fr}
-  .cases-grid{grid-template-columns:1fr}
-  .form-l,.form-r{padding:2.25rem 1.25rem}
-  .f-actions{flex-direction:column}
-  .f-actions .btn{width:100%;justify-content:center}
-  .find-section{padding:2.25rem 1.25rem}
-  .footer-links{gap:.85rem}
-  footer{padding:1.5rem 1.25rem}
-  .wa-float{width:48px;height:48px;bottom:1rem;right:1rem}
-  /* Ensure svc cards readable on small screen */
-  .svc{padding:1.6rem 1.25rem}
-  .svc-title{font-size:1.2rem}
-}
-/* ── MOBILE STICKY WA BAR ── */
-.mob-bar{
-  display:none;
-  position:fixed;bottom:0;left:0;right:0;z-index:250;
-  background:var(--ink);border-top:1px solid rgba(244,241,235,.08);
-  padding:.85rem 1.25rem;
-  align-items:center;gap:.7rem;
-}
-.mob-bar-cta{
-  flex:1;display:flex;align-items:center;justify-content:center;gap:.5rem;
-  background:#25D366;color:#fff;font-family:var(--sans);
-  font-size:.78rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
-  padding:.8rem 1rem;text-decoration:none;border-radius:2px;
-  transition:background .2s ease;
-}
-.mob-bar-cta:hover{background:#1dba58}
-.mob-bar-cta svg{width:16px;height:16px;fill:#fff;flex-shrink:0}
-.mob-bar-call{
-  display:flex;align-items:center;justify-content:center;
-  width:46px;height:46px;border-radius:2px;flex-shrink:0;
-  background:rgba(244,241,235,.08);border:1px solid rgba(244,241,235,.12);
+.svc-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-family:var(--font-body);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--gold);
   text-decoration:none;
-  transition:background .2s ease;
+  border-top:1px solid var(--gold-border);
+  padding-top:14px;
+  margin-top:14px;
+  transition:color 0.2s ease,gap 0.2s ease;
 }
-.mob-bar-call:hover{background:rgba(244,241,235,.15)}
-.mob-bar-call svg{width:18px;height:18px;fill:rgba(244,241,235,.7)}
-@media(max-width:640px){
-  .mob-bar{display:flex}
-  body{padding-bottom:72px}
-  .wa-float{display:none}
+.svc-cta:hover{color:var(--gold-light);gap:10px}
+.svc-cta svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:1.8;flex-shrink:0}
+
+/* ─── CATALOG ─── */
+.catalog-header{margin-bottom:52px}
+.catalog-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:2px;
+  background:var(--gold-border);
+  border:1px solid var(--gold-border);
+  border-radius:var(--radius-md);
+  overflow:hidden;
+}
+@media(min-width:600px){.catalog-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:900px){.catalog-grid{grid-template-columns:repeat(4,1fr)}}
+.cat-card{
+  background:var(--bg);
+  padding:28px 24px;
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  transition:background 0.22s ease;
+}
+.cat-card::after{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;
+  height:2px;
+  background:linear-gradient(90deg,var(--gold),transparent);
+  opacity:0;
+  transition:opacity 0.28s ease;
+}
+.cat-card:hover{background:var(--bg3)}
+.cat-card:hover::after{opacity:1}
+.cat-icon{
+  width:28px;height:28px;
+  color:rgba(196,154,60,0.5);
+  margin-bottom:20px;
+  flex-shrink:0;
+  transition:color 0.22s ease;
+}
+.cat-card:hover .cat-icon{color:var(--gold)}
+.cat-title{
+  font-family:var(--font-display);
+  font-size:17px;
+  font-weight:600;
+  line-height:1.2;
+  color:var(--text);
+  margin-bottom:8px;
+}
+.cat-desc{
+  font-size:13px;
+  line-height:1.65;
+  color:var(--text-soft);
+  flex:1;
+  margin-bottom:20px;
+}
+.cat-order{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-family:var(--font-body);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--gold);
+  text-decoration:none;
+  border-top:1px solid var(--gold-border);
+  padding-top:16px;
+  margin-top:auto;
+  transition:color 0.2s ease,gap 0.2s ease;
+}
+.cat-order:hover{color:var(--gold-light);gap:10px}
+.cat-order svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:1.8;flex-shrink:0}
+
+/* ─── WHY ─── */
+#why{background:var(--bg2)}
+
+.why-header{margin-bottom:56px}
+
+.why-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  border-top:1px solid rgba(196,154,60,0.1);
+}
+@media(min-width:768px){.why-grid{grid-template-columns:1fr 1fr}}
+
+.why-item{
+  padding:40px 0;
+  border-bottom:1px solid rgba(196,154,60,0.1);
+  display:grid;
+  grid-template-columns:52px 1fr;
+  gap:22px;
+  align-items:start;
+  opacity:0;
+  transform:translateY(14px);
+  transition:opacity 0.5s cubic-bezier(0.16,1,0.3,1),transform 0.5s cubic-bezier(0.16,1,0.3,1);
+}
+.why-item.visible{opacity:1;transform:none}
+
+@media(min-width:768px){
+  .why-item{padding:44px 48px 44px 0}
+  .why-item:nth-child(even){padding:44px 0 44px 48px;border-left:1px solid rgba(196,154,60,0.1)}
+}
+
+.why-index{
+  width:28px;height:28px;
+  color:rgba(196,154,60,0.55);
+  flex-shrink:0;
+  padding-top:2px;
+}
+.why-index svg{width:28px;height:28px;stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;}
+.why-title{
+  font-family:var(--font-display);
+  font-size:25px;font-weight:400;
+  color:var(--text);
+  margin-bottom:10px;
+  line-height:1.15;
+}
+.why-text{font-size:15px;color:var(--text-soft);line-height:1.78}
+
+/* ─── CASES ─── */
+#cases{background:var(--bg)}
+
+.cases-header{margin-bottom:48px}
+
+.cases-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:2px;
+  background:var(--gold-border);
+  border:1px solid var(--gold-border);
+  border-radius:var(--radius-md);
+  overflow:hidden;
+}
+@media(min-width:768px){.cases-grid{grid-template-columns:repeat(3,1fr)}}
+
+.case-card{
+  background:var(--bg2);
+  padding:36px 32px;
+  display:flex;
+  flex-direction:column;
+  transition:background 0.3s;
+}
+.case-card:hover{background:var(--bg3)}
+
+.case-tag{
+  font-size:9px;font-weight:600;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:18px;
+  display:block;
+}
+.case-title{
+  font-family:var(--font-display);
+  font-size:23px;font-weight:400;
+  color:var(--text);
+  margin-bottom:14px;
+  line-height:1.15;
+}
+.case-what{
+  font-size:14px;
+  color:var(--text-soft);
+  line-height:1.75;
+  flex:1;
+  margin-bottom:28px;
+}
+.case-result{border-top:1px solid rgba(196,154,60,0.12);padding-top:20px}
+.case-result-label{
+  font-size:9px;font-weight:600;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--text-muted);
+  margin-bottom:6px;
+}
+.case-result-text{font-size:14px;font-weight:600;color:var(--gold)}
+
+/* ─── REVIEWS ─── */
+#reviews{background:var(--bg2)}
+
+.reviews-header{margin-bottom:52px}
+
+.reviews-rating{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-top:20px;
+}
+.reviews-big-num{
+  font-family:var(--font-display);
+  font-size:54px;font-weight:400;
+  color:var(--gold);
+  line-height:1;
+}
+.reviews-stars-col{display:flex;flex-direction:column;gap:5px}
+.reviews-count{font-size:12px;color:var(--text-muted)}
+
+.reviews-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:2px;
+  background:var(--gold-border);
+  border:1px solid var(--gold-border);
+  border-radius:var(--radius-md);
+  overflow:hidden;
+}
+@media(min-width:600px){.reviews-grid{grid-template-columns:repeat(3,1fr)}}
+
+.review-card{
+  background:var(--bg3);
+  padding:32px 28px;
+  display:flex;
+  flex-direction:column;
+  transition:background 0.3s;
+}
+.review-card:hover{background:var(--bg4)}
+
+.review-stars{display:flex;gap:3px;margin-bottom:20px}
+.review-text{
+  font-family:var(--font-display);
+  font-size:19px;font-weight:400;
+  font-style:italic;
+  color:var(--text);
+  line-height:1.65;
+  flex:1;
+  margin-bottom:24px;
+}
+.review-rule{width:28px;height:1px;background:rgba(196,154,60,0.3);margin-bottom:14px}
+.review-author{
+  font-size:11px;font-weight:600;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--text-muted);
+}
+
+/* ─── PROCESS ─── */
+#process{background:var(--bg)}
+
+.process-header{margin-bottom:56px}
+
+.process-steps{position:relative}
+.process-line{
+  display:none;
+  position:absolute;
+  top:27px;
+  left:calc(12.5% + 24px);
+  right:calc(12.5% + 24px);
+  height:1px;
+  background:linear-gradient(90deg,var(--gold) 0%,rgba(196,154,60,0.12) 100%);
+  z-index:0;
+}
+@media(min-width:768px){.process-line{display:block}}
+
+.process-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:36px;
+  position:relative;z-index:1;
+}
+@media(min-width:768px){.process-grid{grid-template-columns:repeat(4,1fr);gap:0}}
+
+.process-step{display:flex;gap:20px;align-items:flex-start}
+@media(min-width:768px){
+  .process-step{
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    padding:0 24px;
+  }
+}
+
+.step-num{
+  width:54px;height:54px;
+  border:1px solid var(--gold-border-hi);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--gold);
+  flex-shrink:0;
+  background:var(--bg);
+  position:relative;z-index:2;
+  transition:background 0.3s,border-color 0.3s;
+}
+.step-num svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;}
+.process-step:hover .step-num{background:var(--gold-dim);border-color:var(--gold)}
+
+.step-body{flex:1}
+@media(min-width:768px){.step-body{margin-top:24px}}
+
+.step-title{
+  font-family:var(--font-display);
+  font-size:20px;font-weight:400;
+  color:var(--text);
+  margin-bottom:8px;
+  line-height:1.2;
+}
+.step-desc{font-size:14px;color:var(--text-soft);line-height:1.75}
+
+/* ─── FORM ─── */
+#order{background:var(--bg2)}
+
+.form-wrap{max-width:540px;margin:0 auto}
+.form-header{text-align:center;margin-bottom:44px}
+.form-header .section-sub{margin:0 auto;text-align:center}
+
+.form-group{margin-bottom:14px}
+.form-label{
+  display:block;
+  font-size:10px;font-weight:600;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--text-muted);
+  margin-bottom:8px;
+}
+.form-input,.form-textarea{
+  width:100%;
+  background:var(--bg3);
+  border:1px solid rgba(196,154,60,0.13);
+  border-radius:var(--radius);
+  padding:15px 18px;
+  font-family:var(--font-body);
+  font-size:16px;
+  color:var(--text);
+  outline:none;
+  appearance:none;
+  -webkit-appearance:none;
+  transition:border-color 0.2s,box-shadow 0.2s;
+}
+.form-input::placeholder,.form-textarea::placeholder{color:var(--text-muted)}
+.form-input:focus,.form-textarea:focus{
+  border-color:var(--gold);
+  box-shadow:0 0 0 3px rgba(196,154,60,0.07);
+}
+.form-textarea{min-height:96px;resize:vertical}
+
+.form-submit{
+  width:100%;
+  font-family:var(--font-body);
+  font-size:15px;font-weight:600;
+  letter-spacing:0.03em;
+  color:var(--btn-text);
+  background:var(--gold);
+  border:none;
+  padding:20px;
+  border-radius:var(--radius);
+  cursor:pointer;
+  margin-top:10px;
+  transition:background 0.2s,transform 0.15s,box-shadow 0.2s;
+}
+.form-submit:hover{
+  background:var(--gold-light);
+  transform:translateY(-2px);
+  box-shadow:0 10px 28px rgba(196,154,60,0.18);
+}
+.form-note{
+  font-size:12px;
+  color:var(--text-muted);
+  text-align:center;
+  margin-top:16px;
+  line-height:1.6;
+}
+
+/* ─── CONTACTS ─── */
+#contacts{background:var(--bg)}
+
+.contacts-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:56px;
+  margin-top:52px;
+}
+@media(min-width:768px){.contacts-grid{grid-template-columns:1fr 1fr;gap:80px}}
+
+.contacts-block-label{
+  font-size:10px;font-weight:600;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:24px;
+  display:block;
+}
+.contact-row{
+  display:flex;flex-direction:column;gap:3px;
+  padding:16px 0;
+  border-bottom:1px solid rgba(196,154,60,0.07);
+}
+.contact-row:last-of-type{border-bottom:none}
+.contact-key{
+  font-size:10px;font-weight:600;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--text-muted);
+}
+.contact-val{font-size:16px;color:var(--text);line-height:1.5}
+.contact-val a{color:var(--text);text-decoration:none;transition:color 0.2s}
+.contact-val a:hover{color:var(--gold)}
+
+.map-btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.btn-map{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:600;
+  letter-spacing:0.04em;
+  color:var(--text-soft);
+  background:transparent;
+  border:1px solid var(--border-btn);
+  padding:11px 18px;
+  border-radius:var(--radius);
+  text-decoration:none;
+  transition:border-color 0.2s,color 0.2s;
+}
+.btn-map:hover{border-color:var(--gold-border-hi);color:var(--gold)}
+
+.schedule-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 0;
+  border-bottom:1px solid rgba(196,154,60,0.07);
+}
+.schedule-row:last-child{border-bottom:none}
+.schedule-day{font-size:14px;color:var(--text)}
+.schedule-time{font-size:14px;color:var(--text-soft);text-align:right}
+.schedule-note{font-size:12px;color:var(--text-muted);margin-top:16px;line-height:1.6}
+
+/* ─── FOOTER ─── */
+footer{
+  background:var(--bg2);
+  border-top:1px solid rgba(196,154,60,0.1);
+  padding:36px 24px;
+}
+.footer-inner{
+  max-width:1100px;margin:0 auto;
+  display:flex;flex-direction:column;gap:24px;
+}
+@media(min-width:640px){
+  .footer-inner{flex-direction:row;justify-content:space-between;align-items:center}
+}
+
+.footer-logo{
+  font-size:15px;font-weight:600;
+  letter-spacing:0.08em;
+  color:var(--text);
+  text-decoration:none;
+  display:block;
+  margin-bottom:6px;
+}
+.footer-logo em{font-style:normal;color:var(--gold);font-weight:300}
+.footer-addr{font-size:12px;color:var(--text-muted);line-height:1.55}
+
+.footer-right{
+  display:flex;flex-direction:column;gap:8px;
+  align-items:flex-start;
+}
+@media(min-width:640px){.footer-right{align-items:flex-end}}
+
+.footer-link{
+  font-size:12px;color:var(--text-muted);
+  text-decoration:none;
+  transition:color 0.2s;
+  letter-spacing:0.02em;
+}
+.footer-link:hover{color:var(--gold)}
+.footer-copy{font-size:11px;color:var(--text-muted);margin-top:4px}
+
+/* ─── FLOATING WA ─── */
+.wa-float{
+  position:fixed;
+  bottom:80px;right:20px;
+  width:52px;height:52px;
+  background:#22C55E;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(34,197,94,0.28);
+  z-index:90;
+  text-decoration:none;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.wa-float:hover{
+  transform:scale(1.09) translateY(-2px);
+  box-shadow:0 8px 28px rgba(34,197,94,0.38);
+}
+@media(min-width:768px){.wa-float{bottom:32px}}
+
+/* ─── MOBILE CTA BAR ─── */
+.mobile-cta{
+  position:fixed;
+  bottom:0;left:0;right:0;
+  display:flex;
+  height:62px;
+  z-index:95;
+  background:var(--bg2);
+  border-top:1px solid rgba(196,154,60,0.14);
+}
+@media(min-width:768px){.mobile-cta{display:none}}
+
+.mobile-cta-btn{
+  flex:1;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  font-family:var(--font-body);
+  font-size:14px;font-weight:600;
+  letter-spacing:0.03em;
+  text-decoration:none;
+  border:none;
+  cursor:pointer;
+  transition:background 0.2s;
+}
+.mobile-cta-btn:first-child{color:var(--btn-text);background:var(--gold)}
+.mobile-cta-btn:first-child:hover{background:var(--gold-light)}
+.mobile-cta-btn:last-child{
+  color:var(--text);
+  background:transparent;
+  border-left:1px solid rgba(196,154,60,0.14);
+}
+.mobile-cta-btn:last-child:hover{background:rgba(196,154,60,0.04)}
+
+/* ─── REVEAL ─── */
+.reveal{
+  opacity:0;
+  transform:translateY(16px);
+  transition:opacity 0.5s cubic-bezier(0.16,1,0.3,1),transform 0.5s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal.visible{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  .reveal,.why-item{transition:none!important;transform:none!important;opacity:1!important}
+}
+
+/* ─── KEYFRAMES ─── */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(22px)}
+  to{opacity:1;transform:none}
+}
+@keyframes fadeIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+@keyframes scrollPulse{
+  0%,100%{opacity:0.3;transform:scaleY(1)}
+  50%{opacity:0.85;transform:scaleY(0.7)}
+}
+
+/* SVG star helpers */
+.sf{fill:var(--gold)}
+.se{fill:none;stroke:var(--gold);stroke-width:1.3}
+
+.theme-switching *,.theme-switching *::before,.theme-switching *::after{
+  transition:background-color 0.32s ease,color 0.32s ease,border-color 0.32s ease,box-shadow 0.32s ease !important;
 }
 </style>
 </head>
 <body>
 
-<!-- MOBILE BOTTOM BAR -->
-<div class="mob-bar" id="mob-bar">
-  <a class="mob-bar-cta"
-     href="https://wa.me/77024056954?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D1%85%D0%BE%D1%87%D1%83%20%D1%80%D0%B0%D1%81%D1%81%D1%87%D0%B8%D1%82%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%B8"
-     target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    Написать в WhatsApp
-  </a>
-  <a class="mob-bar-call" href="tel:+77024056954" aria-label="Позвонить">
-    <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-  </a>
-</div>
-
-<!-- FLOATING WA -->
-<a class="wa-float"
-   href="https://wa.me/77024056954?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D1%85%D0%BE%D1%87%D1%83%20%D1%80%D0%B0%D1%81%D1%81%D1%87%D0%B8%D1%82%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%B8"
-   target="_blank" rel="noopener" aria-label="Написать в WhatsApp">
-  <span class="wa-float-tip">WhatsApp</span>
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
-
 <!-- NAV -->
-<nav>
-  <a href="#" class="logo">BasPrint</a>
-  <div class="nav-r">
-    <ul class="nav-links">
-      <li><a href="#services">Услуги</a></li>
-      <li><a href="#about">О нас</a></li>
-      <li><a href="#reviews">Отзывы</a></li>
-      <li><a href="#find">Адрес</a></li>
+<nav id="nav">
+  <a href="#hero" class="nav-logo">
+    <div class="logo-mark"><span class="logo-bas">BAS</span><span class="logo-sep">·</span><span class="logo-print">PRINT</span></div>
+    <span class="logo-sub" data-ru="полиграфия в Астане" data-kz="Астанадағы баспахана" data-en="print shop in Astana">полиграфия в Астане</span>
+  </a>
+  <div class="nav-center">
+    <ul>
+      <li><a href="#services" data-nav="services">Услуги</a></li>
+      <li><a href="#catalog" data-nav="catalog">Каталог</a></li>
+      <li><a href="#cases" data-nav="cases">Кейсы</a></li>
+      <li><a href="#reviews" data-nav="reviews">Отзывы</a></li>
+      <li><a href="#contacts" data-nav="contacts">Контакты</a></li>
     </ul>
-    <a href="#form" class="nav-cta">Рассчитать →</a>
+  </div>
+  <div class="nav-right">
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang="ru">RU</button>
+      <span class="lang-div">|</span>
+      <button class="lang-btn" data-lang="kz">KZ</button>
+      <span class="lang-div">|</span>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+      <svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+    </button>
+    <a href="#order" class="nav-cta" data-nav="cta">Рассчитать стоимость</a>
+    <button class="nav-burger" id="navBurger" aria-label="Меню"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero" style="padding:0">
-  <div class="hero-l">
-    <p class="hero-eyebrow">Полиграфия · Астана · с 2018 года</p>
-    <h1 class="hero-h1">Печать за<br><em>24–48 часов</em><br>в Астане</h1>
-    <p class="hero-claim">Визитки, баннеры, буклеты — быстро и без брака.</p>
-    <p class="hero-sub">Работаем с частными клиентами и компаниями. Проверяем макет до печати. Самовывоз или доставка.</p>
-    <div class="btn-row hero-btns">
-      <a href="#form" class="btn btn-p btn-lg">Рассчитать стоимость <span class="arr">→</span></a>
-      <a href="https://wa.me/77024056954?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D1%85%D0%BE%D1%87%D1%83%20%D1%80%D0%B0%D1%81%D1%81%D1%87%D0%B8%D1%82%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%B8"
-         class="btn btn-w btn-lg" target="_blank" rel="noopener">
-        <svg width="15" height="15" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp
-      </a>
+<!-- MOBILE NAV -->
+<div class="nav-mob" id="navMob">
+  <ul class="mob-links">
+    <li><a href="#services" data-nav="services">Услуги</a></li>
+    <li><a href="#catalog" data-nav="catalog">Каталог</a></li>
+    <li><a href="#cases" data-nav="cases">Кейсы</a></li>
+    <li><a href="#reviews" data-nav="reviews">Отзывы</a></li>
+    <li><a href="#contacts" data-nav="contacts">Контакты</a></li>
+  </ul>
+  <div class="mob-footer">
+    <div class="mob-lang">
+      <button class="lang-btn" data-lang="ru">RU</button>
+      <span class="lang-div">|</span>
+      <button class="lang-btn" data-lang="kz">KZ</button>
+      <span class="lang-div">|</span>
+      <button class="lang-btn" data-lang="en">EN</button>
     </div>
-    <div class="hero-proof">
-      <div><span class="proof-n">4.2★</span><span class="proof-l">232 отзыва 2GIS</span></div>
-      <div><span class="proof-n">24 ч</span><span class="proof-l">срочный заказ</span></div>
-      <div><span class="proof-n">100%</span><span class="proof-l">проверка макета</span></div>
+    <a href="#order" class="mob-cta" data-nav="cta">Рассчитать стоимость</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow-2"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow" data-ru="Полиграфия в Астане" data-kz="Астанадағы баспахана" data-en="Print shop in Astana">Полиграфия в Астане</p>
+    <h1 class="hero-h1"><span data-ru="Печать" data-kz="Басып шығару" data-en="Printing">Печать</span><br><span class="accent" data-ru="за 24–48&nbsp;часов" data-kz="24–48&nbsp;сағатта" data-en="in 24–48&nbsp;hours">за 24–48&nbsp;часов</span></h1>
+    <p class="hero-sub" data-ru="Визитки, баннеры, буклеты, брошюры. Готовим в срок, проверяем макет перед запуском, гарантируем качество." data-kz="Визиткалар, баннерлер, буклеттер, брошюралар. Уақытылы дайындаймыз, макетті тексереміз, сапаға кепілдік береміз." data-en="Business cards, banners, booklets, brochures. Ready on time, layout checked, quality guaranteed.">
+      Визитки, баннеры, буклеты, брошюры. Готовим в срок, проверяем макет перед запуском, гарантируем качество.
+    </p>
+    <div class="hero-trust-row">
+      <div class="hero-trust-item">
+        <div class="hstars">
+          <svg width="12" height="12" viewBox="0 0 14 14"><polygon class="sf" points="7,1 8.8,5.5 13.5,5.5 9.8,8.5 11.3,13 7,10.2 2.7,13 4.2,8.5 0.5,5.5 5.2,5.5"/></svg>
+          <svg width="12" height="12" viewBox="0 0 14 14"><polygon class="sf" points="7,1 8.8,5.5 13.5,5.5 9.8,8.5 11.3,13 7,10.2 2.7,13 4.2,8.5 0.5,5.5 5.2,5.5"/></svg>
+          <svg width="12" height="12" viewBox="0 0 14 14"><polygon class="sf" points="7,1 8.8,5.5 13.5,5.5 9.8,8.5 11.3,13 7,10.2 2.7,13 4.2,8.5 0.5,5.5 5.2,5.5"/></svg>
+          <svg width="12" height="12" viewBox="0 0 14 14"><polygon class="sf" points="7,1 8.8,5.5 13.5,5.5 9.8,8.5 11.3,13 7,10.2 2.7,13 4.2,8.5 0.5,5.5 5.2,5.5"/></svg>
+          <svg width="12" height="12" viewBox="0 0 14 14"><polygon class="se" points="7,1 8.8,5.5 13.5,5.5 9.8,8.5 11.3,13 7,10.2 2.7,13 4.2,8.5 0.5,5.5 5.2,5.5"/></svg>
+        </div>
+        <span data-ru="4.2 — 232 отзыва" data-kz="4.2 — 232 пікір" data-en="4.2 — 232 reviews">4.2 — 232 отзыва</span>
+      </div>
+      <div class="hero-trust-sep"></div>
+      <div class="hero-trust-item"><span data-ru="Проверка макета включена" data-kz="Макет тексеру кіреді" data-en="Layout check included">Проверка макета включена</span></div>
+      <div class="hero-trust-sep"></div>
+      <div class="hero-trust-item"><span data-ru="Доставка по Астане" data-kz="Астана бойынша жеткізу" data-en="Delivery in Astana">Доставка по Астане</span></div>
+    </div>
+    <div class="hero-btns">
+      <a href="https://wa.me/77024056954" class="btn-primary" target="_blank" rel="noopener">
+        <svg width="17" height="17" viewBox="0 0 26 26" fill="none">
+          <path d="M13 2C7.477 2 3 6.477 3 12c0 1.89.52 3.66 1.43 5.18L3 23l5.97-1.56A9.94 9.94 0 0013 22c5.523 0 10-4.477 10-10S18.523 2 13 2z" fill="currentColor"/>
+          <path d="M9.5 8.5c.2-.5.5-.5.7-.5h.6c.2 0 .4.1.6.5l.8 2c.1.3.05.6-.1.8l-.5.6c.4.8 1 1.5 1.8 1.9l.5-.5c.2-.2.5-.3.8-.2l2 .7c.4.15.5.35.5.6v.9c0 .4-.3.7-.7.7C11.3 16 8 12.7 8 9.2c0-.4.3-.7.7-.7h.8z" fill="var(--bg)"/>
+        </svg>
+        <span data-ru="Написать в WhatsApp" data-kz="WhatsApp-та жазу" data-en="Write on WhatsApp">Написать в WhatsApp</span>
+      </a>
+      <a href="#order" class="btn-ghost" data-ru="Рассчитать стоимость" data-kz="Бағасын есептеу" data-en="Get a Quote">Рассчитать стоимость</a>
     </div>
   </div>
-  <div class="hero-r">
-    <div class="hero-bg"></div>
-    <div class="hero-facts">
-      <div class="hero-fact">
-        <div class="hf-icon">
-          <svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section id="trust">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="trust-stars">
+          <svg width="13" height="13" viewBox="0 0 14 14"><polygon class="sf" points="7,1 8.8,5.5 13.5,5.5 9.8,8.5 11.3,13 7,10.2 2.7,13 4.2,8.5 0.5,5.5 5.2,5.5"/></svg>
+          <svg width="13" height="13" viewBox="0 0 14 14"><polygon class="sf" points="7,1 8.8,5.5 13.5,5.5 9.8,8.5 11.3,13 7,10.2 2.7,13 4.2,8.5 0.5,5.5 5.2,5.5"/></svg>
+          <svg width="13" height="13" viewBox="0 0 14 14"><polygon class="sf" points="7,1 8.8,5.5 13.5,5.5 9.8,8.5 11.3,13 7,10.2 2.7,13 4.2,8.5 0.5,5.5 5.2,5.5"/></svg>
+          <svg width="13" height="13" viewBox="0 0 14 14"><polygon class="sf" points="7,1 8.8,5.5 13.5,5.5 9.8,8.5 11.3,13 7,10.2 2.7,13 4.2,8.5 0.5,5.5 5.2,5.5"/></svg>
+          <svg width="13" height="13" viewBox="0 0 14 14"><polygon class="se" points="7,1 8.8,5.5 13.5,5.5 9.8,8.5 11.3,13 7,10.2 2.7,13 4.2,8.5 0.5,5.5 5.2,5.5"/></svg>
         </div>
-        <div>
-          <span class="hf-val">4.2 ★ — 232 оценки</span>
-          <span class="hf-lbl">Рейтинг на 2GIS, Астана</span>
-        </div>
+        <span class="trust-num" data-to="4.2" data-dec="1">4.2</span>
+        <div class="trust-label" data-ru="232 оценки" data-kz="232 бағалау" data-en="232 ratings">232 оценки</div>
       </div>
-      <div class="hero-fact">
-        <div class="hf-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm.5 15H11v-6h1.5v6zm0-8H11V7h1.5v2z"/></svg>
-        </div>
-        <div>
-          <span class="hf-val">Срочный тираж от 24 часов</span>
-          <span class="hf-lbl">Стандартный — 48 часов</span>
-        </div>
+      <div class="trust-item">
+        <span class="trust-num" data-to="24" data-suffix="ч">24ч</span>
+        <div class="trust-label" data-ru="Минимальный срок" data-kz="Ең аз мерзім" data-en="Min. turnaround">Минимальный срок</div>
       </div>
-      <div class="hero-fact">
-        <div class="hf-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 22C6.48 22 2 17.52 2 12S6.48 2 12 2s10 4.48 10 10-4.48 10-10 10zm-1-7h2v2h-2v-2zm0-8h2v6h-2V7z"/></svg>
-        </div>
-        <div>
-          <span class="hf-val">Проверяем макет до печати</span>
-          <span class="hf-lbl">Предупреждаем о проблемах заранее</span>
-        </div>
+      <div class="trust-item">
+        <span class="trust-num" data-to="0" data-suffix="%">0%</span>
+        <div class="trust-label" data-ru="Брак при печати" data-kz="Ақаулар" data-en="Defect rate">Брак при печати</div>
       </div>
-    </div>
-    <div class="hero-guarantee">
-      <div class="hg-title">Работаем честно</div>
-      <div class="hg-items">
-        <div class="hg-item"><div class="hg-dot"></div>Говорим о проблемах макета до запуска</div>
-        <div class="hg-item"><div class="hg-dot"></div>Отвечаем в WhatsApp без очередей</div>
-        <div class="hg-item"><div class="hg-dot"></div>Бесплатная консультация по материалам</div>
+      <div class="trust-item">
+        <div class="trust-num" style="font-size:32px;margin-bottom:12px">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" style="display:block;margin:0 auto">
+            <rect x="4" y="9" width="24" height="16" rx="2" stroke="var(--gold)" stroke-width="1.3"/>
+            <path d="M4 14h24" stroke="var(--gold)" stroke-width="1.3"/>
+            <path d="M11 7v4M21 7v4" stroke="var(--gold)" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="trust-label" data-ru="Проверка макета" data-kz="Макет тексеру" data-en="Layout check">Проверка макета</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CLIENTS -->
-<div class="clients-strip">
-  <span class="cs-label">Нам доверяют</span>
-  <div class="cs-sep"></div>
-  <div class="cs-names">
-    <span>Частные клиенты</span>
-    <span>Малый бизнес</span>
-    <span>Event-агентства</span>
-    <span>Рестораны</span>
-    <span>Медицина</span>
-    <span>Застройщики</span>
-  </div>
-</div>
-
 <!-- SERVICES -->
-<section class="services section" id="services">
-  <div class="svc-head">
-    <div>
-      <div class="s-label">Услуги</div>
-      <h2>Всё для вашей <em>полиграфии</em></h2>
+<section id="services">
+  <div class="container">
+    <div class="services-header reveal">
+      <div>
+        <span class="label" data-ru="Услуги" data-kz="Қызметтер" data-en="Services">Услуги</span>
+        <h2 class="section-title" data-ru="Что мы печатаем" data-kz="Біз не басамыз" data-en="What we print">Что мы печатаем</h2>
+        <p class="section-sub" data-ru="Частным клиентам и компаниям. Тираж от 50 до 10 000 экземпляров." data-kz="Жеке клиенттер мен компанияларға. Тираж 50-ден 10 000 данаға дейін." data-en="For individuals and companies. Print runs from 50 to 10,000 copies.">Частным клиентам и компаниям. Тираж от 50 до 10 000 экземпляров.</p>
+      </div>
+      <p class="services-header-note" data-ru="Не знаете, что выбрать? Напишите — поможем с выбором материала и форматом." data-kz="Не таңдарыңызды білмей ме? Жазыңыз — материал мен формат таңдауға көмектесеміз." data-en="Not sure what to choose? Write to us — we'll help with materials and format.">Не знаете, что выбрать? Напишите — поможем с выбором материала и форматом.</p>
     </div>
-    <p class="s-sub" style="color:rgba(244,241,235,.45)">Принимаем готовые макеты и помогаем подготовить файлы к печати.</p>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <svg class="svc-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
+          <rect x="2" y="8" width="28" height="16" rx="2"/>
+          <line x1="7" y1="14" x2="19" y2="14"/>
+          <line x1="7" y1="18" x2="14" y2="18"/>
+          <circle cx="24" cy="16" r="3"/>
+        </svg>
+
+        <div class="svc-body">
+          <h3 class="svc-title" data-ru="Визитки" data-kz="Визиткалар" data-en="Business Cards">Визитки</h3>
+          <p class="svc-desc" data-ru="Стандартные и нестандартные форматы. Матовая, глянцевая, бархатная ламинация. Выборочный UV-лак на логотипе или отдельных элементах." data-kz="Стандартты және стандартты емес форматтар. Матты, жылтыр, бархатты ламинация. Логотипте немесе жеке элементтерде таңдамалы UV-лак." data-en="Standard and custom formats. Matte, gloss, velvet lamination. Selective UV varnish on logo or individual elements.">Стандартные и нестандартные форматы. Матовая, глянцевая, бархатная ламинация. Выборочный UV-лак на логотипе или отдельных элементах.</p>
+        </div>
+        <div class="svc-benefit" data-ru="Готово за 24 часа" data-kz="24 сағатта дайын" data-en="Ready in 24 hours">Готово за 24 часа</div>
+        <a class="svc-cta cat-order" data-product="Визитки" data-product-kz="Визиткалар" data-product-en="Business cards" href="https://wa.me/77024056954?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21+%D0%A5%D0%BE%D1%87%D1%83+%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A+%D0%92%D0%B8%D0%B7%D0%B8%D1%82%D0%BA%D0%B8" target="_blank" rel="noopener">
+          <span data-ru="Заказать" data-kz="Тапсырыс беру" data-en="Order">Заказать</span>
+          <svg viewBox="0 0 12 12"><line x1="1" y1="6" x2="11" y2="6"/><polyline points="7,2 11,6 7,10"/></svg>
+        </a>
+      </div>
+      <div class="service-card reveal">
+        <svg class="svc-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
+          <rect x="2" y="8" width="28" height="16" rx="2"/>
+          <path d="M2 13h28M8 20h16"/>
+        </svg>
+
+        <div class="svc-body">
+          <h3 class="svc-title" data-ru="Баннеры" data-kz="Баннерлер" data-en="Banners">Баннеры</h3>
+          <p class="svc-desc" data-ru="Широкоформатная печать на баннерной сетке и литом баннере. Монтаж на люверсах и карманах. Любые нестандартные размеры." data-kz="Баннерлік тор мен лит баннерде кең форматты басып шығару. Люверстер мен қалталарда монтаж. Кез келген стандартты емес өлшемдер." data-en="Wide-format printing on mesh and solid banner. Mounting with grommets and pockets. Any non-standard sizes.">Широкоформатная печать на баннерной сетке и литом баннере. Монтаж на люверсах и карманах. Любые нестандартные размеры.</p>
+        </div>
+        <div class="svc-benefit" data-ru="Любые форматы" data-kz="Кез келген форматтар" data-en="Any format">Любые форматы</div>
+        <a class="svc-cta cat-order" data-product="Баннеры" data-product-kz="Баннерлер" data-product-en="Banners" href="https://wa.me/77024056954?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21+%D0%A5%D0%BE%D1%87%D1%83+%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A+%D0%91%D0%B0%D0%BD%D0%BD%D0%B5%D1%80%D1%8B" target="_blank" rel="noopener">
+          <span data-ru="Заказать" data-kz="Тапсырыс беру" data-en="Order">Заказать</span>
+          <svg viewBox="0 0 12 12"><line x1="1" y1="6" x2="11" y2="6"/><polyline points="7,2 11,6 7,10"/></svg>
+        </a>
+      </div>
+      <div class="service-card reveal">
+        <svg class="svc-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
+          <rect x="5" y="4" width="22" height="24" rx="1.5"/>
+          <path d="M16 4v24M10 10h4M10 15h4M10 20h4"/>
+        </svg>
+
+        <div class="svc-body">
+          <h3 class="svc-title" data-ru="Буклеты и брошюры" data-kz="Буклеттер мен брошюралар" data-en="Booklets &amp; Brochures">Буклеты и брошюры</h3>
+          <p class="svc-desc" data-ru="Фальцовка, скрепка, клееный корешок. Бумага от 90 до 300 г/м². Помогаем подобрать оптимальный формат и материал под бюджет." data-kz="Қатпарлау, тігіс, желімді арқа. Қағаз 90-нан 300 г/м² дейін. Бюджетке сай оңтайлы формат пен материал таңдауға көмектесеміз." data-en="Folding, stapling, glued spine. Paper from 90 to 300 g/m². We help choose the best format and material for your budget.">Фальцовка, скрепка, клееный корешок. Бумага от 90 до 300 г/м². Помогаем подобрать оптимальный формат и материал под бюджет.</p>
+        </div>
+        <div class="svc-benefit" data-ru="Проверка макета включена" data-kz="Макет тексеру кіреді" data-en="Layout check included">Проверка макета включена</div>
+        <a class="svc-cta cat-order" data-product="Буклеты и брошюры" data-product-kz="Буклеттер мен брошюралар" data-product-en="Booklets and brochures" href="https://wa.me/77024056954?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21+%D0%A5%D0%BE%D1%87%D1%83+%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A+%D0%91%D1%83%D0%BA%D0%BB%D0%B5%D1%82%D1%8B+%D0%B8+%D0%B1%D1%80%D0%BE%D1%88%D1%8E%D1%80%D1%8B" target="_blank" rel="noopener">
+          <span data-ru="Заказать" data-kz="Тапсырыс беру" data-en="Order">Заказать</span>
+          <svg viewBox="0 0 12 12"><line x1="1" y1="6" x2="11" y2="6"/><polyline points="7,2 11,6 7,10"/></svg>
+        </a>
+      </div>
+      <div class="service-card reveal">
+        <svg class="svc-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
+          <rect x="8" y="7" width="18" height="20" rx="1.5"/>
+          <rect x="5" y="4" width="18" height="20" rx="1.5"/>
+          <path d="M11 13h8M11 17h6"/>
+        </svg>
+
+        <div class="svc-body">
+          <h3 class="svc-title" data-ru="Корпоративная печать" data-kz="Корпоративтік басып шығару" data-en="Corporate Print">Корпоративная печать</h3>
+          <p class="svc-desc" data-ru="Фирменные бланки, папки, конверты, блокноты и POS-материалы. Работаем с корпоративным стилем и регулярными тиражами." data-kz="Фирмалық бланктер, қалталар, конверттер, блокноттар және POS-материалдар. Корпоративтік стиль мен тұрақты тиражбен жұмыс жасаймыз." data-en="Branded letterheads, folders, envelopes, notebooks and POS materials. We work with corporate identity and regular print runs.">Фирменные бланки, папки, конверты, блокноты и POS-материалы. Работаем с корпоративным стилем и регулярными тиражами.</p>
+        </div>
+        <div class="svc-benefit" data-ru="Единый стиль под ключ" data-kz="Кілт астында бірыңғай стиль" data-en="Turnkey brand identity">Единый стиль под ключ</div>
+        <a class="svc-cta cat-order" data-product="Корпоративная печать" data-product-kz="Корпоративтік басып шығару" data-product-en="Corporate printing" href="https://wa.me/77024056954?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21+%D0%A5%D0%BE%D1%87%D1%83+%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A+%D0%9A%D0%BE%D1%80%D0%BF%D0%BE%D1%80%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D0%B0%D1%8F+%D0%BF%D0%B5%D1%87%D0%B0%D1%82%D1%8C" target="_blank" rel="noopener">
+          <span data-ru="Заказать" data-kz="Тапсырыс беру" data-en="Order">Заказать</span>
+          <svg viewBox="0 0 12 12"><line x1="1" y1="6" x2="11" y2="6"/><polyline points="7,2 11,6 7,10"/></svg>
+        </a>
+      </div>
+    </div>
   </div>
-  <div class="svc-grid">
-    <div class="svc fu">
-      <span class="svc-micro">Услуга</span>
-      <div class="svc-title">Визитки и листовки</div>
-      <div class="svc-badge">от 24 часов</div>
-      <ul class="svc-list">
-        <li>Матовая и глянцевая ламинация</li>
-        <li>Одно- и двусторонние</li>
-        <li>Тираж от 50 штук</li>
-      </ul>
-      <a href="#form" class="svc-link">Рассчитать стоимость <span class="arr">→</span></a>
+</section>
+
+<!-- WHY -->
+<section id="why">
+  <div class="container">
+    <div class="why-header reveal">
+      <span class="label" data-ru="Почему BasPrint" data-kz="Неліктен BasPrint" data-en="Why BasPrint">Почему BasPrint</span>
+      <h2 class="section-title" data-ru="Четыре принципа" data-kz="Төрт принцип" data-en="Four principles">Четыре принципа</h2>
     </div>
-    <div class="svc fu" style="transition-delay:.06s">
-      <span class="svc-micro">Услуга</span>
-      <div class="svc-title">Баннеры и стенды</div>
-      <div class="svc-badge">широкий формат</div>
-      <ul class="svc-list">
-        <li>Наружная и интерьерная печать</li>
-        <li>Баннерная ткань, ПВХ, сетка</li>
-        <li>Люверсы, монтаж</li>
-      </ul>
-      <a href="#form" class="svc-link">Рассчитать стоимость <span class="arr">→</span></a>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-index"><svg viewBox="0 0 32 32"><polyline points="6,17 12,23 26,9"/></svg></div>
+        <div>
+          <h3 class="why-title" data-ru="Честно" data-kz="Адал" data-en="Honest">Честно</h3>
+          <p class="why-text" data-ru="Называем реальные сроки. Если тираж невозможно сдать вовремя — предупреждаем заранее, а не после. Никаких обещаний, которые нельзя выполнить." data-kz="Нақты мерзімдерді айтамыз. Тиражды уақытылы тапсыру мүмкін болмаса — алдын ала ескертеміз, кейін емес. Орындалмайтын уәде жоқ." data-en="We give real deadlines. If the order can't be delivered on time, we warn you in advance, not after. No promises we can't keep.">Называем реальные сроки. Если тираж невозможно сдать вовремя — предупреждаем заранее, а не после. Никаких обещаний, которые нельзя выполнить.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-index"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="10"/><polyline points="16,9 16,16 21,20"/></svg></div>
+        <div>
+          <h3 class="why-title" data-ru="Быстро" data-kz="Жылдам" data-en="Fast">Быстро</h3>
+          <p class="why-text" data-ru="Большинство заказов — 24–48 часов. Срочные обсуждаем индивидуально. Производство запускается сразу после согласования макета." data-kz="Тапсырыстардың басым бөлігі — 24–48 сағат. Жедел тапсырыстарды жеке талқылаймыз. Өндіріс макетті бекіткеннен кейін бірден іске қосылады." data-en="Most orders take 24–48 hours. Urgent requests are discussed individually. Production starts immediately after layout approval.">Большинство заказов — 24–48 часов. Срочные обсуждаем индивидуально. Производство запускается сразу после согласования макета.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-index"><svg viewBox="0 0 32 32"><path d="M16 3l11 4v8c0 7-5 11.5-11 14C10 26.5 5 22 5 15V7z"/><polyline points="11,16 14,20 22,11"/></svg></div>
+        <div>
+          <h3 class="why-title" data-ru="Без брака" data-kz="Ақаусыз" data-en="Zero defects">Без брака</h3>
+          <p class="why-text" data-ru="Контроль цвета и качества на каждом этапе. Если продукция не соответствует стандарту — переделываем за наш счёт, без переговоров." data-kz="Әр кезеңде түс пен сапаны бақылаймыз. Өнім стандартқа сай болмаса — келіссөзсіз, өз есебімізден қайта жасаймыз." data-en="We control color and quality at every step. If the product doesn't meet the standard, we redo it at our expense, no negotiation.">Контроль цвета и качества на каждом этапе. Если продукция не соответствует стандарту — переделываем за наш счёт, без переговоров.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-index"><svg viewBox="0 0 32 32"><path d="M21 5l6 6-14 14H7v-6z"/><line x1="17" y1="9" x2="23" y2="15"/></svg></div>
+        <div>
+          <h3 class="why-title" data-ru="Помогаем с макетом" data-kz="Макетке көмектесеміз" data-en="We help with layout">Помогаем с макетом</h3>
+          <p class="why-text" data-ru="Проверяем файл перед запуском: разрешение, вылеты, цветовой профиль. Указываем на ошибки, при необходимости готовим макет самостоятельно." data-kz="Іске қоспас бұрын файлды тексереміз: ажыратымдылық, кетіктер, түс профилі. Қателерді көрсетеміз, қажет болса макетті өзіміз дайындаймыз." data-en="We check your file before printing: resolution, bleed, color profile. We point out errors and prepare the layout ourselves if needed.">Проверяем файл перед запуском: разрешение, вылеты, цветовой профиль. Указываем на ошибки, при необходимости готовим макет самостоятельно.</p>
+        </div>
+      </div>
     </div>
-    <div class="svc fu" style="transition-delay:.12s">
-      <span class="svc-micro">Услуга</span>
-      <div class="svc-title">Каталоги и брошюры</div>
-      <div class="svc-badge">от 48 часов</div>
-      <ul class="svc-list">
-        <li>Мягкий и твёрдый переплёт</li>
-        <li>Полноцветная печать</li>
-        <li>Буклеты, флаеры, проспекты</li>
-      </ul>
-      <a href="#form" class="svc-link">Рассчитать стоимость <span class="arr">→</span></a>
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section id="catalog">
+  <div class="container">
+    <div class="catalog-header reveal">
+      <div class="label"><span>—</span> <span data-ru="Каталог продукции" data-kz="Өнім каталогы" data-en="Product catalog">Каталог продукции</span></div>
+      <h2 class="section-title" data-ru="Что мы производим" data-kz="Біз не өндіреміз" data-en="What we produce">Что мы производим</h2>
+      <p class="section-sub" data-ru="Полиграфия и сувениры для бизнеса — от визиток до фирменных пакетов." data-kz="Бизнес үшін полиграфия және сувенирлер — визиткалардан фирмалық пакеттерге дейін." data-en="Print and merchandise for business — from business cards to branded bags.">Полиграфия и сувениры для бизнеса — от визиток до фирменных пакетов.</p>
     </div>
-    <div class="svc fu" style="transition-delay:.18s">
-      <span class="svc-micro">Услуга</span>
-      <div class="svc-title">Корпоративная печать</div>
-      <div class="svc-badge">для бизнеса</div>
-      <ul class="svc-list">
-        <li>Бланки, конверты, папки</li>
-        <li>Наклейки, блокноты</li>
-        <li>Скидки постоянным клиентам</li>
-      </ul>
-      <a href="#form" class="svc-link">Рассчитать стоимость <span class="arr">→</span></a>
+    <div class="catalog-grid">
+
+      <div class="cat-card reveal">
+        <svg class="cat-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
+          <rect x="4" y="9" width="24" height="15" rx="1.5"/>
+          <line x1="4" y1="13" x2="28" y2="13"/>
+          <line x1="8" y1="17" x2="14" y2="17"/>
+        </svg>
+        <h3 class="cat-title" data-ru="Визитки" data-kz="Визиткалар" data-en="Business Cards">Визитки</h3>
+        <p class="cat-desc" data-ru="Стандарт 90×50 мм и нестандартные форматы. Матовая, глянцевая, soft-touch ламинация." data-kz="Стандарт 90×50 мм және стандартты емес форматтар. Матты, жылтыр, soft-touch ламинация." data-en="Standard 90×50 mm and custom formats. Matte, gloss, soft-touch lamination.">Стандарт 90×50 мм и нестандартные форматы. Матовая, глянцевая, soft-touch ламинация.</p>
+        <a class="cat-order" data-product="Визитки" data-product-kz="Визиткалар" data-product-en="Business cards" href="https://wa.me/77024056954?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21+%D0%A5%D0%BE%D1%87%D1%83+%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A+%D0%92%D0%B8%D0%B7%D0%B8%D1%82%D0%BA%D0%B8" target="_blank" rel="noopener">
+          <span data-ru="Заказать" data-kz="Тапсырыс беру" data-en="Order">Заказать</span> <svg viewBox="0 0 12 12"><line x1="1" y1="6" x2="11" y2="6"/><polyline points="7,2 11,6 7,10"/></svg>
+        </a>
+      </div>
+
+      <div class="cat-card reveal">
+        <svg class="cat-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
+          <rect x="5" y="5" width="22" height="22" rx="1.5"/>
+          <line x1="5" y1="12" x2="27" y2="12"/>
+          <line x1="5" y1="19" x2="27" y2="19"/>
+          <line x1="12" y1="5" x2="12" y2="27"/>
+        </svg>
+        <h3 class="cat-title" data-ru="Флаеры" data-kz="Флаерлер" data-en="Flyers">Флаеры</h3>
+        <p class="cat-desc" data-ru="Форматы A5, A6, DL. Двусторонняя печать, быстрый тираж от 100 штук." data-kz="A5, A6, DL форматтары. Екі жақты басып шығару, 100 данадан жылдам тираж." data-en="A5, A6, DL formats. Double-sided printing, fast runs from 100 copies.">Форматы A5, A6, DL. Двусторонняя печать, быстрый тираж от 100 штук.</p>
+        <a class="cat-order" data-product="Флаеры" data-product-kz="Флаерлер" data-product-en="Flyers" href="https://wa.me/77024056954?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21+%D0%A5%D0%BE%D1%87%D1%83+%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A+%D0%A4%D0%BB%D0%B0%D0%B5%D1%80%D1%8B" target="_blank" rel="noopener">
+          <span data-ru="Заказать" data-kz="Тапсырыс беру" data-en="Order">Заказать</span> <svg viewBox="0 0 12 12"><line x1="1" y1="6" x2="11" y2="6"/><polyline points="7,2 11,6 7,10"/></svg>
+        </a>
+      </div>
+
+      <div class="cat-card reveal">
+        <svg class="cat-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
+          <rect x="3" y="8" width="26" height="16" rx="1.5"/>
+          <line x1="3" y1="14" x2="29" y2="14"/>
+          <line x1="10" y1="8" x2="10" y2="24"/>
+          <line x1="22" y1="8" x2="22" y2="24"/>
+        </svg>
+        <h3 class="cat-title" data-ru="Листовки" data-kz="Парақшалар" data-en="Leaflets">Листовки</h3>
+        <p class="cat-desc" data-ru="A4, A5, цветная и чёрно-белая офсетная печать. Для акций, мероприятий, рассылок." data-kz="A4, A5, түсті және қара-ақ офсеттік басып шығару. Акциялар, іс-шаралар, таратуларға арналған." data-en="A4, A5, color and black-and-white offset printing. For promotions, events, mailouts.">A4, A5, цветная и чёрно-белая офсетная печать. Для акций, мероприятий, рассылок.</p>
+        <a class="cat-order" data-product="Листовки" data-product-kz="Парақшалар" data-product-en="Leaflets" href="https://wa.me/77024056954?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21+%D0%A5%D0%BE%D1%87%D1%83+%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A+%D0%9B%D0%B8%D1%81%D1%82%D0%BE%D0%B2%D0%BA%D0%B8" target="_blank" rel="noopener">
+          <span data-ru="Заказать" data-kz="Тапсырыс беру" data-en="Order">Заказать</span> <svg viewBox="0 0 12 12"><line x1="1" y1="6" x2="11" y2="6"/><polyline points="7,2 11,6 7,10"/></svg>
+        </a>
+      </div>
+
+      <div class="cat-card reveal">
+        <svg class="cat-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
+          <rect x="2" y="6" width="28" height="20" rx="1.5"/>
+          <line x1="2" y1="11" x2="30" y2="11"/>
+          <line x1="2" y1="21" x2="30" y2="21"/>
+        </svg>
+        <h3 class="cat-title" data-ru="Баннеры" data-kz="Баннерлер" data-en="Banners">Баннеры</h3>
+        <p class="cat-desc" data-ru="Литая и баннерная ткань, любой размер. Монтажные люверсы, двусторонняя печать." data-kz="Лит және баннерлік мата, кез келген өлшем. Монтаждық люверстер, екі жақты басып шығару." data-en="Solid and mesh banner fabric, any size. Mounting grommets, double-sided printing.">Литая и баннерная ткань, любой размер. Монтажные люверсы, двусторонняя печать.</p>
+        <a class="cat-order" data-product="Баннеры" data-product-kz="Баннерлер" data-product-en="Banners" href="https://wa.me/77024056954?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21+%D0%A5%D0%BE%D1%87%D1%83+%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A+%D0%91%D0%B0%D0%BD%D0%BD%D0%B5%D1%80%D1%8B" target="_blank" rel="noopener">
+          <span data-ru="Заказать" data-kz="Тапсырыс беру" data-en="Order">Заказать</span> <svg viewBox="0 0 12 12"><line x1="1" y1="6" x2="11" y2="6"/><polyline points="7,2 11,6 7,10"/></svg>
+        </a>
+      </div>
+
+      <div class="cat-card reveal">
+        <svg class="cat-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
+          <rect x="6" y="6" width="20" height="20" rx="3"/>
+          <path d="M10 16 l3 3 l6 -6"/>
+        </svg>
+        <h3 class="cat-title" data-ru="Наклейки" data-kz="Жапсырмалар" data-en="Stickers">Наклейки</h3>
+        <p class="cat-desc" data-ru="Самоклеящаяся плёнка, вырезные и листовые. Водостойкие, для улицы и интерьера." data-kz="Өзжабысқыш пленка, кесінді және парақтық. Суға төзімді, сыртқы және интерьерге." data-en="Self-adhesive film, cut and sheet. Waterproof, for outdoor and interior use.">Самоклеящаяся плёнка, вырезные и листовые. Водостойкие, для улицы и интерьера.</p>
+        <a class="cat-order" data-product="Наклейки" data-product-kz="Жапсырмалар" data-product-en="Stickers" href="https://wa.me/77024056954?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21+%D0%A5%D0%BE%D1%87%D1%83+%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A+%D0%9D%D0%B0%D0%BA%D0%BB%D0%B5%D0%B9%D0%BA%D0%B8" target="_blank" rel="noopener">
+          <span data-ru="Заказать" data-kz="Тапсырыс беру" data-en="Order">Заказать</span> <svg viewBox="0 0 12 12"><line x1="1" y1="6" x2="11" y2="6"/><polyline points="7,2 11,6 7,10"/></svg>
+        </a>
+      </div>
+
+      <div class="cat-card reveal">
+        <svg class="cat-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
+          <path d="M7 4 h18 l3 5 v19 a1 1 0 0 1-1 1 H5 a1 1 0 0 1-1-1 V5 a1 1 0 0 1 1-1z"/>
+          <line x1="4" y1="9" x2="28" y2="9"/>
+          <line x1="10" y1="14" x2="22" y2="14"/>
+          <line x1="10" y1="18" x2="22" y2="18"/>
+          <line x1="10" y1="22" x2="17" y2="22"/>
+        </svg>
+        <h3 class="cat-title" data-ru="Брошюры" data-kz="Брошюралар" data-en="Brochures">Брошюры</h3>
+        <p class="cat-desc" data-ru="Скрепка, клей, пружина. Форматы A4, A5. Обложка плотная или с ламинацией." data-kz="Тігіс, желім, серіппе. A4, A5 форматтары. Тығыз немесе ламинирленген мұқаба." data-en="Staple, glue, coil binding. A4, A5 formats. Thick or laminated cover.">Скрепка, клей, пружина. Форматы A4, A5. Обложка плотная или с ламинацией.</p>
+        <a class="cat-order" data-product="Брошюры" data-product-kz="Брошюралар" data-product-en="Brochures" href="https://wa.me/77024056954?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21+%D0%A5%D0%BE%D1%87%D1%83+%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A+%D0%91%D1%80%D0%BE%D1%88%D1%8E%D1%80%D1%8B" target="_blank" rel="noopener">
+          <span data-ru="Заказать" data-kz="Тапсырыс беру" data-en="Order">Заказать</span> <svg viewBox="0 0 12 12"><line x1="1" y1="6" x2="11" y2="6"/><polyline points="7,2 11,6 7,10"/></svg>
+        </a>
+      </div>
+
+      <div class="cat-card reveal">
+        <svg class="cat-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
+          <rect x="4" y="4" width="24" height="24" rx="1.5"/>
+          <line x1="4" y1="10" x2="28" y2="10"/>
+          <line x1="10" y1="4" x2="10" y2="28"/>
+        </svg>
+        <h3 class="cat-title" data-ru="Плакаты" data-kz="Плакаттар" data-en="Posters">Плакаты</h3>
+        <p class="cat-desc" data-ru="Форматы A2, A1, A0. Матовая фотобумага и баннерная ткань, яркие насыщенные цвета." data-kz="A2, A1, A0 форматтары. Матты фотоқағаз және баннерлік мата, жарқын қаныққан түстер." data-en="A2, A1, A0 formats. Matte photo paper and banner fabric, vivid saturated colors.">Форматы A2, A1, A0. Матовая фотобумага и баннерная ткань, яркие насыщенные цвета.</p>
+        <a class="cat-order" data-product="Плакаты" data-product-kz="Плакаттар" data-product-en="Posters" href="https://wa.me/77024056954?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21+%D0%A5%D0%BE%D1%87%D1%83+%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A+%D0%9F%D0%BB%D0%B0%D0%BA%D0%B0%D1%82%D1%8B" target="_blank" rel="noopener">
+          <span data-ru="Заказать" data-kz="Тапсырыс беру" data-en="Order">Заказать</span> <svg viewBox="0 0 12 12"><line x1="1" y1="6" x2="11" y2="6"/><polyline points="7,2 11,6 7,10"/></svg>
+        </a>
+      </div>
+
+      <div class="cat-card reveal">
+        <svg class="cat-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
+          <path d="M6 5 h20 v22 H6 z"/>
+          <path d="M6 5 l4-3 h12 l4 3"/>
+          <line x1="11" y1="13" x2="21" y2="13"/>
+          <line x1="11" y1="17" x2="21" y2="17"/>
+        </svg>
+        <h3 class="cat-title" data-ru="Папки" data-kz="Қалталар" data-en="Folders">Папки</h3>
+        <p class="cat-desc" data-ru="Корпоративные папки с логотипом. Картон, кожзам, ПВХ-карман, различные механизмы." data-kz="Логотипі бар корпоративтік қалталар. Картон, жасанды тері, ПВХ қалта, әртүрлі механизмдер." data-en="Corporate folders with logo. Cardboard, faux leather, PVC pocket, various mechanisms.">Корпоративные папки с логотипом. Картон, кожзам, ПВХ-карман, различные механизмы.</p>
+        <a class="cat-order" data-product="Папки" data-product-kz="Қалталар" data-product-en="Folders" href="https://wa.me/77024056954?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21+%D0%A5%D0%BE%D1%87%D1%83+%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A+%D0%9F%D0%B0%D0%BF%D0%BA%D0%B8" target="_blank" rel="noopener">
+          <span data-ru="Заказать" data-kz="Тапсырыс беру" data-en="Order">Заказать</span> <svg viewBox="0 0 12 12"><line x1="1" y1="6" x2="11" y2="6"/><polyline points="7,2 11,6 7,10"/></svg>
+        </a>
+      </div>
+
+      <div class="cat-card reveal">
+        <svg class="cat-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
+          <rect x="5" y="4" width="22" height="24" rx="1.5"/>
+          <line x1="5" y1="8" x2="27" y2="8"/>
+          <line x1="9" y1="13" x2="23" y2="13"/>
+          <line x1="9" y1="16" x2="23" y2="16"/>
+          <line x1="9" y1="19" x2="18" y2="19"/>
+        </svg>
+        <h3 class="cat-title" data-ru="Блокноты" data-kz="Блокноттар" data-en="Notebooks">Блокноты</h3>
+        <p class="cat-desc" data-ru="Фирменные блокноты A5 и A6 с логотипом на обложке. Пружина, клей, твёрдая обложка." data-kz="Мұқабасында логотипі бар A5 және A6 фирмалық блокноттар. Серіппе, желім, қатты мұқаба." data-en="Branded A5 and A6 notebooks with logo on cover. Coil, glue, hard cover.">Фирменные блокноты A5 и A6 с логотипом на обложке. Пружина, клей, твёрдая обложка.</p>
+        <a class="cat-order" data-product="Блокноты" data-product-kz="Блокноттар" data-product-en="Notebooks" href="https://wa.me/77024056954?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21+%D0%A5%D0%BE%D1%87%D1%83+%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A+%D0%91%D0%BB%D0%BE%D0%BA%D0%BD%D0%BE%D1%82%D1%8B" target="_blank" rel="noopener">
+          <span data-ru="Заказать" data-kz="Тапсырыс беру" data-en="Order">Заказать</span> <svg viewBox="0 0 12 12"><line x1="1" y1="6" x2="11" y2="6"/><polyline points="7,2 11,6 7,10"/></svg>
+        </a>
+      </div>
+
+      <div class="cat-card reveal">
+        <svg class="cat-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
+          <rect x="3" y="9" width="26" height="18" rx="1.5"/>
+          <path d="M9 9 V6 a7 7 0 0 1 14 0 v3"/>
+          <circle cx="16" cy="18" r="2.5"/>
+        </svg>
+        <h3 class="cat-title" data-ru="Пакеты" data-kz="Пакеттер" data-en="Bags">Пакеты</h3>
+        <p class="cat-desc" data-ru="Крафт, бумага, ПВХ с логотипом. Ручки лента и верёвка, любые размеры и тиражи." data-kz="Логотипі бар крафт, қағаз, ПВХ. Лента мен жіп тұтқалар, кез келген өлшемдер мен тиражтар." data-en="Kraft, paper, PVC with logo. Ribbon and rope handles, any sizes and quantities.">Крафт, бумага, ПВХ с логотипом. Ручки лента и верёвка, любые размеры и тиражи.</p>
+        <a class="cat-order" data-product="Пакеты" data-product-kz="Пакеттер" data-product-en="Bags" href="https://wa.me/77024056954?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21+%D0%A5%D0%BE%D1%87%D1%83+%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A+%D0%9F%D0%B0%D0%BA%D0%B5%D1%82%D1%8B" target="_blank" rel="noopener">
+          <span data-ru="Заказать" data-kz="Тапсырыс беру" data-en="Order">Заказать</span> <svg viewBox="0 0 12 12"><line x1="1" y1="6" x2="11" y2="6"/><polyline points="7,2 11,6 7,10"/></svg>
+        </a>
+      </div>
+
+      <div class="cat-card reveal">
+        <svg class="cat-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
+          <rect x="4" y="7" width="24" height="18" rx="1.5"/>
+          <path d="M4 13 l12 7 l12 -7"/>
+        </svg>
+        <h3 class="cat-title" data-ru="Конверты" data-kz="Конверттер" data-en="Envelopes">Конверты</h3>
+        <p class="cat-desc" data-ru="Фирменные конверты C4, C5, DL с печатью логотипа и адреса. Офсетная бумага." data-kz="Логотип пен мекенжай басылған C4, C5, DL фирмалық конверттер. Офсеттік қағаз." data-en="Branded C4, C5, DL envelopes with logo and address printing. Offset paper.">Фирменные конверты C4, C5, DL с печатью логотипа и адреса. Офсетная бумага.</p>
+        <a class="cat-order" data-product="Конверты" data-product-kz="Конверттер" data-product-en="Envelopes" href="https://wa.me/77024056954?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21+%D0%A5%D0%BE%D1%87%D1%83+%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A+%D0%9A%D0%BE%D0%BD%D0%B2%D0%B5%D1%80%D1%82%D1%8B" target="_blank" rel="noopener">
+          <span data-ru="Заказать" data-kz="Тапсырыс беру" data-en="Order">Заказать</span> <svg viewBox="0 0 12 12"><line x1="1" y1="6" x2="11" y2="6"/><polyline points="7,2 11,6 7,10"/></svg>
+        </a>
+      </div>
+
+      <div class="cat-card reveal">
+        <svg class="cat-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
+          <rect x="8" y="5" width="16" height="22" rx="1.5"/>
+          <line x1="11" y1="10" x2="21" y2="10"/>
+          <line x1="11" y1="14" x2="21" y2="14"/>
+          <circle cx="16" cy="20" r="2"/>
+        </svg>
+        <h3 class="cat-title" data-ru="Бейджи" data-kz="Бейджілер" data-en="Badges">Бейджи</h3>
+        <p class="cat-desc" data-ru="Пластиковые и картонные бейджи с карманом или ламинацией. Ленты и клипсы в комплекте." data-kz="Қалта немесе ламинациямен пластикалық және картондық бейджілер. Жинақта лента мен клипстер." data-en="Plastic and cardboard badges with pocket or lamination. Lanyards and clips included.">Пластиковые и картонные бейджи с карманом или ламинацией. Ленты и клипсы в комплекте.</p>
+        <a class="cat-order" data-product="Бейджи" data-product-kz="Бейджілер" data-product-en="Badges" href="https://wa.me/77024056954?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21+%D0%A5%D0%BE%D1%87%D1%83+%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A+%D0%91%D0%B5%D0%B9%D0%B4%D0%B6%D0%B8" target="_blank" rel="noopener">
+          <span data-ru="Заказать" data-kz="Тапсырыс беру" data-en="Order">Заказать</span> <svg viewBox="0 0 12 12"><line x1="1" y1="6" x2="11" y2="6"/><polyline points="7,2 11,6 7,10"/></svg>
+        </a>
+      </div>
+
+      <div class="cat-card reveal">
+        <svg class="cat-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
+          <rect x="4" y="8" width="24" height="16" rx="1.5"/>
+          <line x1="4" y1="13" x2="28" y2="13"/>
+          <line x1="10" y1="18" x2="22" y2="18"/>
+          <line x1="16" y1="8" x2="16" y2="24"/>
+        </svg>
+        <h3 class="cat-title" data-ru="Таблички" data-kz="Тақтайшалар" data-en="Signs">Таблички</h3>
+        <p class="cat-desc" data-ru="Интерьерные таблички из акрила, металла, ПВХ. Гравировка, УФ-печать, монтажный скотч." data-kz="Акрил, метал, ПВХ-тан интерьерлік тақтайшалар. Гравюра, УФ-басып шығару, монтаждық скотч." data-en="Interior signs made of acrylic, metal, PVC. Engraving, UV printing, mounting tape.">Интерьерные таблички из акрила, металла, ПВХ. Гравировка, УФ-печать, монтажный скотч.</p>
+        <a class="cat-order" data-product="Таблички" data-product-kz="Тақтайшалар" data-product-en="Signs" href="https://wa.me/77024056954?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21+%D0%A5%D0%BE%D1%87%D1%83+%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A+%D0%A2%D0%B0%D0%B1%D0%BB%D0%B8%D1%87%D0%BA%D0%B8" target="_blank" rel="noopener">
+          <span data-ru="Заказать" data-kz="Тапсырыс беру" data-en="Order">Заказать</span> <svg viewBox="0 0 12 12"><line x1="1" y1="6" x2="11" y2="6"/><polyline points="7,2 11,6 7,10"/></svg>
+        </a>
+      </div>
+
+      <div class="cat-card reveal">
+        <svg class="cat-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
+          <rect x="10" y="3" width="12" height="4" rx="1"/>
+          <line x1="16" y1="7" x2="16" y2="29"/>
+          <rect x="4" y="24" width="24" height="5" rx="1"/>
+          <line x1="8" y1="7" x2="24" y2="7"/>
+        </svg>
+        <h3 class="cat-title" data-ru="Roll-up" data-kz="Roll-up" data-en="Roll-up">Roll-up</h3>
+        <p class="cat-desc" data-ru="Мобильные рекламные стенды 85×200 см. Быстрая замена графики, алюминиевая кассета." data-kz="85×200 см мобильді жарнамалық стендтер. Графиканы жылдам ауыстыру, алюминий кассета." data-en="Mobile display stands 85×200 cm. Quick graphic swap, aluminum cassette.">Мобильные рекламные стенды 85×200 см. Быстрая замена графики, алюминиевая кассета.</p>
+        <a class="cat-order" data-product="Roll-up" data-product-kz="Roll-up" data-product-en="Roll-up" href="https://wa.me/77024056954?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21+%D0%A5%D0%BE%D1%87%D1%83+%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A+Roll-up" target="_blank" rel="noopener">
+          <span data-ru="Заказать" data-kz="Тапсырыс беру" data-en="Order">Заказать</span> <svg viewBox="0 0 12 12"><line x1="1" y1="6" x2="11" y2="6"/><polyline points="7,2 11,6 7,10"/></svg>
+        </a>
+      </div>
+
+      <div class="cat-card reveal">
+        <svg class="cat-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
+          <path d="M5 8 h22 v16 H5 z"/>
+          <path d="M5 8 l5-4 h12 l5 4"/>
+          <path d="M5 24 l5 4 h12 l5-4"/>
+        </svg>
+        <h3 class="cat-title" data-ru="Печать на ткани" data-kz="Матаға басып шығару" data-en="Fabric Printing">Печать на ткани</h3>
+        <p class="cat-desc" data-ru="Сублимация и прямая цифровая печать на полиэстере, хлопке, шёлке. Промо-текстиль и флаги." data-kz="Полиэстер, мақта, жібекке сублимация және тікелей цифрлық басып шығару. Промо-текстиль және жалаулар." data-en="Sublimation and direct digital printing on polyester, cotton, silk. Promo textile and flags.">Сублимация и прямая цифровая печать на полиэстере, хлопке, шёлке. Промо-текстиль и флаги.</p>
+        <a class="cat-order" data-product="Печать на ткани" data-product-kz="Матаға басып шығару" data-product-en="Fabric printing" href="https://wa.me/77024056954?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21+%D0%A5%D0%BE%D1%87%D1%83+%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A+%D0%9F%D0%B5%D1%87%D0%B0%D1%82%D1%8C+%D0%BD%D0%B0+%D1%82%D0%BA%D0%B0%D0%BD%D0%B8" target="_blank" rel="noopener">
+          <span data-ru="Заказать" data-kz="Тапсырыс беру" data-en="Order">Заказать</span> <svg viewBox="0 0 12 12"><line x1="1" y1="6" x2="11" y2="6"/><polyline points="7,2 11,6 7,10"/></svg>
+        </a>
+      </div>
+
+      <div class="cat-card reveal">
+        <svg class="cat-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
+          <path d="M8 26 c0-8 4-14 8-18 4 4 8 10 8 18"/>
+          <line x1="16" y1="8" x2="16" y2="26"/>
+          <line x1="11" y1="29" x2="21" y2="29"/>
+          <path d="M12 16 c2-2 4-2 8 0"/>
+        </svg>
+        <h3 class="cat-title" data-ru="Сувенирная продукция" data-kz="Сувенирлік өнімдер" data-en="Branded Merchandise">Сувенирная продукция</h3>
+        <p class="cat-desc" data-ru="Ручки, кружки, брелоки, USB-флешки с логотипом. Корпоративные подарки и промо-наборы." data-kz="Логотипі бар қаламдар, кружкалар, кілтшелер, USB-флешкалар. Корпоративтік сыйлықтар мен промо-жиынтықтар." data-en="Pens, mugs, keychains, USB drives with logo. Corporate gifts and promo sets.">Ручки, кружки, брелоки, USB-флешки с логотипом. Корпоративные подарки и промо-наборы.</p>
+        <a class="cat-order" data-product="Сувенирная продукция" data-product-kz="Сувенирлік өнімдер" data-product-en="Branded merchandise" href="https://wa.me/77024056954?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21+%D0%A5%D0%BE%D1%87%D1%83+%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%3A+%D0%A1%D1%83%D0%B2%D0%B5%D0%BD%D0%B8%D1%80%D0%BD%D0%B0%D1%8F+%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%86%D0%B8%D1%8F" target="_blank" rel="noopener">
+          <span data-ru="Заказать" data-kz="Тапсырыс беру" data-en="Order">Заказать</span> <svg viewBox="0 0 12 12"><line x1="1" y1="6" x2="11" y2="6"/><polyline points="7,2 11,6 7,10"/></svg>
+        </a>
+      </div>
+
     </div>
   </div>
 </section>
 
 <!-- CASES -->
-<section class="section" style="padding-top:0" id="cases">
-  <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1.25rem;margin-bottom:.5rem">
-    <div>
-      <div class="s-label">Примеры работ</div>
-      <h2>Что мы <em>печатаем</em></h2>
+<section id="cases">
+  <div class="container">
+    <div class="cases-header reveal">
+      <span class="label" data-ru="Кейсы" data-kz="Кейстер" data-en="Cases">Кейсы</span>
+      <h2 class="section-title" data-ru="Выполненные проекты" data-kz="Орындалған жобалар" data-en="Completed Projects">Выполненные проекты</h2>
+      <p class="section-sub" data-ru="Реальные задачи с конкретными результатами." data-kz="Нақты нәтижелермен нақты міндеттер." data-en="Real tasks with concrete results.">Реальные задачи с конкретными результатами.</p>
     </div>
-    <a href="#form" class="btn btn-p btn-sm">Обсудить заказ <span class="arr">→</span></a>
-  </div>
-  <div class="cases-grid">
-    <div class="case fu">
-      <div class="case-bar"></div>
-      <div class="case-bd">
-        <div class="case-tags"><span class="case-tag">Визитки</span><span class="case-tag">Матовая ламинация</span></div>
-        <div class="case-title">Визитки для риелтора</div>
-        <div class="case-desc">500 шт., двусторонние, матовая ламинация, скруглённые углы. Проверили макет — сдали за 24 часа.</div>
-        <div class="case-res">Готово за 24 часа с момента оплаты</div>
+    <div class="cases-grid">
+      <div class="case-card reveal">
+        <span class="case-tag" data-ru="Корпоративный клиент" data-kz="Корпоративтік клиент" data-en="Corporate client">Корпоративный клиент</span>
+        <h3 class="case-title" data-ru="Фирменный стиль для IT-компании" data-kz="IT-компания үшін фирмалық стиль" data-en="Brand identity for IT company">Фирменный стиль для IT-компании</h3>
+        <p class="case-what" data-ru="3 000 визиток для команды 60 человек, 5 вариантов дизайна. Бархатная ламинация, выборочный UV на логотипе. Согласование макетов — онлайн, производство — сутки." data-kz="60 адамдық команда үшін 3 000 визитка, 5 дизайн нұсқасы. Бархатты ламинация, логотипте таңдамалы UV. Макеттерді онлайн бекіту, өндіріс — бір тәулік." data-en="3,000 business cards for a 60-person team, 5 design variants. Velvet lamination, selective UV on logo. Layout approval online, production in 24 hours.">3 000 визиток для команды 60 человек, 5 вариантов дизайна. Бархатная ламинация, выборочный UV на логотипе. Согласование макетов — онлайн, производство — сутки.</p>
+        <div class="case-result">
+          <div class="case-result-label" data-ru="Результат" data-kz="Нәтиже" data-en="Result">Результат</div>
+          <div class="case-result-text" data-ru="Тираж сдан за 36 часов" data-kz="Тираж 36 сағатта тапсырылды" data-en="Run delivered in 36 hours">Тираж сдан за 36 часов</div>
+        </div>
       </div>
-    </div>
-    <div class="case fu" style="transition-delay:.07s">
-      <div class="case-bar"></div>
-      <div class="case-bd">
-        <div class="case-tags"><span class="case-tag">Баннер</span><span class="case-tag">Наружная печать</span></div>
-        <div class="case-title">Баннер для кофейни</div>
-        <div class="case-desc">3×1 м, баннерная ткань с люверсами. Скорректировали разрешение под печать — вышло чётко.</div>
-        <div class="case-res">Клиент вернулся за вторым баннером</div>
+      <div class="case-card reveal">
+        <span class="case-tag" data-ru="Мероприятие" data-kz="Іс-шара" data-en="Event">Мероприятие</span>
+        <h3 class="case-title" data-ru="Выставочные баннеры для форума" data-kz="Форум үшін көрме баннерлері" data-en="Exhibition banners for forum">Выставочные баннеры для форума</h3>
+        <p class="case-what" data-ru="14 roll-up баннеров и 3 пресс-волла. Нестандартные размеры, жёсткий дедлайн — 48 часов до монтажа. Сдали в срок, установили вовремя." data-kz="14 roll-up баннер және 3 пресс-волл. Стандартты емес өлшемдер, қатаң дедлайн — монтажға 48 сағат. Мерзімінде тапсырдық, уақытында орнаттық." data-en="14 roll-up banners and 3 press walls. Custom sizes, tight deadline — 48 hours to installation. Delivered on time, installed on schedule.">14 roll-up баннеров и 3 пресс-волла. Нестандартные размеры, жёсткий дедлайн — 48 часов до монтажа. Сдали в срок, установили вовремя.</p>
+        <div class="case-result">
+          <div class="case-result-label" data-ru="Результат" data-kz="Нәтиже" data-en="Result">Результат</div>
+          <div class="case-result-text" data-ru="Сдано за 2 дня" data-kz="2 күнде тапсырылды" data-en="Delivered in 2 days">Сдано за 2 дня</div>
+        </div>
       </div>
-    </div>
-    <div class="case fu" style="transition-delay:.12s">
-      <div class="case-bar"></div>
-      <div class="case-bd">
-        <div class="case-tags"><span class="case-tag">Буклет</span><span class="case-tag">Фальцовка</span></div>
-        <div class="case-title">Буклет медицинского центра</div>
-        <div class="case-desc">1 000 буклетов A4, фальцовка в три сложения. Глянцевая бумага 170 г/м².</div>
-        <div class="case-res">Постоянный корпоративный заказчик</div>
-      </div>
-    </div>
-    <div class="case fu" style="transition-delay:.17s">
-      <div class="case-bar"></div>
-      <div class="case-bd">
-        <div class="case-tags"><span class="case-tag">Листовки</span><span class="case-tag">Срочно</span></div>
-        <div class="case-title">Листовки для event-агентства</div>
-        <div class="case-desc">2 000 листовок А5, полноцвет, за 24 часа к открытию мероприятия.</div>
-        <div class="case-res">Доставили к открытию мероприятия</div>
+      <div class="case-card reveal">
+        <span class="case-tag" data-ru="Ресторанный бизнес" data-kz="Мейрамхана бизнесі" data-en="Restaurant business">Ресторанный бизнес</span>
+        <h3 class="case-title" data-ru="Печать материалов для ресторана" data-kz="Мейрамхана үшін материалдарды басып шығару" data-en="Print materials for restaurant">Печать материалов для ресторана</h3>
+        <p class="case-what" data-ru="Меню в твёрдой обложке, плейсматы, листовки для акций. Еженедельное обновление тиражей. Работаем как постоянный подрядчик по печати." data-kz="Қатты мұқабалы мәзір, плейсматтар, акцияларға арналған парақшалар. Апталық тираж жаңартулары. Тұрақты басып шығару мердігері ретінде жұмыс жасаймыз." data-en="Hard-cover menus, placemats, promotional leaflets. Weekly print run updates. Operating as a permanent print contractor.">Меню в твёрдой обложке, плейсматы, листовки для акций. Еженедельное обновление тиражей. Работаем как постоянный подрядчик по печати.</p>
+        <div class="case-result">
+          <div class="case-result-label" data-ru="Результат" data-kz="Нәтиже" data-en="Result">Результат</div>
+          <div class="case-result-text" data-ru="Партнёрство более 1 года" data-kz="1 жылдан астам серіктестік" data-en="Partnership 1+ year">Партнёрство более 1 года</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
-
-<!-- ABOUT / TRUST -->
-<div class="trust-wrap" id="about">
-  <div class="trust-l">
-    <div class="s-label">О компании</div>
-    <h2>BasPrint —<br>полиграфия<br><em>с характером</em></h2>
-    <p class="trust-body">Небольшая команда в Астане. Не колл-центр — живые люди, которые отвечают быстро и делают честно.</p>
-    <p class="trust-body" style="margin-top:0">Если в макете проблема — скажем до печати. Если не знаете какой материал — поможем бесплатно.</p>
-    <a href="#form" class="btn btn-p btn-sm" style="width:fit-content">Обсудить заказ <span class="arr">→</span></a>
-    <div class="hours-g">
-      <span class="hd">Пн–Пт</span><span class="ht">09:00–18:30</span>
-      <span class="hd">Перерыв</span><span class="ht" style="font-weight:400;color:var(--muted)">13:00–14:00</span>
-      <span class="hd">Сб–Вс</span><span class="ht" style="font-weight:400;color:var(--muted)">Выходной</span>
-      <div class="hn">Заявки в WhatsApp принимаем круглосуточно</div>
-    </div>
-    <div class="ctags" style="margin-top:1.5rem;padding-top:1.5rem">
-      <span class="ctag">Визитки</span><span class="ctag">Листовки</span><span class="ctag">Баннеры</span>
-      <span class="ctag">Каталоги</span><span class="ctag">Наклейки</span><span class="ctag">Бланки</span>
-    </div>
-  </div>
-  <div class="trust-r">
-    <div class="trust-nums">
-      <div class="tn fu"><span class="tn-val">4.2★</span><span class="tn-lbl">рейтинг</span><span class="tn-note">232 оценки на 2GIS</span></div>
-      <div class="tn fu" style="transition-delay:.06s"><span class="tn-val">24 ч</span><span class="tn-lbl">срочный тираж</span><span class="tn-note">Минимальный срок</span></div>
-      <div class="tn fu" style="transition-delay:.12s"><span class="tn-val">100%</span><span class="tn-lbl">проверка макета</span><span class="tn-note">До запуска в печать</span></div>
-      <div class="tn fu" style="transition-delay:.18s"><span class="tn-val">0 ₸</span><span class="tn-lbl">за консультацию</span><span class="tn-note">Помогаем с выбором</span></div>
-      <div class="tn fu" style="transition-delay:.24s"><span class="tn-val">≥50</span><span class="tn-lbl">минимальный тираж</span><span class="tn-note">Малые заказы тоже берём</span></div>
-      <div class="tn fu" style="transition-delay:.3s"><span class="tn-val">2GIS</span><span class="tn-lbl">нашли нас</span><span class="tn-note">Кабанбай батыр 48/1</span></div>
-    </div>
-  </div>
-</div>
 
 <!-- REVIEWS -->
-<section class="reviews section" id="reviews">
-  <div class="rev-top">
-    <div>
-      <div class="s-label">Отзывы клиентов</div>
-      <h2>Что говорят те, <em>кто заказывал</em></h2>
-    </div>
-    <div style="display:flex;align-items:center;gap:.85rem">
-      <span class="rating-val">4.2</span>
-      <div>
-        <span class="rating-stars">★★★★☆</span>
-        <span class="rating-cnt">232 оценки · 2GIS, Астана</span>
+<section id="reviews">
+  <div class="container">
+    <div class="reviews-header reveal">
+      <span class="label" data-ru="Отзывы" data-kz="Пікірлер" data-en="Reviews">Отзывы</span>
+      <h2 class="section-title" data-ru="Что говорят клиенты" data-kz="Клиенттер не дейді" data-en="What clients say">Что говорят клиенты</h2>
+      <div class="reviews-rating">
+        <span class="reviews-big-num" data-to="4.2" data-dec="1">4.2</span>
+        <div class="reviews-stars-col">
+          <div style="display:flex;gap:3px">
+            <svg width="14" height="14" viewBox="0 0 14 14"><polygon class="sf" points="7,1 8.8,5.5 13.5,5.5 9.8,8.5 11.3,13 7,10.2 2.7,13 4.2,8.5 0.5,5.5 5.2,5.5"/></svg>
+            <svg width="14" height="14" viewBox="0 0 14 14"><polygon class="sf" points="7,1 8.8,5.5 13.5,5.5 9.8,8.5 11.3,13 7,10.2 2.7,13 4.2,8.5 0.5,5.5 5.2,5.5"/></svg>
+            <svg width="14" height="14" viewBox="0 0 14 14"><polygon class="sf" points="7,1 8.8,5.5 13.5,5.5 9.8,8.5 11.3,13 7,10.2 2.7,13 4.2,8.5 0.5,5.5 5.2,5.5"/></svg>
+            <svg width="14" height="14" viewBox="0 0 14 14"><polygon class="sf" points="7,1 8.8,5.5 13.5,5.5 9.8,8.5 11.3,13 7,10.2 2.7,13 4.2,8.5 0.5,5.5 5.2,5.5"/></svg>
+            <svg width="14" height="14" viewBox="0 0 14 14"><polygon class="se" points="7,1 8.8,5.5 13.5,5.5 9.8,8.5 11.3,13 7,10.2 2.7,13 4.2,8.5 0.5,5.5 5.2,5.5"/></svg>
+          </div>
+          <span class="reviews-count" data-ru="232 оценки" data-kz="232 бағалау" data-en="232 ratings">232 оценки</span>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="reviews-grid">
-    <div class="rev fu">
-      <span class="rev-qm">"</span>
-      <div class="rev-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-      <p class="rev-text">Быстро ответили, хорошая цена, приятный продавец.</p>
-      <div class="rev-foot">
-        <div class="rev-av">Ж</div>
-        <div><span class="rev-name">Жанеля</span><span class="rev-src">2GIS, 2024</span></div>
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <div class="review-stars">
+          <svg width="12" height="12" viewBox="0 0 14 14"><polygon class="sf" points="7,1 8.8,5.5 13.5,5.5 9.8,8.5 11.3,13 7,10.2 2.7,13 4.2,8.5 0.5,5.5 5.2,5.5"/></svg>
+          <svg width="12" height="12" viewBox="0 0 14 14"><polygon class="sf" points="7,1 8.8,5.5 13.5,5.5 9.8,8.5 11.3,13 7,10.2 2.7,13 4.2,8.5 0.5,5.5 5.2,5.5"/></svg>
+          <svg width="12" height="12" viewBox="0 0 14 14"><polygon class="sf" points="7,1 8.8,5.5 13.5,5.5 9.8,8.5 11.3,13 7,10.2 2.7,13 4.2,8.5 0.5,5.5 5.2,5.5"/></svg>
+          <svg width="12" height="12" viewBox="0 0 14 14"><polygon class="sf" points="7,1 8.8,5.5 13.5,5.5 9.8,8.5 11.3,13 7,10.2 2.7,13 4.2,8.5 0.5,5.5 5.2,5.5"/></svg>
+          <svg width="12" height="12" viewBox="0 0 14 14"><polygon class="sf" points="7,1 8.8,5.5 13.5,5.5 9.8,8.5 11.3,13 7,10.2 2.7,13 4.2,8.5 0.5,5.5 5.2,5.5"/></svg>
+        </div>
+        <p class="review-text" data-ru="Быстро ответили, цена приятная, продавец внимательный. Визитки сделали в срок — качество отличное, буду заказывать ещё." data-kz="Тез жауап берді, баға жақсы, сатушы мұқият. Визиткаларды мерзімінде жасады — сапасы тамаша, тағы тапсырыс беремін." data-en="Quick response, pleasant price, attentive staff. Business cards done on time — excellent quality, will order again.">Быстро ответили, цена приятная, продавец внимательный. Визитки сделали в срок — качество отличное, буду заказывать ещё.</p>
+        <div class="review-rule"></div>
+        <div class="review-author" data-ru="Клиент BasPrint" data-kz="BasPrint клиенті" data-en="BasPrint client">Клиент BasPrint</div>
       </div>
-    </div>
-    <div class="rev fu" style="transition-delay:.09s">
-      <span class="rev-qm">"</span>
-      <div class="rev-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-      <p class="rev-text">Отличная полиграфия! Нашла по 2GIS, всё сделали оперативно, именно то что я хотела. Спасибо!</p>
-      <div class="rev-foot">
-        <div class="rev-av">Н</div>
-        <div><span class="rev-name">Нурсулу</span><span class="rev-src">2GIS, 2024</span></div>
+      <div class="review-card reveal">
+        <div class="review-stars">
+          <svg width="12" height="12" viewBox="0 0 14 14"><polygon class="sf" points="7,1 8.8,5.5 13.5,5.5 9.8,8.5 11.3,13 7,10.2 2.7,13 4.2,8.5 0.5,5.5 5.2,5.5"/></svg>
+          <svg width="12" height="12" viewBox="0 0 14 14"><polygon class="sf" points="7,1 8.8,5.5 13.5,5.5 9.8,8.5 11.3,13 7,10.2 2.7,13 4.2,8.5 0.5,5.5 5.2,5.5"/></svg>
+          <svg width="12" height="12" viewBox="0 0 14 14"><polygon class="sf" points="7,1 8.8,5.5 13.5,5.5 9.8,8.5 11.3,13 7,10.2 2.7,13 4.2,8.5 0.5,5.5 5.2,5.5"/></svg>
+          <svg width="12" height="12" viewBox="0 0 14 14"><polygon class="sf" points="7,1 8.8,5.5 13.5,5.5 9.8,8.5 11.3,13 7,10.2 2.7,13 4.2,8.5 0.5,5.5 5.2,5.5"/></svg>
+          <svg width="12" height="12" viewBox="0 0 14 14"><polygon class="sf" points="7,1 8.8,5.5 13.5,5.5 9.8,8.5 11.3,13 7,10.2 2.7,13 4.2,8.5 0.5,5.5 5.2,5.5"/></svg>
+        </div>
+        <p class="review-text" data-ru="Отличная полиграфия. Помогли с макетом буклета — нашли несколько ошибок до печати, исправили, запустили. За это отдельная благодарность." data-kz="Тамаша полиграфия. Буклет макетіне көмектесті — басып шығарғанға дейін бірнеше қатені тапты, түзетті, іске қосты. Бұл үшін ерекше алғыс." data-en="Excellent print quality. Helped with the booklet layout — caught several errors before printing, fixed them, launched. Especially grateful for that.">Отличная полиграфия. Помогли с макетом буклета — нашли несколько ошибок до печати, исправили, запустили. За это отдельная благодарность.</p>
+        <div class="review-rule"></div>
+        <div class="review-author" data-ru="Постоянный клиент" data-kz="Тұрақты клиент" data-en="Regular client">Постоянный клиент</div>
       </div>
-    </div>
-    <div class="rev fu" style="transition-delay:.18s">
-      <span class="rev-qm">"</span>
-      <div class="rev-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-      <p class="rev-text">Очень давно с ними работаю. Отличная типография.</p>
-      <div class="rev-foot">
-        <div class="rev-av">A</div>
-        <div><span class="rev-name">Azhar</span><span class="rev-src">Постоянный клиент</span></div>
+      <div class="review-card reveal">
+        <div class="review-stars">
+          <svg width="12" height="12" viewBox="0 0 14 14"><polygon class="sf" points="7,1 8.8,5.5 13.5,5.5 9.8,8.5 11.3,13 7,10.2 2.7,13 4.2,8.5 0.5,5.5 5.2,5.5"/></svg>
+          <svg width="12" height="12" viewBox="0 0 14 14"><polygon class="sf" points="7,1 8.8,5.5 13.5,5.5 9.8,8.5 11.3,13 7,10.2 2.7,13 4.2,8.5 0.5,5.5 5.2,5.5"/></svg>
+          <svg width="12" height="12" viewBox="0 0 14 14"><polygon class="sf" points="7,1 8.8,5.5 13.5,5.5 9.8,8.5 11.3,13 7,10.2 2.7,13 4.2,8.5 0.5,5.5 5.2,5.5"/></svg>
+          <svg width="12" height="12" viewBox="0 0 14 14"><polygon class="sf" points="7,1 8.8,5.5 13.5,5.5 9.8,8.5 11.3,13 7,10.2 2.7,13 4.2,8.5 0.5,5.5 5.2,5.5"/></svg>
+          <svg width="12" height="12" viewBox="0 0 14 14"><polygon class="se" points="7,1 8.8,5.5 13.5,5.5 9.8,8.5 11.3,13 7,10.2 2.7,13 4.2,8.5 0.5,5.5 5.2,5.5"/></svg>
+        </div>
+        <p class="review-text" data-ru="Работаю с ними давно. Баннеры, визитки, корпоративные материалы — всегда без замечаний и в срок. Надёжный партнёр для регулярной печати." data-kz="Олармен бұрыннан жұмыс жасаймын. Баннерлер, визиткалар, корпоративтік материалдар — әрқашан ескертусіз және мерзімінде. Тұрақты басып шығару үшін сенімді серіктес." data-en="Long-time partner. Banners, cards, corporate materials — always flawless and on time. Reliable partner for regular printing.">Работаю с ними давно. Баннеры, визитки, корпоративные материалы — всегда без замечаний и в срок. Надёжный партнёр для регулярной печати.</p>
+        <div class="review-rule"></div>
+        <div class="review-author" data-ru="Корпоративный заказчик" data-kz="Корпоративтік тапсырыс беруші" data-en="Corporate client">Корпоративный заказчик</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FORM -->
-<div class="form-wrap" id="form">
-  <div class="form-l">
-    <div class="online-badge">
-      <div class="online-dot"></div>
-      <span class="online-text">Ответим в рабочее время</span>
+<!-- PROCESS -->
+<section id="process">
+  <div class="container">
+    <div class="process-header reveal">
+      <span class="label" data-ru="Как мы работаем" data-kz="Біз қалай жұмыс жасаймыз" data-en="How we work">Как мы работаем</span>
+      <h2 class="section-title" data-ru="Четыре шага" data-kz="Төрт қадам" data-en="Four steps">Четыре шага</h2>
+      <p class="section-sub" data-ru="Простой процесс — от заявки до готовой продукции." data-kz="Қарапайым процесс — өтінімнен дайын өнімге дейін." data-en="Simple process — from request to finished product.">Простой процесс — от заявки до готовой продукции.</p>
     </div>
-    <h2 class="form-h">Рассчитайте стоимость<br><em>вашего заказа</em></h2>
-    <p class="form-p">Оставьте имя и телефон — перезвоним, уточним детали и назовём цену. Без предоплаты.</p>
-    <div class="c-list">
-      <div class="c-row"><span class="c-lbl">Телефон / WA</span><span class="c-val"><a href="tel:+77024056954">+7 702 405 69 54</a></span></div>
-      <div class="c-row"><span class="c-lbl">Адрес</span><span class="c-val">Кабанбай батыр 48/1, офис 7</span></div>
-      <div class="c-row"><span class="c-lbl">Пн–Пт</span><span class="c-val">09:00–18:30</span></div>
-      <div class="c-row"><span class="c-lbl">Сб–Вс</span><span class="c-val" style="color:rgba(244,241,235,.35)">Выходной</span></div>
-    </div>
-  </div>
-  <div class="form-r">
-    <div class="form-title">Получить расчёт</div>
-    <p class="form-hint">Два поля — остальное уточним лично</p>
-    <div class="f-row">
-      <div class="f-g"><label class="f-lbl">Имя *</label><input type="text" class="f-inp" id="f-name" placeholder="Ваше имя"></div>
-      <div class="f-g"><label class="f-lbl">Телефон *</label><input type="tel" class="f-inp" id="f-phone" placeholder="+7 (___) ___-__-__"></div>
-    </div>
-    <div class="f-g"><label class="f-lbl">Задача</label><input type="text" class="f-inp" id="f-task" placeholder="Напр.: визитки 500 шт., А5 буклет"></div>
-    <div class="f-actions">
-      <button class="btn btn-p btn-lg" id="submit-btn" style="flex:1;min-width:180px;border-radius:2px">
-        <span id="btn-lbl">Рассчитать стоимость</span>
-        <span class="arr" id="btn-ico">→</span>
-      </button>
-      <button class="btn btn-w btn-lg" id="wa-btn" style="border-radius:2px">
-        <svg width="15" height="15" viewBox="0 0 24 24" style="fill:#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp
-      </button>
-    </div>
-    <p class="f-note">🔒 Данные не передаём третьим лицам</p>
-  </div>
-</div>
-
-<!-- HOW TO FIND -->
-<section class="find-section" id="find">
-  <div class="find-inner">
-    <div>
-      <div class="s-label">Как нас найти</div>
-      <div class="find-address">Кабанбай батыр 48/1,<br>офис 7, Астана</div>
-      <p class="find-note">Есиль район</p>
-      <p class="find-note">Рядом с Дворцом единоборств</p>
-      <p class="find-note">3 минуты пешком от остановки</p>
-      <div class="find-btns">
-        <a href="https://maps.app.goo.gl/?q=Кабанбай+батыр+48/1+Астана" target="_blank" rel="noopener" class="find-btn">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          <div><span style="display:block;font-weight:600">Открыть в Google Maps</span><span class="find-btn-sub">Построить маршрут</span></div>
-        </a>
-        <a href="https://2gis.kz/astana/search/Кабанбай%20батыр%2048%2F1" target="_blank" rel="noopener" class="find-btn">
-          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-          <div><span style="display:block;font-weight:600">Открыть в 2GIS</span><span class="find-btn-sub">Рейтинг 4.2 ★ · 232 отзыва</span></div>
-        </a>
-        <a href="tel:+77024056954" class="find-btn">
-          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-          <div><span style="display:block;font-weight:600">+7 702 405 69 54</span><span class="find-btn-sub">Позвонить сейчас</span></div>
-        </a>
-        <a href="https://wa.me/77024056954?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D1%85%D0%BE%D1%87%D1%83%20%D1%80%D0%B0%D1%81%D1%81%D1%87%D0%B8%D1%82%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%B8"
-           target="_blank" rel="noopener" class="find-btn">
-          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          <div><span style="display:block;font-weight:600">Написать в WhatsApp</span><span class="find-btn-sub">Ответим в рабочее время</span></div>
-        </a>
-      </div>
-    </div>
-
-    <div class="find-right fu" style="transition-delay:.1s">
-      <div class="find-contact-title">Контакты</div>
-      <div class="contact-items">
-        <a href="tel:+77024056954" class="contact-item">
-          <div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.82 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14z"/></svg></div>
-          <div class="ci-body"><span class="ci-lbl">Телефон</span><span class="ci-val">+7 702 405 69 54</span></div>
-        </a>
-        <a href="https://wa.me/77024056954?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D1%85%D0%BE%D1%87%D1%83%20%D1%80%D0%B0%D1%81%D1%81%D1%87%D0%B8%D1%82%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%B8"
-           class="contact-item" target="_blank" rel="noopener">
-          <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
-          <div class="ci-body"><span class="ci-lbl">WhatsApp</span><span class="ci-val">+7 702 405 69 54</span><span class="ci-sub">Ответим в рабочее время</span></div>
-        </a>
-        <a href="https://instagram.com/basprintastana" class="contact-item" target="_blank" rel="noopener">
-          <div class="ci-icon" style="background:linear-gradient(135deg,#f9ce34,#ee2a7b,#6228d7);border-color:transparent">
-            <svg viewBox="0 0 24 24" style="fill:white;width:15px;height:15px"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    <div class="process-steps">
+      <div class="process-line"></div>
+      <div class="process-grid">
+        <div class="process-step reveal">
+          <div class="step-num"><svg viewBox="0 0 32 32"><rect x="8" y="5" width="16" height="22" rx="1.5"/><line x1="12" y1="11" x2="20" y2="11"/><line x1="12" y1="15" x2="20" y2="15"/><line x1="12" y1="19" x2="17" y2="19"/></svg></div>
+          <div class="step-body">
+            <h3 class="step-title" data-ru="Заявка" data-kz="Өтінім" data-en="Request">Заявка</h3>
+            <p class="step-desc" data-ru="Опишите задачу в форме ниже или напишите в WhatsApp. Отвечаем в течение нескольких минут." data-kz="Тапсырманы төмендегі пішінде сипаттаңыз немесе WhatsApp-та жазыңыз. Бірнеше минут ішінде жауап береміз." data-en="Describe your task in the form below or write to us on WhatsApp. We reply within minutes.">Опишите задачу в форме ниже или напишите в WhatsApp. Отвечаем в течение нескольких минут.</p>
           </div>
-          <div class="ci-body"><span class="ci-lbl">Instagram</span><span class="ci-val">@basprintastana</span><span class="ci-sub">Наши работы и цены</span></div>
-        </a>
-        <div class="contact-item" style="cursor:default">
-          <div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <div class="ci-body"><span class="ci-lbl">Адрес</span><span class="ci-val">Кабанбай батыр 48/1, офис 7</span><span class="ci-sub">Есиль район, рядом с Дворцом единоборств</span></div>
+        </div>
+        <div class="process-step reveal">
+          <div class="step-num"><svg viewBox="0 0 32 32"><rect x="4" y="13" width="24" height="7" rx="1"/><line x1="9" y1="13" x2="9" y2="17"/><line x1="14" y1="13" x2="14" y2="16"/><line x1="19" y1="13" x2="19" y2="17"/><line x1="24" y1="13" x2="24" y2="16"/></svg></div>
+          <div class="step-body">
+            <h3 class="step-title" data-ru="Расчёт и макет" data-kz="Есептеу және макет" data-en="Quote &amp; layout">Расчёт и макет</h3>
+            <p class="step-desc" data-ru="Уточняем детали, рассчитываем стоимость. Проверяем ваш файл или готовим макет с нуля." data-kz="Егжей-тегжейлерді нақтылаймыз, бағасын есептейміз. Файлыңызды тексереміз немесе макетті нөлден дайындаймыз." data-en="We clarify details and calculate the price. We check your file or prepare the layout from scratch.">Уточняем детали, рассчитываем стоимость. Проверяем ваш файл или готовим макет с нуля.</p>
+          </div>
+        </div>
+        <div class="process-step reveal">
+          <div class="step-num"><svg viewBox="0 0 32 32"><rect x="6" y="13" width="20" height="12" rx="1.5"/><path d="M10 13V9h12v4"/><rect x="10" y="17" width="12" height="5" rx="1"/></svg></div>
+          <div class="step-body">
+            <h3 class="step-title" data-ru="Производство" data-kz="Өндіріс" data-en="Production">Производство</h3>
+            <p class="step-desc" data-ru="Запускаем в печать после вашего подтверждения. Контролируем качество на каждом этапе." data-kz="Сіздің растауыңыздан кейін басып шығаруға жіберіледі. Әр кезеңде сапаны бақылаймыз." data-en="We start printing after your confirmation. Quality is monitored at every stage.">Запускаем в печать после вашего подтверждения. Контролируем качество на каждом этапе.</p>
+          </div>
+        </div>
+        <div class="process-step reveal">
+          <div class="step-num"><svg viewBox="0 0 32 32"><path d="M4 11l12-6 12 6v10l-12 6-12-6z"/><line x1="4" y1="11" x2="16" y2="17"/><line x1="28" y1="11" x2="16" y2="17"/><line x1="16" y1="17" x2="16" y2="27"/></svg></div>
+          <div class="step-body">
+            <h3 class="step-title" data-ru="Получение" data-kz="Алу" data-en="Collection">Получение</h3>
+            <p class="step-desc" data-ru="Самовывоз из офиса или курьерская доставка по Астане." data-kz="Кеңседен өздігінен алу немесе Астана бойынша курьерлік жеткізу." data-en="Pickup from office or courier delivery across Astana.">Самовывоз из офиса или курьерская доставка по Астане.</p>
+          </div>
         </div>
       </div>
-      <!-- Instagram card -->
-      <a href="https://instagram.com/basprintastana" class="ig-card" target="_blank" rel="noopener">
-        <div class="ig-icon"><svg viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
-        <div class="ig-body">
-          <span class="ig-handle">@basprintastana</span>
-          <span class="ig-desc">Перейти в Instagram — смотреть работы</span>
+    </div>
+  </div>
+</section>
+
+<!-- ORDER FORM -->
+<section id="order">
+  <div class="container">
+    <div class="form-wrap">
+      <div class="form-header reveal">
+        <span class="label" style="justify-content:center" data-ru="Заявка" data-kz="Өтінім" data-en="Request">Заявка</span>
+        <h2 class="section-title" data-ru="Рассчитать стоимость" data-kz="Бағасын есептеу" data-en="Get a Quote">Рассчитать стоимость</h2>
+        <p class="section-sub" data-ru="Заполните форму — мы ответим в WhatsApp в течение нескольких минут." data-kz="Пішінді толтырыңыз — біз бірнеше минут ішінде WhatsApp-та жауап береміз." data-en="Fill out the form — we'll reply on WhatsApp within minutes.">Заполните форму — мы ответим в WhatsApp в течение нескольких минут.</p>
+      </div>
+      <form id="orderForm" class="reveal" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="inp-name" data-ru="Ваше имя" data-kz="Сіздің атыңыз" data-en="Your name">Ваше имя</label>
+          <input class="form-input" id="inp-name" name="name" type="text" placeholder="Алия Бекова" data-ph-ru="Алия Бекова" data-ph-kz="Алия Бекова" data-ph-en="Your name" autocomplete="name" required>
         </div>
-        <span class="ig-arr">→</span>
-      </a>
-      <!-- Hours -->
-      <div class="hours-card">
-        <div class="hours-card-title">График работы</div>
-        <div class="h-row"><span class="h-day">Понедельник–Пятница</span><span class="h-time">09:00–18:30</span></div>
-        <div class="h-row"><span class="h-day">Перерыв</span><span class="h-time" style="font-weight:400;color:var(--muted)">13:00–14:00</span></div>
-        <div class="h-row"><span class="h-day">Суббота–Воскресенье</span><span class="h-time off">Выходной</span></div>
-        <div class="h-note">Заявки в WhatsApp принимаем в любое время — ответим в рабочие часы</div>
+        <div class="form-group">
+          <label class="form-label" for="inp-phone" data-ru="Телефон" data-kz="Телефон" data-en="Phone">Телефон</label>
+          <input class="form-input" id="inp-phone" name="phone" type="tel" placeholder="+7 700 000 00 00" autocomplete="tel" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="inp-task" data-ru="Что нужно напечатать" data-kz="Не басып шығару керек" data-en="What to print">Что нужно напечатать</label>
+          <textarea class="form-textarea" id="inp-task" name="task" placeholder="Например: 500 визиток, двусторонние, матовая ламинация" data-ph-ru="Например: 500 визиток, двусторонние, матовая ламинация" data-ph-kz="Мысалы: 500 визитка, екі жақты, матты ламинация" data-ph-en="E.g. 500 business cards, double-sided, matte lamination" required></textarea>
+        </div>
+        <button type="submit" class="form-submit" data-ru="Отправить заявку в WhatsApp" data-kz="WhatsApp-та өтінім жіберу" data-en="Send request to WhatsApp">Отправить заявку в WhatsApp</button>
+        <p class="form-note" data-ru="Нажимая кнопку, вы перейдёте в WhatsApp с готовым текстом" data-kz="Түймені басқанда сіз дайын мәтінмен WhatsApp-қа өтесіз" data-en="Clicking the button opens WhatsApp with a pre-filled message">Нажимая кнопку, вы перейдёте в WhatsApp с готовым текстом</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section id="contacts">
+  <div class="container">
+    <div class="reveal">
+      <span class="label" data-ru="Контакты" data-kz="Байланыс" data-en="Contacts">Контакты</span>
+      <h2 class="section-title" data-ru="Где нас найти" data-kz="Бізді қайдан табуға болады" data-en="Where to find us">Где нас найти</h2>
+    </div>
+    <div class="contacts-grid">
+      <div class="contacts-block reveal">
+        <span class="contacts-block-label" data-ru="Информация" data-kz="Ақпарат" data-en="Information">Информация</span>
+        <div class="contact-row">
+          <span class="contact-key" data-ru="Адрес" data-kz="Мекенжай" data-en="Address">Адрес</span>
+          <span class="contact-val">Кабанбай батыр 48/1, офис 7<br>Есиль район, Астана</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-key" data-ru="Телефон" data-kz="Телефон" data-en="Phone">Телефон</span>
+          <span class="contact-val"><a href="tel:+77024056954">+7 702 405 69 54</a></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-key">WhatsApp</span>
+          <span class="contact-val"><a href="https://wa.me/77024056954" target="_blank" rel="noopener">+7 702 405 69 54</a></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-key">Instagram</span>
+          <span class="contact-val"><a href="https://instagram.com/basprintastana" target="_blank" rel="noopener">@basprintastana</a></span>
+        </div>
+        <div class="map-btns">
+          <a class="btn-map" href="https://maps.google.com/?q=Кабанбай+батыр+48/1+Астана" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <path d="M8 1C5.24 1 3 3.24 3 6c0 3.75 5 9 5 9s5-5.25 5-9c0-2.76-2.24-5-5-5zm0 6.75A1.75 1.75 0 1 1 8 4.25a1.75 1.75 0 0 1 0 3.5z" fill="currentColor" opacity=".65"/>
+            </svg>
+            Google Maps
+          </a>
+          <a class="btn-map" href="https://2gis.kz/nur-sultan/search/Кабанбай+батыр+48/1" target="_blank" rel="noopener">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.2" opacity=".65"/>
+              <path d="M5.5 8h5M8 5.5v5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity=".65"/>
+            </svg>
+            2GIS
+          </a>
+        </div>
+      </div>
+      <div class="contacts-block reveal">
+        <span class="contacts-block-label" data-ru="График работы" data-kz="Жұмыс кестесі" data-en="Working hours">График работы</span>
+        <div class="schedule-row">
+          <span class="schedule-day" data-ru="Понедельник — Пятница" data-kz="Дүйсенбі — Жұма" data-en="Monday — Friday">Понедельник — Пятница</span>
+          <span class="schedule-time">09:00–18:30</span>
+        </div>
+        <div class="schedule-row">
+          <span class="schedule-day" data-ru="Перерыв" data-kz="Үзіліс" data-en="Lunch break">Перерыв</span>
+          <span class="schedule-time">13:00–14:00</span>
+        </div>
+        <div class="schedule-row">
+          <span class="schedule-day" data-ru="Суббота — Воскресенье" data-kz="Сенбі — Жексенбі" data-en="Saturday — Sunday">Суббота — Воскресенье</span>
+          <span class="schedule-time" style="color:var(--text-muted)" data-ru="Выходной" data-kz="Демалыс" data-en="Day off">Выходной</span>
+        </div>
+        <p class="schedule-note" data-ru="По срочным вопросам пишите в WhatsApp — отвечаем оперативно в любое время." data-kz="Шұғыл мәселелер бойынша WhatsApp-та жазыңыз — кез келген уақытта жедел жауап береміз." data-en="For urgent matters write to WhatsApp — we reply promptly at any time.">По срочным вопросам пишите в WhatsApp — отвечаем оперативно в любое время.</p>
       </div>
     </div>
   </div>
@@ -988,85 +1913,183 @@ footer{
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">BasPrint</div>
-  <div class="footer-links">
-    <a href="#services">Услуги</a>
-    <a href="#about">О нас</a>
-    <a href="#reviews">Отзывы</a>
-    <a href="#find">Адрес</a>
-    <a href="#form">Заявка</a>
+  <div class="footer-inner">
+    <div>
+      <a href="#hero" class="footer-logo">BAS<em>PRINT</em></a>
+      <p class="footer-addr">Кабанбай батыр 48/1, офис 7, Астана&nbsp;&nbsp;·&nbsp;&nbsp;+7 702 405 69 54</p>
+    </div>
+    <div class="footer-right">
+      <a href="https://instagram.com/basprintastana" class="footer-link" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://wa.me/77024056954" class="footer-link" target="_blank" rel="noopener">WhatsApp</a>
+      <p class="footer-copy">&copy; 2024 BasPrint</p>
+    </div>
   </div>
-  <span class="footer-copy">© 2025 BasPrint · Кабанбай батыр 48/1, офис 7, Астана</span>
 </footer>
 
+<!-- FLOATING WHATSAPP -->
+<a class="wa-float" href="https://wa.me/77024056954" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+    <path d="M13 2C7.477 2 3 6.477 3 12c0 1.89.52 3.66 1.43 5.18L3 23l5.97-1.56A9.94 9.94 0 0013 22c5.523 0 10-4.477 10-10S18.523 2 13 2z" fill="white"/>
+    <path d="M9.5 8.5c.2-.5.5-.5.7-.5h.6c.2 0 .4.1.6.5l.8 2c.1.3.05.6-.1.8l-.5.6c.4.8 1 1.5 1.8 1.9l.5-.5c.2-.2.5-.3.8-.2l2 .7c.4.15.5.35.5.6v.9c0 .4-.3.7-.7.7C11.3 16 8 12.7 8 9.2c0-.4.3-.7.7-.7h.8z" fill="#22C55E"/>
+  </svg>
+</a>
+
+<!-- MOBILE CTA BAR -->
+<div class="mobile-cta">
+  <a href="https://wa.me/77024056954" class="mobile-cta-btn" target="_blank" rel="noopener">
+    <svg width="17" height="17" viewBox="0 0 26 26" fill="none">
+      <path d="M13 2C7.477 2 3 6.477 3 12c0 1.89.52 3.66 1.43 5.18L3 23l5.97-1.56A9.94 9.94 0 0013 22c5.523 0 10-4.477 10-10S18.523 2 13 2z" fill="currentColor"/>
+      <path d="M9.5 8.5c.2-.5.5-.5.7-.5h.6c.2 0 .4.1.6.5l.8 2c.1.3.05.6-.1.8l-.5.6c.4.8 1 1.5 1.8 1.9l.5-.5c.2-.2.5-.3.8-.2l2 .7c.4.15.5.35.5.6v.9c0 .4-.3.7-.7.7C11.3 16 8 12.7 8 9.2c0-.4.3-.7.7-.7h.8z" fill="var(--bg)"/>
+    </svg>
+    WhatsApp
+  </a>
+  <a href="tel:+77024056954" class="mobile-cta-btn">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
+      <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" fill="currentColor" opacity=".75"/>
+    </svg>
+    <span data-ru="Позвонить" data-kz="Қоңырау шалу" data-en="Call">Позвонить</span>
+  </a>
+</div>
+
 <script>
-/* ── WA link ── */
-const WA = 'https://wa.me/77024056954?text=';
-const DEF = '%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D1%85%D0%BE%D1%87%D1%83%20%D1%80%D0%B0%D1%81%D1%81%D1%87%D0%B8%D1%82%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%B8';
+(function(){
+  // Scroll reveal
+  function initReveal(){
+    var ro=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add('visible');
+          ro.unobserve(e.target);
+        }
+      });
+    },{threshold:0.08,rootMargin:'0px 0px -28px 0px'});
+    document.querySelectorAll('.reveal,.why-item').forEach(function(el){ro.observe(el)});
+  }
 
-/* ── Scroll anim ── */
-const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting) e.target.classList.add('v') }), {threshold:.1});
-document.querySelectorAll('.fu').forEach(el => io.observe(el));
+  // Stagger grid children — cap at 450ms so large grids don't drag
+  function initStagger(){
+    document.querySelectorAll('.services-grid,.catalog-grid,.cases-grid,.reviews-grid,.process-grid').forEach(function(g){
+      g.querySelectorAll('.reveal').forEach(function(el,i){
+        el.style.transitionDelay=Math.min(i*0.09,0.45)+'s';
+      });
+    });
+  }
 
-/* ── Phone mask ── */
-document.getElementById('f-phone').addEventListener('input', function(){
-  let v = this.value.replace(/\D/g,'');
-  if(v.startsWith('7') || v.startsWith('8')) v = v.slice(1);
-  let f = '+7 ';
-  if(v.length > 0) f += '(' + v.slice(0,3);
-  if(v.length >= 3) f += ') ' + v.slice(3,6);
-  if(v.length >= 6) f += '-' + v.slice(6,8);
-  if(v.length >= 8) f += '-' + v.slice(8,10);
-  this.value = f;
-});
+  initReveal();
+  initStagger();
 
-/* ── Clear err on input ── */
-document.querySelectorAll('.f-inp').forEach(el => el.addEventListener('input', () => el.classList.remove('err')));
+  // Counter animation
+  function countUp(el,to,dec,suffix){
+    var dur=900,start=performance.now();
+    (function tick(now){
+      var p=Math.min((now-start)/dur,1);
+      var e=1-Math.pow(1-p,4);
+      el.textContent=(e*to).toFixed(dec)+suffix;
+      if(p<1)requestAnimationFrame(tick);
+    })(start);
+  }
 
-/* ── Build WA message from form ── */
-function buildMsg(){
-  const name  = document.getElementById('f-name').value.trim();
-  const phone = document.getElementById('f-phone').value.trim();
-  const task  = document.getElementById('f-task').value.trim();
-  const parts = ['Здравствуйте!'];
-  if(name)  parts.push('Имя: ' + name + '.');
-  if(phone) parts.push('Телефон: ' + phone + '.');
-  if(task)  parts.push('Задача: ' + task);
-  else      parts.push('Хочу рассчитать стоимость печати.');
-  return encodeURIComponent(parts.join('\n'));
-}
+  var co=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var el=e.target;
+        var to=parseFloat(el.dataset.to);
+        var dec=parseInt(el.dataset.dec||'0');
+        var suf=el.dataset.suffix||'';
+        countUp(el,to,dec,suf);
+        co.unobserve(el);
+      }
+    });
+  },{threshold:0.5});
 
-/* ── Submit button ── */
-document.getElementById('submit-btn').addEventListener('click', function(){
-  const ne = document.getElementById('f-name');
-  const pe = document.getElementById('f-phone');
-  let ok = true;
-  if(!ne.value.trim()){ ne.classList.add('err'); ok = false; }
-  if(!pe.value.trim()){ pe.classList.add('err'); ok = false; }
-  if(!ok) return;
-  window.open(WA + buildMsg(), '_blank', 'noopener');
-  const lbl = document.getElementById('btn-lbl');
-  const ico = document.getElementById('btn-ico');
-  lbl.textContent = 'Отправлено — ждите ответа!';
-  ico.textContent = '✓';
-  this.style.background = '#2d6a4f';
-  this.style.borderColor = '#2d6a4f';
-  setTimeout(() => {
-    lbl.textContent = 'Рассчитать стоимость';
-    ico.textContent = '→';
-    this.style.background = '';
-    this.style.borderColor = '';
-  }, 5000);
-});
+  document.querySelectorAll('[data-to]').forEach(function(el){co.observe(el)});
 
-/* ── WA button (form) ── */
-document.getElementById('wa-btn').addEventListener('click', function(){
-  const name  = document.getElementById('f-name').value.trim();
-  const phone = document.getElementById('f-phone').value.trim();
-  const task  = document.getElementById('f-task').value.trim();
-  const msg = (name || phone || task) ? buildMsg() : DEF;
-  window.open(WA + msg, '_blank', 'noopener');
-});
+  // Form -> WhatsApp
+  document.getElementById('orderForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var name=document.getElementById('inp-name').value.trim();
+    var phone=document.getElementById('inp-phone').value.trim();
+    var task=document.getElementById('inp-task').value.trim();
+    if(!name||!phone||!task)return;
+    var formGreeting={ru:'Здравствуйте! Пишу с сайта BasPrint.',kz:'Сәлеметсіз бе! BasPrint сайтынан жазып отырмын.',en:'Hello! Writing from the BasPrint website.'};
+    var formLabels={ru:['Имя','Телефон','Задача'],kz:['Аты','Телефон','Міндет'],en:['Name','Phone','Task']};
+    var fl=formLabels[currentLang]||formLabels.ru;
+    var msg=encodeURIComponent((formGreeting[currentLang]||formGreeting.ru)+'\n'+fl[0]+': '+name+'\n'+fl[1]+': '+phone+'\n'+fl[2]+': '+task);
+    window.open('https://wa.me/77024056954?text='+msg,'_blank');
+  });
+
+  // Nav border on scroll
+  var navEl=document.getElementById('nav');
+  window.addEventListener('scroll',function(){
+    navEl.style.borderBottomColor=window.scrollY>44
+      ?'rgba(196,154,60,0.22)'
+      :'rgba(196,154,60,0.1)';
+  },{passive:true});
+
+  // Theme, Lang, Burger
+  var html=document.documentElement;
+
+  document.getElementById('themeToggle').addEventListener('click',function(){
+    var next=html.getAttribute('data-theme')==='light'?'dark':'light';
+    html.classList.add('theme-switching');
+    html.setAttribute('data-theme',next);
+    localStorage.setItem('bp-theme',next);
+    setTimeout(function(){html.classList.remove('theme-switching')},360);
+  });
+
+  var currentLang='ru';
+  var NAV_T={
+    ru:{services:'Услуги',catalog:'Каталог',cases:'Кейсы',reviews:'Отзывы',contacts:'Контакты',cta:'Рассчитать стоимость'},
+    kz:{services:'Қызметтер',catalog:'Каталог',cases:'Кейстер',reviews:'Пікірлер',contacts:'Байланыс',cta:'Бағасын есептеу'},
+    en:{services:'Services',catalog:'Catalog',cases:'Cases',reviews:'Reviews',contacts:'Contacts',cta:'Get a Quote'}
+  };
+  var WA_GREETING={
+    ru:'Здравствуйте! Хочу заказать: ',
+    kz:'Сәлеметсіз бе! Тапсырыс берейін: ',
+    en:'Hello! I\'d like to order: '
+  };
+  function applyLang(lang){
+    currentLang=lang;
+    localStorage.setItem('bp-lang',lang);
+    document.documentElement.setAttribute('lang',lang==='kz'?'kk':lang);
+    var t=NAV_T[lang]||NAV_T.ru;
+    document.querySelectorAll('[data-nav]').forEach(function(el){
+      var k=el.getAttribute('data-nav');if(t[k])el.textContent=t[k];
+    });
+    document.querySelectorAll('[data-ru]').forEach(function(el){
+      el.textContent=el.getAttribute('data-'+lang)||el.getAttribute('data-ru');
+    });
+    document.querySelectorAll('[data-ph-ru]').forEach(function(el){
+      el.placeholder=el.getAttribute('data-ph-'+lang)||el.getAttribute('data-ph-ru');
+    });
+    document.querySelectorAll('.cat-order[data-product]').forEach(function(el){
+      var product=el.getAttribute('data-product-'+lang)||el.getAttribute('data-product');
+      el.href='https://wa.me/77024056954?text='+encodeURIComponent((WA_GREETING[lang]||WA_GREETING.ru)+product);
+    });
+    document.querySelectorAll('.lang-btn').forEach(function(b){
+      b.classList.toggle('active',b.getAttribute('data-lang')===lang);
+    });
+  }
+  document.querySelectorAll('.lang-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){applyLang(btn.getAttribute('data-lang'));});
+  });
+  applyLang(localStorage.getItem('bp-lang')||'ru');
+
+  var burger=document.getElementById('navBurger');
+  var navMob=document.getElementById('navMob');
+  burger.addEventListener('click',function(){
+    var open=navMob.classList.toggle('is-open');
+    burger.classList.toggle('is-open',open);
+    document.body.style.overflow=open?'hidden':'';
+  });
+  document.querySelectorAll('.mob-links a,.mob-cta').forEach(function(el){
+    el.addEventListener('click',function(){
+      navMob.classList.remove('is-open');
+      burger.classList.remove('is-open');
+      document.body.style.overflow='';
+    });
+  });
+})();
 </script>
 </body>
 </html>
