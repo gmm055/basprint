@@ -11,7 +11,7 @@
 <script>!function(){var t=localStorage.getItem('bp-theme');if(t)document.documentElement.setAttribute('data-theme',t)}();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
@@ -25,7 +25,7 @@
   --gold-border-hi:rgba(196,154,60,0.42);
   --radius:2px;
   --radius-md:6px;
-  --font-display:'Playfair Display',Georgia,serif;
+  --font-display:'Manrope','Inter',sans-serif;
   --font-body:'Inter',-apple-system,'Helvetica Neue',Arial,sans-serif;
 }
 [data-theme="light"]{
@@ -78,7 +78,7 @@ body::before{
 }
 
 /* Typography */
-h1,h2,h3{font-family:var(--font-display);font-weight:400;letter-spacing:-0.01em}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;line-height:1.1;letter-spacing:-0.01em}
 
 .label{
   font-family:var(--font-body);
@@ -138,15 +138,31 @@ nav{
 }
 
 .nav-logo{
-  display:flex;flex-direction:column;gap:3px;
+  display:flex;flex-direction:column;gap:2px;
   text-decoration:none;flex-shrink:0;
   user-select:none;
+  position:relative;
+  padding-bottom:4px;
 }
-.logo-mark{display:flex;align-items:baseline;}
-.logo-bas{font-size:15px;font-weight:800;letter-spacing:0.18em;color:var(--text)}
-.logo-sep{font-size:10px;color:var(--gold);margin:0 7px;opacity:0.6;align-self:center;line-height:1;}
-.logo-print{font-size:15px;font-weight:300;letter-spacing:0.15em;color:var(--text-soft)}
-.logo-sub{font-size:9px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);line-height:1;}
+.nav-logo::after{
+  content:'';
+  position:absolute;
+  bottom:0;left:0;right:0;
+  height:1px;
+  background:var(--gold);
+  opacity:0.22;
+}
+.logo-wordmark{
+  display:flex;align-items:baseline;
+  font-family:'Manrope','Inter',sans-serif;
+  font-size:22px;font-weight:800;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  line-height:1;
+}
+.logo-bas{color:var(--text)}
+.logo-print{color:var(--text-soft)}
+.logo-sub{font-size:8.5px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);line-height:1;}
 
 .nav-center{
   position:absolute;left:50%;
@@ -370,15 +386,13 @@ nav{
   line-height:1.02;
   letter-spacing:-0.02em;
   color:var(--text);
-  font-weight:400;
+  font-weight:700;
   margin-bottom:26px;
   opacity:0;
   animation:fadeUp 0.9s 0.3s cubic-bezier(0.16,1,0.3,1) forwards;
 }
 .hero-h1 .accent{
   color:var(--gold);
-  font-style:italic;
-  font-weight:400;
 }
 
 .hero-sub{
@@ -523,7 +537,7 @@ nav{
 .trust-num{
   font-family:var(--font-display);
   font-size:clamp(30px,5vw,44px);
-  font-weight:400;
+  font-weight:600;
   color:var(--gold);
   line-height:1;
   margin-bottom:8px;
@@ -603,7 +617,7 @@ nav{
 }
 .svc-title{
   font-family:var(--font-display);
-  font-size:23px;font-weight:400;
+  font-size:23px;font-weight:600;
   color:var(--text);
   margin-bottom:12px;
   line-height:1.15;
@@ -752,7 +766,7 @@ nav{
 .why-index svg{width:28px;height:28px;stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;}
 .why-title{
   font-family:var(--font-display);
-  font-size:25px;font-weight:400;
+  font-size:25px;font-weight:600;
   color:var(--text);
   margin-bottom:10px;
   line-height:1.15;
@@ -794,7 +808,7 @@ nav{
 }
 .case-title{
   font-family:var(--font-display);
-  font-size:23px;font-weight:400;
+  font-size:23px;font-weight:600;
   color:var(--text);
   margin-bottom:14px;
   line-height:1.15;
@@ -829,7 +843,7 @@ nav{
 }
 .reviews-big-num{
   font-family:var(--font-display);
-  font-size:54px;font-weight:400;
+  font-size:54px;font-weight:600;
   color:var(--gold);
   line-height:1;
 }
@@ -860,7 +874,6 @@ nav{
 .review-text{
   font-family:var(--font-display);
   font-size:19px;font-weight:400;
-  font-style:italic;
   color:var(--text);
   line-height:1.65;
   flex:1;
@@ -929,7 +942,7 @@ nav{
 
 .step-title{
   font-family:var(--font-display);
-  font-size:20px;font-weight:400;
+  font-size:20px;font-weight:600;
   color:var(--text);
   margin-bottom:8px;
   line-height:1.2;
@@ -1190,7 +1203,7 @@ footer{
 <!-- NAV -->
 <nav id="nav">
   <a href="#hero" class="nav-logo">
-    <div class="logo-mark"><span class="logo-bas">BAS</span><span class="logo-sep">·</span><span class="logo-print">PRINT</span></div>
+    <div class="logo-wordmark"><span class="logo-bas">BAS</span><span class="logo-print">PRINT</span></div>
     <span class="logo-sub" data-ru="полиграфия в Астане" data-kz="Астанадағы баспахана" data-en="print shop in Astana">полиграфия в Астане</span>
   </a>
   <div class="nav-center">
